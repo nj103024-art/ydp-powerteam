@@ -1,0 +1,629 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="특허·유통·홈페이지·영상·광고·코칭. BNI YDP 프로페셔널 챕터 마케팅 파워팀 6인. 필요한 전문가만 골라 연결합니다.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="YDP 마케팅 파워팀">
+<meta property="og:description" content="특허·유통·홈페이지·영상·광고·코칭. 필요한 전문가만 골라 연결합니다.">
+<meta property="og:image" content="https://nj103024-art.github.io/ydp-powerteam/og.jpg">
+<meta property="og:url" content="https://nj103024-art.github.io/ydp-powerteam/">
+<meta name="twitter:card" content="summary_large_image">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>YDP 마케팅 파워팀</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@200;300;500;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: 흰 스튜디오 지면 위에 사람(사진)과 숫자만 크게. 도식은 가는 선 하나로 연결. */
+:root{
+  --paper:#FBFBF9; --panel:#F2F1ED; --studio:#EEECE7;
+  --ink:#17191C; --ink-2:#4A4D52; --mute:#7C7F84; --line:#E1DFD9;
+  --accent:#7A5C34; --accent-soft:#EFE7DA;
+  --f-display:"Hahmlet","Noto Serif KR",Georgia,serif;
+  --f-body:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --wrap:1120px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#131416; --panel:#1B1D20; --studio:#E9E7E2;
+  --ink:#EDEBE6; --ink-2:#B9B7B1; --mute:#8D8C88; --line:#2C2E32;
+  --accent:#C9A56E; --accent-soft:#2A241B; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#131416; --panel:#1B1D20; --studio:#E9E7E2;
+  --ink:#EDEBE6; --ink-2:#B9B7B1; --mute:#8D8C88; --line:#2C2E32;
+  --accent:#C9A56E; --accent-soft:#2A241B; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;word-break:keep-all}
+a{color:inherit}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+h1,h2,h3{font-family:var(--f-display);font-weight:500;text-wrap:balance;margin:0;letter-spacing:-.01em}
+p{margin:0}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.num{font-family:var(--f-display);font-weight:200;font-variant-numeric:tabular-nums;letter-spacing:-.03em;line-height:1}
+
+/* top bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:16px;height:56px}
+.brand{font-family:var(--f-display);font-weight:700;font-size:15px;text-decoration:none;white-space:nowrap}
+.brand small{font-family:var(--f-mono);font-weight:400;font-size:11px;color:var(--mute);margin-left:8px;letter-spacing:.08em}
+.nav{display:flex;gap:4px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{font-size:13px;text-decoration:none;color:var(--ink-2);padding:6px 10px;border-radius:999px;white-space:nowrap}
+.nav a[aria-current="page"]{background:var(--ink);color:var(--paper)}
+.nav a:focus-visible,.btn:focus-visible,.pcard:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+section{padding-block:clamp(56px,8vw,96px)}
+section + section{border-top:1px solid var(--line)}
+.sec-head{display:grid;gap:12px;margin-bottom:40px;max-width:720px}
+.sec-head h2{font-size:clamp(26px,3.4vw,38px)}
+.sec-head p{color:var(--ink-2)}
+
+/* HOME hero */
+.hero{padding-block:clamp(40px,6vw,72px) 0}
+.hero h1{font-size:clamp(34px,6vw,72px);font-weight:300;line-height:1.15}
+.hero h1 b{font-weight:700}
+.hero .lead{margin-top:20px;max-width:560px;color:var(--ink-2);font-size:17px}
+.roster{margin-top:40px;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+.roster a{text-decoration:none;display:grid;gap:2px;min-width:0}
+.roster .ph{aspect-ratio:4/5;background:var(--studio);border-radius:3px;overflow:hidden;margin-bottom:10px}
+.roster .ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.roster a:hover img{transform:scale(1.03)}
+.roster b{font-family:var(--f-display);font-weight:500;font-size:18px}
+.roster span{font-size:12px;color:var(--mute);line-height:1.4}
+.roster a:hover b{color:var(--accent)}
+
+/* flow diagram */
+.flow{display:grid;grid-template-columns:repeat(6,1fr);position:relative}
+.flow::before{content:"";position:absolute;left:8%;right:8%;top:38px;height:1px;background:var(--ink)}
+.step{position:relative;display:grid;justify-items:center;text-align:center;gap:10px;padding-inline:6px;text-decoration:none}
+.step .dot{width:76px;height:76px;border-radius:50%;background:var(--studio);overflow:hidden;border:1px solid var(--ink);position:relative;z-index:1}
+.step .dot img{width:100%;height:100%;object-fit:cover;object-position:50% 12%;transform:scale(1.35);transform-origin:50% 20%}
+.step .verb{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;color:var(--accent)}
+.step h3{font-size:18px}
+.step p{font-size:13px;color:var(--ink-2);line-height:1.5}
+.step:hover h3{color:var(--accent)}
+
+/* partner cards */
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.pcard{background:var(--paper);padding:28px 24px;display:grid;gap:14px;text-decoration:none;align-content:start;min-width:0}
+.pcard:hover{background:var(--panel)}
+.pcard .who{display:flex;align-items:center;gap:12px}
+.pcard .who img{width:48px;height:48px;border-radius:50%;object-fit:cover;object-position:50% 12%;background:var(--studio)}
+.pcard .who b{font-family:var(--f-display);font-weight:500;font-size:19px;display:block}
+.pcard .who span{font-size:12px;color:var(--mute)}
+.pcard .fit{font-size:15px;color:var(--ink);line-height:1.6}
+.pcard .fit::before{content:"이런 분의 파트너";display:block;font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;color:var(--mute);margin-bottom:4px}
+.pcard .big{display:flex;align-items:baseline;gap:10px;border-top:1px solid var(--line);padding-top:14px}
+.pcard .big .num{font-size:40px}
+.pcard .big small{font-size:13px;color:var(--ink-2)}
+.pcard .more{font-size:13px;color:var(--accent)}
+
+/* packages */
+.packs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.pack{border:1px solid var(--line);padding:28px 24px;display:grid;gap:18px;align-content:start;min-width:0}
+.pack .when{font-family:var(--f-mono);font-size:12px;color:var(--mute);letter-spacing:.06em}
+.pack h3{font-size:22px}
+.pack ol{list-style:none;margin:0;padding:0;display:grid;gap:0;counter-reset:s}
+.pack li{display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:center;padding:10px 0;border-top:1px dashed var(--line);font-size:14px}
+.pack li img{width:34px;height:34px;border-radius:50%;object-fit:cover;object-position:50% 12%;background:var(--studio)}
+.pack li b{font-weight:600}
+.pack li span{color:var(--ink-2)}
+
+/* process */
+.proc{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--ink)}
+.proc div{padding:20px 20px 0 0;display:grid;gap:6px}
+.proc .k{font-family:var(--f-mono);font-size:12px;color:var(--accent)}
+.proc h3{font-size:19px}
+.proc p{font-size:14px;color:var(--ink-2)}
+
+/* proof */
+.proof{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;background:var(--panel);padding:clamp(24px,4vw,48px)}
+.proof .pair{display:flex;gap:0;align-items:end;justify-content:center;background:var(--studio);border-radius:4px;padding-top:20px;overflow:hidden;min-height:260px}
+.proof .pair img{height:260px;width:auto;object-fit:contain;object-position:bottom}
+.proof h3{font-size:24px;margin-bottom:12px}
+.proof p{color:var(--ink-2)}
+
+.cta{display:grid;gap:18px;justify-items:start}
+.cta h2{font-size:clamp(28px,4vw,44px);font-weight:300}
+.cta h2 b{font-weight:700}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--paper);border:0;padding:12px 18px;font:500 14px var(--f-body);border-radius:999px;cursor:pointer;text-decoration:none}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+
+/* MEMBER PAGE */
+.m-hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(24px,5vw,64px);align-items:end;padding-block:clamp(32px,5vw,56px) 0}
+.m-hero .txt{display:grid;gap:18px;padding-bottom:clamp(24px,4vw,48px)}
+.m-hero .role{font-size:14px;color:var(--ink-2)}
+.m-hero h1{font-size:clamp(44px,7vw,84px);font-weight:700;line-height:1}
+.m-hero .co{font-family:var(--f-display);font-size:clamp(18px,2vw,22px);font-weight:300}
+.m-hero blockquote{margin:0;font-family:var(--f-display);font-size:clamp(22px,2.8vw,32px);font-weight:300;line-height:1.35;border-left:2px solid var(--accent);padding-left:18px}
+.m-hero .photo{background:var(--studio);border-radius:4px 4px 0 0;height:clamp(360px,48vw,560px);display:flex;justify-content:center;align-items:flex-end;overflow:hidden}
+.m-hero .photo img{height:108%;width:auto;max-width:none;object-fit:contain;object-position:top;align-self:flex-start;margin-top:6%}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink);border-bottom:1px solid var(--line)}
+.stat{padding:28px 20px 28px 0;display:grid;gap:10px;align-content:start;min-width:0}
+.stat + .stat{padding-left:20px;border-left:1px solid var(--line)}
+.stat .num{font-size:clamp(40px,5.2vw,64px)}
+.stat .num sup{font-size:.42em;font-weight:300;vertical-align:.9em;margin-left:2px}
+.stat .num sub{font-size:.34em;font-weight:300;vertical-align:baseline;margin-left:4px;letter-spacing:0}
+.stat p{font-size:14px;color:var(--ink-2);line-height:1.5}
+.note{font-size:12px;color:var(--mute);margin-top:14px;line-height:1.6}
+
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(24px,4vw,56px)}
+.list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.list li{padding:14px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:baseline}
+.list li b{font-weight:600}
+.list li span{color:var(--mute);font-size:13px;font-family:var(--f-mono);white-space:nowrap}
+.list li p{grid-column:1/-1;color:var(--ink-2);font-size:14px;margin-top:-6px}
+.h3{font-size:20px;margin-bottom:16px}
+
+.awards{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.award{background:var(--paper);padding:24px 20px;display:grid;gap:8px;align-content:start}
+.award .where{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;color:var(--accent)}
+.award b{font-family:var(--f-display);font-weight:500;font-size:19px;line-height:1.35}
+.award span{font-size:13px;color:var(--ink-2)}
+
+.vids{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.vid{text-decoration:none;display:grid;gap:10px;min-width:0}
+.vid .th{aspect-ratio:16/9;overflow:hidden;background:var(--panel);border-radius:2px;position:relative}
+.vid .th img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.vid .th::after{content:"▶";position:absolute;right:10px;bottom:8px;font-size:11px;color:#fff;background:rgba(0,0,0,.55);padding:3px 7px;border-radius:2px}
+.vid:hover img{transform:scale(1.04)}
+.vid b{font-size:14px;font-weight:500;line-height:1.45}
+.vid span{font-size:12px;color:var(--mute)}
+
+.feats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.feat{background:var(--paper);padding:24px 22px;display:grid;gap:8px;align-content:start}
+.feat .k{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;color:var(--accent)}
+.feat b{font-family:var(--f-display);font-weight:500;font-size:20px;line-height:1.35}
+.feat p{font-size:14px;color:var(--ink-2)}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.tabs button{border:1px solid var(--line);background:transparent;color:var(--ink-2);padding:8px 14px;border-radius:999px;font:500 13px var(--f-body);cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.tabs button:focus-visible,.need:focus-visible,.combo:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.picker{display:grid;gap:20px}
+.needs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.need{text-align:left;border:1px solid var(--line);background:var(--paper);color:var(--ink);padding:16px 18px;font:500 15px var(--f-body);cursor:pointer;display:grid;gap:4px;border-radius:3px}
+.need span{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;color:var(--mute)}
+.need[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.need[aria-pressed="true"] span{color:var(--accent-soft)}
+.combos{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13px;color:var(--mute)}
+.combos span{margin-right:4px}
+.combo{border:1px dashed var(--ink-2);background:transparent;color:var(--ink);padding:6px 12px;border-radius:999px;font:500 13px var(--f-body);cursor:pointer}
+.picked{border-top:1px solid var(--ink);padding-top:18px}
+.picked .cnt{font-size:14px;color:var(--ink-2);margin-bottom:14px}
+.picked .cnt b{color:var(--accent);font-size:18px}
+.pk{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.pk a{display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:center;text-decoration:none;background:var(--panel);padding:14px}
+.pk img{width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:50% 12%;background:var(--studio)}
+.pk b{font-family:var(--f-display);font-weight:500;font-size:18px;display:block}
+.pk span{font-size:12px;color:var(--mute);display:block}
+.pk small{font-size:13px;color:var(--ink-2)}
+.net{width:100%;max-width:360px;height:auto;justify-self:center}
+.net line{stroke:var(--ink-2);stroke-width:.8;opacity:.45}
+.net .ring{fill:var(--studio);stroke:var(--ink);stroke-width:1}
+.lead-map{margin-top:32px;display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.node{border:1px solid var(--line);padding:12px 18px;font-weight:600;font-size:15px;display:grid;gap:2px;border-radius:3px}
+.node small{font-weight:400;font-size:12px;color:var(--mute)}
+.node.main{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.node.main small{color:var(--accent-soft)}
+.arr{color:var(--mute);font-size:18px}
+.cases{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.case{border:1px solid var(--line);padding:28px 24px;display:grid;gap:16px;align-content:start;min-width:0}
+.case .when{font-family:var(--f-mono);font-size:12px;color:var(--mute)}
+.case h3{font-size:21px;line-height:1.4}
+.case p{font-size:14px;color:var(--ink-2)}
+.roas{display:flex;align-items:flex-end;gap:14px;flex-wrap:wrap;padding:16px 0;border-block:1px solid var(--line)}
+.roas span{display:block;font-size:12px;color:var(--mute);margin-bottom:6px}
+.roas .num{font-size:44px}
+.roas .acc{color:var(--accent)}
+.roas i{font-style:normal;color:var(--mute);font-size:22px;padding-bottom:8px}
+.roas em{font-style:normal;font-family:var(--f-mono);font-size:13px;background:var(--accent-soft);color:var(--accent);padding:4px 8px;margin-bottom:10px}
+.ba{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:14px}
+.ba li{display:grid;grid-template-columns:64px 1fr;gap:10px;color:var(--ink-2)}
+.ba li span{font-family:var(--f-mono);font-size:12px;color:var(--mute)}
+.ba li+li span{color:var(--accent)}
+.case blockquote{margin:0;font-family:var(--f-display);font-weight:300;font-size:16px;line-height:1.55;background:var(--panel);padding:16px 18px}
+.case cite{display:block;font-style:normal;font-family:var(--f-body);font-size:12px;color:var(--mute);margin-top:8px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);padding:6px 12px;border-radius:999px;font-size:13px;color:var(--ink-2)}
+
+.steps{display:grid;grid-template-columns:repeat(var(--n,3),1fr);gap:0;border-top:1px solid var(--ink)}
+.steps div{padding:18px 18px 0 0;display:grid;gap:6px;align-content:start}
+.steps .k{font-family:var(--f-mono);font-size:12px;color:var(--accent)}
+.steps b{font-family:var(--f-display);font-weight:500;font-size:18px}
+.steps p{font-size:14px;color:var(--ink-2)}
+
+.contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.contact div{background:var(--paper);padding:20px;display:grid;gap:6px;min-width:0}
+.contact label{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;color:var(--mute)}
+.contact .val{font-size:16px;font-weight:500;overflow-wrap:anywhere;user-select:all}
+.contact button{justify-self:start;background:none;border:0;padding:0;font:500 12px var(--f-body);color:var(--accent);cursor:pointer}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+
+.pairs{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.pairs a{display:grid;grid-template-columns:72px 1fr;gap:16px;align-items:center;border:1px solid var(--line);padding:16px;text-decoration:none}
+.pairs a:hover{background:var(--panel)}
+.pairs img{width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:50% 12%;background:var(--studio)}
+.pairs b{font-family:var(--f-display);font-weight:500;font-size:18px;display:block}
+.pairs span{font-size:14px;color:var(--ink-2)}
+
+footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--mute);font-size:12px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+
+@media (max-width:900px){
+  .pgrid,.packs,.needs{grid-template-columns:1fr 1fr}
+  .cases{grid-template-columns:1fr}
+  .awards,.vids,.feats{grid-template-columns:1fr 1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  .stat:nth-child(3){padding-left:0;border-left:0}
+  .stat:nth-child(n+3){border-top:1px solid var(--line)}
+  .proof{grid-template-columns:1fr}
+}
+@media (max-width:720px){
+  .roster{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:24px}
+  .flow{grid-template-columns:1fr;gap:0}
+  .flow::before{left:37px;right:auto;top:20px;bottom:20px;width:1px;height:auto}
+  .step{grid-template-columns:76px 1fr;justify-items:start;text-align:left;column-gap:16px;row-gap:2px;padding:10px 0}
+  .step .dot{grid-row:1/4}
+  .pgrid,.packs,.two,.pairs,.contact,.cases,.needs{grid-template-columns:1fr}
+  .proc,.steps{grid-template-columns:1fr 1fr}
+  .m-hero{grid-template-columns:1fr}
+  .m-hero .photo{order:-1;height:380px}
+  .m-hero .txt{padding-bottom:8px}
+}
+@media (max-width:420px){.awards,.vids,.feats{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+</head>
+<body>
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="#home">YDP 마케팅 파워팀<small>BNI</small></a>
+    <nav class="nav" id="nav" aria-label="파트너"></nav>
+  </div>
+</header>
+<main id="app"></main>
+<footer><div class="wrap"><span>BNI YDP 프로페셔널 챕터 · 마케팅 파워팀</span><span>2026</span></div></footer>
+
+<script>
+const M = {
+  kang:{name:"강인혁",co:"강&강국제특허법률사무소",short:"특허·상표·저작권",role:"변호사 · 변리사",img:"img/kanginhyuk.webp",
+    verb:"PROTECT",stage:"지킨다",stageTxt:"브랜드명·기술·콘텐츠 권리 확보",
+    quote:"브랜드를 알리기 전에, 먼저 지켜야 합니다.",
+    fit:"상표 등록 전에 브랜드를 알리기 시작했거나, 온라인 판매 중 권리 분쟁이 걱정되는 대표님",
+    big:["1975","년부터 이어온 지식재산 가업"],
+    stats:[["1975","","창립 이후 3대째 이어온 특허 가업"],["2","자격","변호사 + 변리사 동시 보유"],["2.09","만","유튜브 구독자 · 강인혁변호사의 PTCD"],["301","편","특허·상표·저작권 해설 영상"]],
+    services:[["특허 · 실용신안","출원, 선행기술 조사, 권리화"],["상표 · 디자인","브랜드명 조사·출원, 해외 출원"],["저작권 · 프로그램 등록","콘텐츠·AI 결과물 권리 관리"],["분쟁 대응","심판·소송, 경고장·내용증명 대응"]],
+    extra:"kang",
+    pairs:[["han","유통 입점 전 상표부터 확보해야 가격 교란과 도용을 막습니다."],["kimjh","영상·AI 콘텐츠의 저작권 귀속을 계약 단계에서 정리합니다."]],
+    phone:"1566-7156",email:"lawyer_kang@kangpat.com",addr:"서울 강남구 도산대로26길 16 지유 PATENT HOUSE",
+    links:[["유튜브 채널","https://www.youtube.com/channel/UC85Ej2cJENXlahajzIy9a9Q"],["사무소 홈페이지","https://www.kangpat.com/ko/index.php"]]},
+  kimms:{name:"김만식",co:"비에이마케팅 (BA marketing)",short:"온라인 광고 마케팅",role:"CEO",img:"img/kimmansik.webp",
+    verb:"PROMOTE",stage:"알린다",stageTxt:"쇼핑몰·브랜드 광고 집행과 운영",
+    quote:"Beyond Ads. 마케팅의 본질에 집중합니다.",
+    fit:"온라인 쇼핑몰을 운영하는데 광고비 대비 매출이 아쉬운 대표님",
+    big:["300","+ 고정 거래처"],
+    stats:[["300","+","고정 거래처"],["2023","","대한민국 신지식인 인증 · 중소기업분야"],["4","개국","홍콩 → 일본·대만·싱가포르 진출 추진"],["AI","","2026 AI 기반 마케팅 플랫폼 개발"]],
+    services:[["온라인 쇼핑몰 광고마케팅","검색·쇼핑·SNS 광고 집행과 운영"],["판매 컨설팅","상품·채널별 판매 전략"],["해외 시장 진출","동아시아 온라인 마케팅"],["AI 마케팅","AI 기반 콘텐츠·광고 플랫폼 도입"]],
+    pairs:[["jung","대표님이 광고를 이해하면 집행의 속도와 정확도가 올라갑니다."],["kimjh","광고 소재가 좋아야 광고비가 덜 듭니다. 영상 소재를 함께 기획합니다."]],
+    phone:"010-4234-1807",email:"beyondadsmarketing@naver.com",addr:"서울 금천구 가산디지털1로 142, 505호",links:[]},
+  kimjh:{name:"김재현",co:"포레스트 (For.REST)",short:"영상 프로덕션",role:"CEO · 기획·연출·편집·색보정",img:"img/kimjaehyun.webp",
+    verb:"SHOW",stage:"보여준다",stageTxt:"AI 영상·브랜드 필름·콘텐츠 제작",
+    quote:"기록이 아닌, 기억되는 영상을 만듭니다.",
+    fit:"회사와 제품을 한 편의 영상으로 설명하고 싶은 대표님, 꾸준히 올릴 콘텐츠가 필요한 대표님",
+    big:["3","연속 웹드라마 작품상 대상"],
+    stats:[["3","연속","웹드라마 작품상 대상 · LA · 서울 · 아시아"],["10","+개국","해외 다큐멘터리·로케이션 촬영"],["AI","","배우·촬영장 없이 만드는 AI 광고·필름"],["5","명","현역 PD 전담 · 전 공정 내부 인력 100%"]],
+    services:[["AI 영상 · 광고","실사 촬영 없이 AI로 광고·브랜드 필름 제작"],["브랜드 필름 · 바이럴","기획부터 촬영, 편집, 색보정까지 원스톱"],["웹드라마 · 웹예능","수상작 연출, OTT·방송 콘텐츠 제작"],["뮤직비디오 · 다큐 · 행사","라이브클립, 해외 다큐, 브랜드 행사 스케치"]],
+    extra:"forrest",
+    pairs:[["kimms","완성된 영상은 광고로 확산될 때 가치가 커집니다."],["bae","영상이 머무를 홈페이지를 함께 만듭니다. 포레스트 공식 사이트도 휠라이프 작업입니다."]],
+    phone:"010-9918-7744",email:"filmmakerforrest@gmail.com",addr:"경기 시흥시 마유로 376, 2층 201호",
+    links:[["유튜브 포트폴리오","https://www.youtube.com/channel/UCJagZg7djBPJHppR0t36QMA"],["공식 사이트","http://filmbyforrest.com"]]},
+  bae:{name:"배종우",co:"휠라이프코리아",short:"웹·앱 개발",role:"CEO",img:"img/baejongwoo.webp",
+    verb:"BUILD",stage:"세운다",stageTxt:"홈페이지·앱·쇼핑몰 구축",
+    quote:"초고퀄리티 웹사이트, 정액정찰제로 투명하게.",
+    fit:"홈페이지가 없거나 오래돼서 문의로 이어지지 않는 대표님, 앱·플랫폼 아이디어가 있는 대표님",
+    big:["500","+ 프로젝트 완료"],
+    stats:[["500","+","완료 프로젝트 · 10여 개 산업 분야"],["99.6","%","고객 만족도"],["2","%","크몽 Prime & Master 상위 공식 인증"],["2.2","주","평균 개발 기간"]],
+    services:[["웹사이트 개발","템플릿 없이 100% 맞춤 코딩, 반응형"],["모바일 앱","iOS · 안드로이드, 네이티브 · 하이브리드"],["쇼핑몰 구축","쇼핑몰 전체 구축, 카페24 커스터마이징"],["SEO · 마케팅","포털·인스타그램 상위노출"]],
+    extra:"wheel",
+    pairs:[["kimjh","홈페이지 첫 화면의 영상이 체류 시간을 바꿉니다."],["jung","만든 뒤의 광고 구조까지 설계해야 문의가 들어옵니다."]],
+    phone:"010-8530-8176",email:"ban8176@naver.com",addr:"",
+    links:[["홈페이지","https://wheellifekor.com"],["포트폴리오","https://wheellifekor.com/bbs/portfolio.php"]]},
+  jung:{name:"정주헌",co:"애드원솔루션",short:"광고 코칭·컨설팅",role:"CEO",img:"img/jungjuheon.webp",
+    verb:"DECIDE",stage:"판단한다",stageTxt:"대표자 1:1 광고 코칭·구조 컨설팅",
+    quote:"광고를 대신하는 것이 아니라, 대표님이 광고를 제대로 판단하도록 돕습니다.",
+    fit:"광고는 하고 있는데 매출이 안 나오고, 대행사 보고서를 읽어도 판단이 서지 않는 대표님",
+    big:["13","년 · 다양한 업종의 광고 현장"],
+    stats:[["13","년","다양한 업종에서 쌓은 광고 현장 경력"],["10","년","아마존카·소녀폰과 이어온 장기 파트너십"],["1,200","+","클라이언트 광고 총괄·관리 경험"],["+78","%","아임반 ROAS 개선 (180% → 320%)"]],
+    services:[["대표자 1:1 광고 코칭","광고 입문부터 증액 판단까지 대표님 눈높이로"],["데이터 기반 광고 전략","숫자로 문제를 찾고 우선순위를 정합니다"],["대행사 제안서 비교·검토","대행사 미팅에 대표님과 동반해 함께 판단"],["업종 맞춤 실행 방향","필요한 실행만 적합한 파트너에게 연결"]],
+    extra:"adone",
+    pairs:[["kimms","판단 기준이 서면 광고 집행은 믿고 맡길 수 있습니다."],["bae","전환이 막힌 곳이 홈페이지라면 바로 구조를 고칩니다."]],
+    phone:"010-4614-8589",email:"timeorange@naver.com",addr:"경기 고양시 덕양구 권율대로 656, 722호",
+    links:[["홈페이지","https://www.adonesolution.co.kr"]]},
+  han:{name:"한지섭",co:"코지코퍼레이션 (COZY)",short:"온라인 소싱·유통",role:"CEO",img:"img/hanjiseop.webp",
+    verb:"SELL",stage:"판다",stageTxt:"해외 소싱부터 20여 개 채널 유통",
+    quote:"좋은 제품만 만드세요. 판매는 유통 전문가, 코지가 책임집니다.",
+    fit:"제품은 좋은데 팔 곳이 없는 제조사 대표님, 해외 소싱으로 새 상품을 찾는 대표님",
+    big:["0","건 · 8년간 정산 지연"],
+    stats:[["0","건","창업 8년, 약정일보다 늦은 정산"],["20","+","동시 판매 채널"],["10,000","+","누적 리뷰"],["6,000","+","장인은도구빨 일 평균 방문자"]],
+    services:[["해외 공장 직접 소싱","제조대행, 검수까지 직접 운영"],["다채널 입점 판매","오픈마켓·딜러몰·커뮤니티 공구까지"],["기업 MRO","공구·사무용품·선물용품 기업 납품"],["콘텐츠 판매 지원","쇼츠·쇼핑라이브 제작, 전환율 2%대"]],
+    extra:"cozy",
+    pairs:[["kang","유통 전에 상표를 먼저 잡아야 가격 교란을 막습니다."],["kimjh","쇼츠와 제품 영상이 상세페이지 전환율을 끌어올립니다."]],
+    phone:"010-3251-2664",email:"hjs_6150@naver.com",addr:"서울 영등포구 양산로 177 상가동 301호",links:[]}
+};
+const PORT=[
+ {ko:"AI · 모션그래픽",pl:"PLPvRuY86DS94E1uUZ4zDwj59i1JNJl1Ze",v:[["-W0rb54FfEs","AI로 만든 명품 수트 광고 ORSSEN"],["uEhf4-c3g28","VAELHORN · 거센 물살 속에서도"],["maCVwLaHvzc","마지막으로 너를 부르던 날 · AI Teaser"],["kIMxCEbIdQY","송파구 구정홍보영상"]]},
+ {ko:"광고 · 바이럴",pl:"PLPvRuY86DS97cL8TP3SFW2dM2eIjOJraN",v:[["yilMAxpz6vQ","백억커피 브랜드 홍보영상"],["esm8ATDFnq0","달콤.N 브랜드 필름"],["UdwwQobJDfQ","안성마춤한우 광고영상"],["-W0rb54FfEs","AI 명품 수트 광고 ORSSEN"]]},
+ {ko:"웹드라마",pl:"PLPvRuY86DS975_TXQgJT9B_42TsHgf9jR",v:[["E0jL1n0zWxc","짠내아이돌 1화"],["p4qeXyw3Oqg","짠내아이돌 1차 Teaser"],["KDlyYrMuCDE","두 명의 우주 · 인물 Teaser"],["amfl5kwoFug","짠내아이돌 10화"]]},
+ {ko:"웹예능",pl:"PLPvRuY86DS96vTdkgb_gpbh9sqN1EaQtI",v:[["JkM2gqaJkeY","Global OTT Awards 2026 · Best Creative"],["eTUREVQIqaM","박세리가 직접 고쳐주는 스윙"],["EhnkDKtRaEY","Global OTT Awards 2026 · 감독상 후보"],["2jtTIft0RyQ","Global OTT Awards 2026 · 아시아 콘텐츠"]]},
+ {ko:"뮤직비디오 · 라이브",pl:"PLPvRuY86DS96mpRikFoGl4YhIRR4x3TnS",v:[["KKsTMEZ-QLA","Synsnake - Parasite MV"],["MwthQtilzR4","Microdot - 99"],["Gm4yT9-9XE4","Allroot - DIVE in Paris"],["CB6FNoyTIdE","Home Coming - Here With Me MV"]]},
+ {ko:"해외 다큐멘터리",pl:"PLPvRuY86DS94k4-Bow3jBiB9hUXlpBu73",v:[["j_MWgAJ66CQ","국제구조위원회 뉴욕 본부 이야기"],["yaxO9X4s55M","라이프워시퍼 X 옥스팜 · 영국"],["31aM6tQMxWo","One Drop of Hope · Prologue"],["nBZQUf9s0jU","독일 뒤셀도르프에서 생긴 일"]]},
+ {ko:"행사 스케치",pl:"PLPvRuY86DS940JD1s43I8IuhCjasQO4WI",v:[["QBPW6xD3Z0s","Seoul My Soul with ENHYPEN"],["0FZKCebh8bg","배스킨라빈스 언텁쇼"],["hzfILlZo5ek","KB 조이올팍 페스티벌"],["07J6Y41tQks","보더랜드 4 · 볼트 헌터 충전소"]]},
+ {ko:"인터뷰 · 브이로그",pl:"PLPvRuY86DS95Yn37KJ1tnsqBLeWI9zh-j",v:[["JnQ5a6S_40E","동국제강 채용담당자 인터뷰"],["mYLcxAMpa-o","동국제강 직무인터뷰"],["XiBjbxDlidM","포튼가먼트 시네마틱 브랜드 필름"],["eittWSrqn2k","배스킨라빈스 그래이맛 어워드"]]},
+ {ko:"웨딩 시네마",pl:"PLPvRuY86DS96jO_5FtTwqXkn-QrINF6IR",v:[["oZi7Y-oLWE8","A Marriage in the Moonlight"],["Q40KvbJp2qE","A Vow Beneath the Leaves"],["1-NhAZrywnc","바다가 들리나요"],["3stMvjleYWE","結婚 [결혼]"]]},
+ {ko:"댄스 퍼포먼스",pl:"PLPvRuY86DS96-4L5QpbwDp4U9yDRlVgug",v:[["DSqrGBVPXeQ","Nothing is impossible · MAPICON 2025"],["466qdD9KYko","BURN IT · MAPI Promotion"],["tDhyxgAkC7Y","BODY PARTY"],["8gMavG6xsO0","Love Theory · MAPICON 2025"]]},
+ {ko:"정보 콘텐츠",pl:"PLPvRuY86DS95tl2IK27H81H-EnHdzkOYZ",v:[["KB2JOR6agCo","토크온 · 전문직 언니들"],["XIBaUuDurPk","토크온 · 학폭 대응 가이드"],["J2YCV0zBtT0","ESG 등급 낮으면 거래처 끊깁니다"],["AkBgfomuuL8","행정사 합격 후 개업 절차"]]}
+];
+const ORDER=["kang","kimms","kimjh","bae","jung","han"];
+const FLOW=["kang","han","bae","kimjh","kimms","jung"];
+
+const NEEDS=[["kang","브랜드·기술을 지키고 분쟁에 대응"],["han","제품을 팔 곳과 유통"],["bae","홈페이지·앱·쇼핑몰"],["kimjh","영상·콘텐츠 제작"],["kimms","광고 집행·운영"],["jung","광고 판단·컨설팅"]];
+const COMBOS=[["영상 + 광고",["kimjh","kimms"]],["컨설팅 + 법률",["jung","kang"]],["홈페이지 + 영상",["bae","kimjh"]],["유통 + 상표",["han","kang"]]];
+let picked=new Set(["kimjh","kimms"]);
+
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const pimg=k=>M[k].img.replace("img/","img/p_");
+const face=(k,cls="")=>`<img ${cls} src="${pimg(k)}" alt="${M[k].name}" loading="lazy">`;
+
+function nav(cur){
+  document.getElementById("nav").innerHTML =
+    `<a href="#home" ${cur==="home"?'aria-current="page"':""}>전체</a>`+
+    ORDER.map(k=>`<a href="#${k}" ${cur===k?'aria-current="page"':""}>${M[k].name}</a>`).join("");
+}
+
+function home(){
+  return `
+  <div class="wrap hero">
+    <p class="eyebrow">BNI YDP Professional · Marketing Power Team</p>
+    <h1>사업에 필요한 여섯 전문가,<br><b>한 번의 미팅으로.</b></h1>
+    <p class="lead">특허, 유통, 홈페이지, 영상, 광고, 코칭. 대표님이 따로따로 찾던 여섯 파트너가 한 팀으로 움직입니다. 창구는 하나, 결과는 끝까지.</p>
+    <div class="roster">${ORDER.map(k=>`<a href="#${k}"><div class="ph"><img src="${pimg(k)}" alt="${M[k].name} 대표"></div><b>${M[k].name}</b><span>${esc(M[k].short)}</span></a>`).join("")}</div>
+  </div>
+
+  <section><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">How we connect</p><h2>지키고, 팔고, 세우고, 보여주고, 알리고, 판단합니다</h2><p>사업이 커지는 순서대로 여섯 명이 이어집니다. 어느 단계에서 만나도 다음 단계의 파트너가 이미 옆에 있습니다.</p></div>
+    <div class="flow">${FLOW.map(k=>`<a class="step" href="#${k}"><div class="dot">${face(k)}</div><span class="verb">${M[k].verb} · ${M[k].stage}</span><h3>${M[k].name}</h3><p>${esc(M[k].stageTxt)}</p></a>`).join("")}</div>
+  </div></section>
+
+  <section><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Who is your partner</p><h2>이런 분이라면, 이 사람이 파트너입니다</h2></div>
+    <div class="pgrid">${ORDER.map(k=>{const m=M[k];return `<a class="pcard" href="#${k}">
+      <div class="who">${face(k)}<div><b>${m.name}</b><span>${esc(m.co)}</span></div></div>
+      <p class="fit">${esc(m.fit)}</p>
+      <div class="big"><span class="num">${m.big[0]}</span><small>${esc(m.big[1])}</small></div>
+      <span class="more">자세히 보기 →</span></a>`}).join("")}</div>
+  </div></section>
+
+  <section><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Pick your positions</p><h2>필요한 포지션만 고르세요</h2><p>모든 일에 여섯 명이 다 필요하지는 않습니다. 지금 필요한 것만 누르면, 그 자리의 전문가만 연결됩니다.</p></div>
+    <div class="picker">
+      <div class="needs" id="needs">${NEEDS.map(([k,q])=>`<button class="need" data-need="${k}" aria-pressed="false"><span>${M[k].verb}</span>${q}</button>`).join("")}</div>
+      <div class="combos"><span>자주 찾는 조합</span>${COMBOS.map(([t,ks])=>`<button class="combo" data-combo="${ks.join(",")}">${t}</button>`).join("")}</div>
+      <div class="picked" id="picked" aria-live="polite"></div>
+    </div>
+  </div></section>
+
+  <section><div class="wrap">
+    <div class="proof">
+      <svg class="net" viewBox="0 0 320 300" aria-hidden="true">${(()=>{const pts=ORDER.map((k,i)=>{const a=-Math.PI/2+i*Math.PI/3;return [160+112*Math.cos(a),150+112*Math.sin(a),k]});let l="";pts.forEach((a,i)=>pts.forEach((b,j)=>{if(j>i)l+=`<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}"/>`}));return l+pts.map(([x,y,k],i)=>`<clipPath id="c${i}"><circle cx="${x}" cy="${y}" r="30"/></clipPath><circle class="ring" cx="${x}" cy="${y}" r="31"/><image href="${pimg(k)}" x="${x-30}" y="${y-30}" width="60" height="75" clip-path="url(#c${i})" preserveAspectRatio="xMidYMin slice"/>`).join("")})()}</svg>
+      <div><p class="eyebrow" style="margin-bottom:10px">We use each other</p><h3>우리는 서로의 서비스를 직접 써 본 사람들입니다</h3>
+      <p>특허, 유통, 홈페이지, 영상, 광고, 코칭. 여섯 명 모두 서로의 고객으로 일을 맡기고 결과를 확인했습니다. 소개만 하는 모임이 아니라, 실력을 직접 검증한 사람끼리 연결해 드립니다.</p></div>
+    </div>
+  </div></section>
+
+  <section><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">How it works</p><h2>진행은 이렇게 됩니다</h2><p>여섯 명은 각자의 회사를 운영합니다. 그래서 일을 가져온 대표가 메인을 맡고, 필요한 전문가가 협력으로 붙습니다. 대표님은 한 사람과만 소통하시면 됩니다.</p></div>
+    <div class="proc">
+      <div><span class="k">STEP 1</span><h3>상담</h3><p>연락받은 대표가 먼저 상황을 듣습니다. 상담 방식과 비용은 각 전문가의 기준을 따릅니다.</p></div>
+      <div><span class="k">STEP 2</span><h3>포지션 선정</h3><p>필요한 전문가만 골라 연결합니다.</p></div>
+      <div><span class="k">STEP 3</span><h3>견적 취합</h3><p>참여하는 전문가의 견적을 모아 한 번에 전달합니다.</p></div>
+      <div><span class="k">STEP 4</span><h3>메인 담당 진행</h3><p>일을 가져온 대표가 메인 담당이 되고, 나머지는 협력 파트너로 참여합니다.</p></div>
+    </div>
+    <div class="lead-map">
+      <div class="node client">클라이언트</div><span class="arr">⇄</span>
+      <div class="node main">메인 담당<small>일을 가져온 대표</small></div><span class="arr">→</span>
+      <div class="node sub">협력 파트너<small>필요한 포지션만</small></div>
+    </div>
+  </div></section>
+
+  <section><div class="wrap cta">
+    <p class="eyebrow">Start</p>
+    <h2>어디서부터 시작할지 모르겠다면,<br><b>아무 대표에게나 연락하세요.</b></h2>
+    <p style="color:var(--ink-2);max-width:560px">누구에게 연락하셔도 파워팀 전체가 함께 봅니다. 각 대표 페이지에 연락처가 있습니다.</p>
+    <div class="links">${ORDER.map(k=>`<a class="btn ghost" href="#${k}">${M[k].name} · ${esc(M[k].short)}</a>`).join("")}</div>
+  </div></section>`;
+}
+
+function extra(k){
+  if(k==="forrest") return `
+  <section><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Strengths</p><h2>AI부터 해외 다큐까지, 한 팀이 다 찍습니다</h2></div>
+    <div class="feats">
+      <div class="feat"><span class="k">AI FILM</span><b>배우도, 촬영장도 없이</b><p>AI로 명품 수트 광고, 브랜드 필름, 웨딩 시네마까지 제작합니다. 촬영 비용 없이 시네마틱한 결과물을 만듭니다.</p></div>
+      <div class="feat"><span class="k">WEB DRAMA</span><b>국내외 3연속 작품상 대상</b><p>LA·서울·아시아 웹페스트 작품상 대상, 칸 시리즈 초청. TVING 「두 명의 우주」, KBS WORLD 「짠내아이돌」.</p></div>
+      <div class="feat"><span class="k">MUSIC VIDEO · LIVE</span><b>뮤직비디오 · 라이브클립</b><p>아티스트 MV부터 파리 현지 라이브클립까지, 음악을 화면으로 옮깁니다.</p></div>
+      <div class="feat"><span class="k">WEB ENTERTAINMENT</span><b>웹예능 · 시상식 콘텐츠</b><p>Global OTT Awards 후보 영상, 박세리 골프 콘텐츠 등 예능형 콘텐츠를 제작합니다.</p></div>
+      <div class="feat"><span class="k">DOCUMENTARY</span><b>해외 다큐멘터리</b><p>국제구조위원회 뉴욕 본부, 옥스팜 영국, 남아공·독일 현지 촬영. 해외 10여 개국 로케이션 경험.</p></div>
+      <div class="feat"><span class="k">BRAND · EVENT</span><b>브랜드 필름 · 행사 스케치</b><p>배스킨라빈스, 포켓몬, ENHYPEN 서울 캠페인, KB 페스티벌, 동국제강 인터뷰.</p></div>
+    </div>
+  </div></section>
+  <section><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Awards · Invite</p><h2>세계가 먼저 알아본 연출</h2></div>
+    <div class="awards">
+      <div class="award"><span class="where">FRANCE · CANNES</span><b>칸 시리즈<br>(CANNESERIES)</b><span>스크리닝 작품 초대</span></div>
+      <div class="award"><span class="where">USA · LOS ANGELES</span><b>제13회 LA웹페스트</b><span>작품상 대상</span></div>
+      <div class="award"><span class="where">KOREA · SEOUL</span><b>제8회 서울웹페스트</b><span>작품상 대상</span></div>
+      <div class="award"><span class="where">ASIA</span><b>제6회 아시아웹어워즈</b><span>작품상 대상</span></div>
+    </div>
+  </div></section>
+  <section><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Portfolio · ${PORT.length} categories</p><h2>장르별 포트폴리오</h2><p>장르를 고르고 썸네일을 누르면 유튜브에서 재생됩니다.</p></div>
+    <div class="tabs" role="tablist">${PORT.map((c,i)=>`<button role="tab" data-tab="${i}" aria-selected="${i===0}">${c.ko}</button>`).join("")}</div>
+    ${PORT.map((c,i)=>`<div class="tabpanel" data-panel="${i}" ${i?"hidden":""}>
+      <div class="vids">${c.v.map(([id,t])=>`<a class="vid" href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener"><div class="th"><img src="img/yt_${id}.jpg" alt="" loading="lazy"></div><b>${esc(t)}</b></a>`).join("")}</div>
+      <div class="links"><a class="btn ghost" href="https://www.youtube.com/playlist?list=${c.pl}" target="_blank" rel="noopener">${c.ko} 재생목록 전체 보기 →</a></div>
+    </div>`).join("")}
+  </div></section>
+  <section><div class="wrap">
+    <h3 class="h3">함께한 기업·기관</h3><div class="chips">${"배스킨라빈스 코카콜라 HYBE 현대모비스 롯데캐슬 2K_GAMES KBS미디어 OGN DRX 동국제강 국제구조위원회 한국컴패션 송파구 부천시 시흥시 진주시 인천_서구 강원특별자치도 충남콘텐츠코리아랩 BNI".split(" ").map(s=>`<span class="chip">${s.replace("_"," ")}</span>`).join("")}</div>
+  </div></section>`;
+  if(k==="cozy") return `
+  <section><div class="wrap two">
+    <div><h3 class="h3">총판 운영 이력</h3><ul class="list">
+      <li><b>워크프로 (WORKPRO)</b><span>2020–2025</span><p>국내 온라인 총판 · 온라인 유통 전담</p></li>
+      <li><b>영양백서</b><span>2021–현재</span><p>국내 총판 · 건강식품 카테고리</p></li>
+      <li><b>오라이트</b><span>2026–현재</span><p>부분 모델 총판 · 브랜드 온라인 채널 운영</p></li></ul></div>
+    <div><h3 class="h3">직영 전문몰</h3><ul class="list">
+      <li><b>장인은도구빨</b><span>일 6,000+</span><p>전동공구 · MRO 전문몰</p></li>
+      <li><b>햇뜰</b><span>일 5,000+</span><p>기업 · 생활용품몰</p></li>
+      <li><b>에어컨바람막이몰</b><span>2026 NEW</span><p>냉난방용품 · 자사 제품 코지윙</p></li>
+      <li><b>오라이트 스토어</b><span>2026 NEW</span><p>오라이트 국내 온라인 총판</p></li></ul></div>
+  </div></section>
+  <section><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Sales channels · 20+</p><h2>한 번 입점하면, 20여 개 채널로 퍼집니다</h2></div>
+    <div class="chips">${"네이버쇼핑 쿠팡 G마켓 옥션 11번가 토스공구 올웨이즈 아이품고 현대차_딜러몰 기아차_딜러몰 한의사_커뮤니티 네이버카페_공구 인스타_공구 특판·직납".split(" ").map(s=>`<span class="chip">${s.replace("_"," ")}</span>`).join("")}</div>
+    <p class="note">좋은 제품만 받습니다. 공급사가 정한 가격과 유통 정책을 그대로 지키며, 함께 판매할 제품에는 코지가 직접 쇼츠 콘텐츠를 투자합니다.</p>
+  </div></section>`;
+  if(k==="wheel") return `
+  <section><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Fixed price · 6-step confirm</p><h2>공수 기반 정찰제, 숨은 비용 0원</h2><p>견적금액 = 정해진 공수 × 작업시간. 단계마다 고객 확인을 받은 뒤 다음으로 넘어갑니다.</p></div>
+    <div class="steps" style="--n:6">${["기획","디자인","프론트","개발","최종 검수","유지보수"].map((s,i)=>`<div><span class="k">0${i+1}</span><b>${s}</b></div>`).join("")}</div>
+  </div></section>
+  <section><div class="wrap">
+    <h3 class="h3">주요 프로젝트</h3>
+    <ul class="list">
+      <li><b>순천향대학교</b><span>하이브리드 앱</span><p>시설 민원 통합 관리 시스템</p></li>
+      <li><b>페이젠 (paygen.ca)</b><span>웹 서비스</span><p>글로벌 POS 단말기 온라인 신청·결제 플랫폼</p></li>
+      <li><b>한국난청인교육협회</b><span>웹 서비스</span><p>통합 회원 관리·정보 제공</p></li>
+      <li><b>정육깡</b><span>쇼핑몰</span><p>프리미엄 한우·한돈 쇼핑몰 전체 구축</p></li>
+      <li><b>For.REST</b><span>포트폴리오 사이트</span><p>파워팀 김재현 대표의 영상 프로덕션 공식 사이트</p></li>
+    </ul>
+    <p class="note">파트너 기업 35+ · R&D·정부지원사업 15건+ 수주 · 기획·디자인·개발·마케팅 5~10년 경력 전문가 팀</p>
+  </div></section>`;
+  if(k==="adone") return `
+  <section><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Case studies</p><h2>대표님 옆에서 함께 판단했습니다</h2></div>
+    <div class="cases">
+      <div class="case"><p class="when">CASE 01 · 아임반 · 자동차용품</p><h3>대행사 변경, 혼자가 아니라 함께해서 더 좋은 선택을</h3>
+        <div class="roas"><div><span>변경 전 ROAS</span><b class="num">180%</b></div><i>→</i><div><span>변경 후 ROAS</span><b class="num acc">320%</b></div><em>+78%</em></div>
+        <p>여러 대행사 제안서를 함께 검토하고 대표님과 동반 미팅. 성과 기준과 방향을 세워 새 대행사를 선정했습니다.</p>
+        <blockquote>“제안서만 봤을 때는 잘 몰랐는데, 함께 미팅하면서 무엇을 봐야 하는지 명확해졌습니다.” <cite>아임반 대표</cite></blockquote></div>
+      <div class="case"><p class="when">CASE 02 · 플라팜 · 아이글자블럭</p><h3>광고에 대한 ‘결정 권한’을 명확히 만들어 빠르게 실행</h3>
+        <ul class="ba"><li><span>개선 전</span>의견이 많아 결정 지연 · 담당자마다 다른 방향 · 성과 부진</li><li><span>개선 후</span>대표 결정 권한 명확화 · 핵심 지표와 판단 기준 정리 · 내부 의사결정 구조 설계</li></ul>
+        <blockquote>“광고에 대한 결정이 명확해져서 실행이 빨라졌습니다. 무엇을 먼저 해야 하는지도 정리되어 좋았습니다.” <cite>플라팜 대표</cite></blockquote></div>
+    </div>
+  </div></section>
+  <section><div class="wrap two">
+    <div><h3 class="h3">10년을 함께한 파트너</h3><ul class="list">
+      <li><b>아마존카</b><span>장기렌트 · 10년</span></li>
+      <li><b>소녀폰</b><span>중고폰 · 10년</span></li></ul></div>
+    <div><h3 class="h3">업종별 실제 성과</h3><ul class="list">
+      <li><b>이사 · 문의</b><span>70건 → 400건 (+471%)</span></li>
+      <li><b>임부복 · 매출</b><span>600만 → 2,000만 (+233%)</span></li>
+      <li><b>종합가구 · 매출</b><span>1.2억 → 3억</span></li>
+      <li><b>판촉물 · 매출</b><span>5억 → 8억 (+60%)</span></li></ul></div>
+  </div>
+  <div class="wrap"><p class="note">위 수치는 광고 총괄·관리 과정에서 함께 경험한 개별 사례입니다. 매출은 광고뿐 아니라 상품·가격·영업·시장 환경 등 다양한 요인의 영향을 받으며, 동일한 결과를 보장하지 않습니다.</p></div></section>
+  <section><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Curriculum</p><h2>대표님 수준에 맞춰 시작합니다</h2></div>
+    <div class="steps" style="--n:3">
+      <div><span class="k">LEVEL 01</span><b>광고가 처음이라면</b><p>광고가 필요한지, 무엇부터 할지, 예산은 얼마로 잡을지</p></div>
+      <div><span class="k">LEVEL 02</span><b>이미 하고 있다면</b><p>보고서를 함께 읽고, 잘되고 있는지와 무엇을 바꿀지 판단 기준을 만듭니다</p></div>
+      <div><span class="k">LEVEL 03</span><b>더 잘하고 싶다면</b><p>광고비 증액, 대행사 판단, 전환율과 고객 여정까지</p></div>
+    </div>
+  </div></section>`;
+  if(k==="kang") return `
+  <section><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Since 1975</p><h2>반세기, 3대에 걸친 지식재산 가업</h2></div>
+    <div class="steps" style="--n:4">
+      <div><span class="k">1975</span><b>강동수 변리사 창립</b><p>특허청 항고심판소장 역임</p></div>
+      <div><span class="k">1982</span><b>강일우 대표변리사</b><p>강&강국제특허법률사무소 대표</p></div>
+      <div><span class="k">1993</span><b>지유 PATENT HOUSE</b><p>논현동 사옥 준공</p></div>
+      <div><span class="k">2020</span><b>강인혁 변호사·변리사</b><p>KAIST 지식재산대학원 석사</p></div>
+    </div>
+  </div></section>`;
+  return "";
+}
+
+function member(k){
+  const m=M[k];
+  return `
+  <div class="wrap m-hero">
+    <div class="txt">
+      <p class="eyebrow">${m.verb} · ${esc(m.short)}</p>
+      <div><h1>${m.name}</h1><p class="co" style="margin-top:10px">${esc(m.co)}</p><p class="role">${esc(m.role)}</p></div>
+      <blockquote>${esc(m.quote)}</blockquote>
+    </div>
+    <div class="photo"><img src="${m.img}" alt="${m.name} 대표"></div>
+  </div>
+  <div class="wrap"><div class="stats">${m.stats.map(([n,u,t])=>`<div class="stat"><span class="num">${n}${u?`<sub>${u}</sub>`:""}</span><p>${esc(t)}</p></div>`).join("")}</div></div>
+
+  <section><div class="wrap two">
+    <div><p class="eyebrow" style="margin-bottom:10px">Partner for</p><h2 style="font-size:clamp(24px,3vw,32px);font-weight:300;line-height:1.4">${esc(m.fit)}</h2></div>
+    <div><h3 class="h3">할 수 있는 일</h3><ul class="list">${m.services.map(([a,b])=>`<li><b>${esc(a)}</b><p>${esc(b)}</p></li>`).join("")}</ul></div>
+  </div></section>
+  ${extra(m.extra)}
+  <section><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Better together</p><h2>${m.name} 대표와 함께하면 좋은 파트너</h2></div>
+    <div class="pairs">${m.pairs.map(([p,why])=>`<a href="#${p}">${face(p)}<div><b>${M[p].name} <small style="font-family:var(--f-body);font-size:13px;color:var(--mute);font-weight:400">${esc(M[p].short)}</small></b><span>${esc(why)}</span></div></a>`).join("")}</div>
+  </div></section>
+
+  <section><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Contact</p><h2>연락처</h2></div>
+    <div class="contact">
+      <div><label>PHONE</label><span class="val">${m.phone}</span><button data-copy="${m.phone}">번호 복사</button></div>
+      <div><label>EMAIL</label><span class="val">${m.email}</span><button data-copy="${m.email}">메일 복사</button></div>
+      ${m.addr?`<div><label>OFFICE</label><span class="val" style="font-size:14px;font-weight:400">${esc(m.addr)}</span></div>`:""}
+    </div>
+    ${m.links.length?`<div class="links">${m.links.map(([t,u])=>`<a class="btn" href="${u}" target="_blank" rel="noopener">${t} →</a>`).join("")}</div>`:""}
+  </div></section>`;
+}
+
+function drawPicked(){
+  const box=document.getElementById("picked"); if(!box) return;
+  document.querySelectorAll("[data-need]").forEach(b=>b.setAttribute("aria-pressed",picked.has(b.dataset.need)));
+  const ks=ORDER.filter(k=>picked.has(k));
+  box.innerHTML = ks.length?`<p class="cnt">선택한 포지션 <b>${ks.length}</b> · 이 전문가만 함께합니다</p><div class="pk">${ks.map(k=>`<a href="#${k}">${face(k)}<div><b>${M[k].name}</b><span>${esc(M[k].co)}</span><small>${esc(M[k].stageTxt)}</small></div></a>`).join("")}</div>`
+    :`<p class="cnt">위에서 필요한 포지션을 눌러 주세요.</p>`;
+}
+function render(){
+  const k=(location.hash||"#home").slice(1);
+  const key=M[k]?k:"home";
+  document.getElementById("app").innerHTML = key==="home"?home():member(key);
+  nav(key);
+  drawPicked();
+  document.title = key==="home"?"YDP 마케팅 파워팀":`${M[key].name} · YDP 마케팅 파워팀`;
+  const cur=document.querySelector('.nav [aria-current]'); if(cur) cur.scrollIntoView({block:"nearest",inline:"center"});
+}
+document.addEventListener("click",e=>{
+  const nd=e.target.closest("[data-need]");
+  if(nd){const k=nd.dataset.need;picked.has(k)?picked.delete(k):picked.add(k);drawPicked();return}
+  const cb=e.target.closest("[data-combo]");
+  if(cb){picked=new Set(cb.dataset.combo.split(","));drawPicked();return}
+  const t=e.target.closest("[data-tab]");
+  if(t){const n=t.dataset.tab;document.querySelectorAll("[data-tab]").forEach(b=>b.setAttribute("aria-selected",b===t));document.querySelectorAll("[data-panel]").forEach(p=>p.hidden=p.dataset.panel!==n);return}
+  const b=e.target.closest("[data-copy]"); if(!b) return;
+  const v=b.dataset.copy, old=b.textContent;
+  const done=()=>{b.textContent="복사됨";setTimeout(()=>b.textContent=old,1500)};
+  if(navigator.clipboard) navigator.clipboard.writeText(v).then(done).catch(()=>{const s=getSelection(),r=document.createRange();r.selectNodeContents(b.previousElementSibling);s.removeAllRanges();s.addRange(r)});
+});
+window.addEventListener("hashchange",()=>{render();window.scrollTo(0,0)});
+render();
+</script>
+
+</body>
+</html>
