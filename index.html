@@ -313,6 +313,21 @@ p,li{text-wrap:pretty}
 .fadein{animation:fadein .4s cubic-bezier(.2,.7,.2,1) both}
 @keyframes fadein{from{opacity:0;transform:translateY(8px)}}
 @media (prefers-reduced-motion:reduce){#app{transition:none}.fadein{animation:none}::view-transition-old(root),::view-transition-new(root){animation:none}}
+
+/* 1. flow light */
+.flow::after{content:"";position:absolute;top:37px;height:3px;width:14%;left:8%;border-radius:3px;background:linear-gradient(90deg,transparent,var(--accent),transparent);animation:flowx 7s cubic-bezier(.45,0,.55,1) infinite;z-index:0;opacity:.9}
+@keyframes flowx{0%{left:6%;opacity:0}8%{opacity:.9}72%{left:80%;opacity:.9}80%,100%{left:80%;opacity:0}}
+.step .dot{transition:border-color .4s}
+.step .dot::after{content:"";position:absolute;inset:-1px;border-radius:50%;border:2px solid var(--accent);opacity:0;animation:dotlit 7s ease-in-out infinite;animation-delay:calc(var(--i) * .95s + .3s)}
+@keyframes dotlit{0%,100%{opacity:0}6%{opacity:1}22%{opacity:0}}
+@media (max-width:720px){
+  .flow::after{left:36px;width:3px;height:12%;top:20px;background:linear-gradient(180deg,transparent,var(--accent),transparent);animation-name:flowy}
+  @keyframes flowy{0%{top:2%;opacity:0}8%{opacity:.9}72%{top:84%;opacity:.9}80%,100%{top:84%;opacity:0}}
+}
+/* 2. team gather */
+.pk a{animation:gather .55s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--j,0) * 70ms)}
+@keyframes gather{from{opacity:0;transform:translateY(-22px) scale(.96)}}
+@media (prefers-reduced-motion:reduce){.flow::after,.step .dot::after{animation:none;opacity:0}.pk a{animation:none}}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{border:1px solid var(--line);padding:6px 12px;border-radius:999px;font-size:13px;color:var(--ink-2)}
 
@@ -387,6 +402,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
 <footer><div class="wrap"><span>KEYSTONE 키스톤 · BNI YDP 프로페셔널 챕터 파워팀</span><span>2026</span></div></footer>
 
 <script>
+const calm=matchMedia("(prefers-reduced-motion:reduce)").matches;
 const M = {
   kang:{name:"강인혁",co:"강&강국제특허법률사무소",short:"특허·상표·저작권",role:"변호사 · 변리사",img:"img/kanginhyuk.webp",
     verb:"PROTECT",stage:"지킨다",stageTxt:"브랜드명·기술·콘텐츠 권리 확보",
@@ -496,7 +512,7 @@ function home(){
 
   <section><div class="wrap">
     <div class="sec-head"><p class="eyebrow">How we connect</p><h2>지키고 팔고 세우고<br>보여주고 알리고 판단합니다</h2><p>사업이 커지는 순서대로 여섯 명이 이어집니다. 어느 단계에서 만나도 다음 단계의 파트너가 이미 옆에 있습니다.</p></div>
-    <div class="flow">${FLOW.map(k=>`<a class="step" href="#${k}"><div class="dot">${face(k)}</div><span class="verb">${M[k].verb} · ${M[k].stage}</span><h3>${M[k].name}</h3><p>${esc(M[k].stageTxt)}</p></a>`).join("")}</div>
+    <div class="flow">${FLOW.map((k,i)=>`<a class="step" style="--i:${i}" href="#${k}"><div class="dot">${face(k)}</div><span class="verb">${M[k].verb} · ${M[k].stage}</span><h3>${M[k].name}</h3><p>${esc(M[k].stageTxt)}</p></a>`).join("")}</div>
   </div></section>
 
   <section><div class="wrap">
@@ -865,12 +881,29 @@ function lines(root){
     el.innerHTML=parts.map(t=>`<span class="ln">${esc(t)}</span>`).join("");
   });
 }
+
+function countUp(root){
+  if(calm||!("IntersectionObserver" in window)) return;
+  const els=root.querySelectorAll(".stat .num,.results .num,.pcard .big .num,.mini .num,.big-n,.partners10 .num,.roas .num,.quote-card .num");
+  const io=new IntersectionObserver(es=>es.forEach(e=>{
+    if(!e.isIntersecting) return; io.unobserve(e.target);
+    const n=e.target.firstChild; if(!n||n.nodeType!==3) return;
+    const m=n.textContent.match(/^([+]?)([\d,]+(?:\.\d+)?)(\D*)$/); if(!m) return;
+    const tgt=parseFloat(m[2].replace(/,/g,"")), dec=(m[2].split(".")[1]||"").length, comma=m[2].includes(",");
+    const fmt=v=>{let t=v.toFixed(dec); if(comma) t=Number(t).toLocaleString("en-US",{minimumFractionDigits:dec,maximumFractionDigits:dec}); return m[1]+t+m[3]};
+    const t0=performance.now(), D=1100;
+    n.textContent=fmt(0);
+    const step=t=>{const k=Math.min(1,(t-t0)/D), e2=1-Math.pow(1-k,3); n.textContent=fmt(tgt*e2); if(k<1) requestAnimationFrame(step); else n.textContent=m[1]+m[2]+m[3]};
+    requestAnimationFrame(step);
+  }),{threshold:.6});
+  els.forEach(el=>io.observe(el));
+}
 function drawPicked(){
   const box=document.getElementById("picked"); if(!box) return;
   box.classList.remove("fadein");void box.offsetWidth;box.classList.add("fadein");
   document.querySelectorAll("[data-need]").forEach(b=>b.setAttribute("aria-pressed",picked.has(b.dataset.need)));
   const ks=ORDER.filter(k=>picked.has(k));
-  box.innerHTML = ks.length?`<p class="cnt">선택한 포지션 <b>${ks.length}</b> · 이 전문가만 함께합니다</p><div class="pk">${ks.map(k=>`<a href="#${k}">${face(k)}<div><b>${M[k].name}</b><span>${esc(M[k].co)}</span><small>${esc(M[k].stageTxt)}</small></div></a>`).join("")}</div>`
+  box.innerHTML = ks.length?`<p class="cnt">선택한 포지션 <b>${ks.length}</b> · 이 전문가만 함께합니다</p><div class="pk">${ks.map((k,j)=>`<a style="--j:${j}" href="#${k}">${face(k)}<div><b>${M[k].name}</b><span>${esc(M[k].co)}</span><small>${esc(M[k].stageTxt)}</small></div></a>`).join("")}</div>`
     :`<p class="cnt">위에서 필요한 포지션을 눌러 주세요.</p>`;
 }
 function render(){
@@ -880,6 +913,7 @@ function render(){
   nav(key);
   drawPicked();
   lines(document.getElementById("app"));
+  countUp(document.getElementById("app"));
   document.title = key==="home"?"키스톤 KEYSTONE":`${M[key].name} · 키스톤 KEYSTONE`;
   const cur=document.querySelector('.nav [aria-current]'); if(cur) cur.scrollIntoView({block:"nearest",inline:"center"});
 }
@@ -895,7 +929,6 @@ document.addEventListener("click",e=>{
   const done=()=>{b.textContent="복사됨";setTimeout(()=>b.textContent=old,1500)};
   if(navigator.clipboard) navigator.clipboard.writeText(v).then(done).catch(()=>{const s=getSelection(),r=document.createRange();r.selectNodeContents(b.previousElementSibling);s.removeAllRanges();s.addRange(r)});
 });
-const calm=matchMedia("(prefers-reduced-motion:reduce)").matches;
 window.addEventListener("hashchange",()=>{
   const go=()=>{render();window.scrollTo(0,0)};
   if(calm) return go();
