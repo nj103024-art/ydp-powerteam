@@ -534,7 +534,7 @@ function home(){
     <div class="picker">
       <div class="needs" id="needs">${NEEDS.map(([k,q])=>`<button class="need" data-need="${k}" aria-pressed="false"><span>${M[k].verb}</span>${q}</button>`).join("")}</div>
       <div class="combos"><span>자주 찾는 조합</span>${COMBOS.map(([t,ks])=>`<button class="combo" data-combo="${ks.join(",")}">${t}</button>`).join("")}</div>
-      <p class="demo" id="demo">자동 예시 재생 중 · 직접 눌러 보세요</p>
+      <p class="demo" id="demo" hidden>자동 예시 재생 중 · 직접 눌러 보세요</p>
       <div class="picked" id="picked" aria-live="polite"></div>
     </div>
   </div></section>
@@ -912,7 +912,7 @@ function startDemo(){
   let i=0, started=false;
   const tick=()=>{ const c=COMBOS[i%COMBOS.length]; picked=new Set(c[1]); drawPicked();
     document.querySelectorAll(".combo").forEach((b,j)=>b.classList.toggle("on",j===i%COMBOS.length)); i++; };
-  const io=new IntersectionObserver(es=>{ if(es[0].isIntersecting&&!started){ started=true; demoOn=true; tick(); demoT=setInterval(tick,2600); io.disconnect(); } },{threshold:.4});
+  const io=new IntersectionObserver(es=>{ if(es[0].isIntersecting&&!started){ started=true; demoOn=true; const d=document.getElementById("demo"); if(d) d.hidden=false; tick(); demoT=setInterval(tick,2600); io.disconnect(); } },{threshold:.4});
   io.observe(box);
   box.addEventListener("pointerdown",stopDemo,{once:true});
   box.addEventListener("keydown",stopDemo,{once:true});
