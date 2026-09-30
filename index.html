@@ -240,65 +240,17 @@ section + section{border-top:1px solid var(--line)}
 .cta-grid b{font-family:var(--f-display);font-weight:500;font-size:17px;display:block}
 .cta-grid span{font-size:13px;color:var(--mute)}
 .cta-grid i{font-style:normal;color:var(--mute)}
-.glow{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:0;transition:opacity .6s;background:radial-gradient(520px circle at var(--gx,50%) var(--gy,30%),color-mix(in srgb,var(--accent) 5%,transparent),transparent 60%)}
-.glow.on{opacity:1}
-main,footer{position:relative;z-index:1}
-.pcard,.cta-grid a,.need,.pk a,.pairs a,.feat,.award,.case,.stat,.roster .ph,.clients span{position:relative;isolation:isolate}
-.pcard::after,.cta-grid a::after,.need::after,.pk a::after,.pairs a::after,.feat::after,.award::after,.case::after,.stat::after,.roster .ph::after,.clients span::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;opacity:0;transition:opacity .35s;background:radial-gradient(240px circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--accent) 6%,transparent),transparent 70%)}
-.pcard:hover::after,.cta-grid a:hover::after,.need:hover::after,.pk a:hover::after,.pairs a:hover::after,.feat:hover::after,.award:hover::after,.case:hover::after,.stat:hover::after,.roster .ph:hover::after,.clients span:hover::after{opacity:1}
-@media (hover:none),(prefers-reduced-motion:reduce){.glow{display:none}}
-.intro{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,5vw,64px);align-items:start}
-.doc{margin:0;border:1px solid var(--line);background:#fff;border-radius:3px;overflow:hidden}
-.doc img{display:block;width:100%;height:auto}
-.intro-txt{display:grid;gap:20px;align-content:start}
-.intro-txt h2{font-size:clamp(24px,2.8vw,34px);line-height:1.4;font-weight:500}
-.intro-txt>p{color:var(--ink-2)}
-.pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--ink);border-bottom:1px solid var(--line)}
-.pillars div{padding:16px 12px 16px 0;display:grid;gap:2px}
-.pillars div+div{padding-left:14px;border-left:1px solid var(--line)}
-.pillars b{font-weight:600;font-size:15px}.pillars span{font-size:13px;color:var(--ink-2)}
-.partners10{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.partners10 div{background:var(--panel);padding:18px 20px;display:grid;gap:4px}
-.partners10 b{font-family:var(--f-display);font-weight:500;font-size:20px}
-.partners10 .num{font-style:normal;font-size:40px;color:var(--accent)}
-.when{font-family:var(--f-mono);font-size:12px;letter-spacing:.04em;color:var(--mute)}
-.num small{font-family:var(--f-body);font-size:15px;font-weight:400;margin-left:4px;letter-spacing:0;color:var(--ink-2)}
-.results{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--ink);border-bottom:1px solid var(--line)}
-.results div{padding:26px 22px;display:grid;gap:10px;border-left:1px solid var(--line)}
-.results div:first-child{border-left:0}
-.results .num{font-size:clamp(34px,4vw,50px);white-space:nowrap}
-.results p{font-size:14px;color:var(--ink-2);font-variant-numeric:tabular-nums}
-.case-img{width:100%;height:auto;border:1px solid var(--line);border-radius:3px;background:#fff}
-.flow3{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;counter-reset:f}
-.flow3 li{background:var(--panel);padding:12px;font-size:13px;line-height:1.45;text-align:center;position:relative}
-.flow3 li:nth-child(2){color:var(--accent);font-weight:600}
-.ba2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.ba2>div{border:1px solid var(--line);padding:14px}
-.ba2 span{font-family:var(--f-mono);font-size:12px;color:var(--mute)}
-.ba2 .after{border-color:var(--accent)}.ba2 .after span{color:var(--accent)}
-.ba2 ul{margin:8px 0 0;padding-left:16px;font-size:13px;color:var(--ink-2);display:grid;gap:4px}
-.hero-img{margin:0 0 32px;position:relative;border-radius:3px;overflow:hidden}
-.hero-img img{display:block;width:100%;height:clamp(220px,34vw,420px);object-fit:cover}
-.hero-img figcaption{position:absolute;left:0;bottom:0;right:0;padding:40px 24px 20px;color:#fff;font-weight:500;font-size:clamp(14px,1.6vw,17px);line-height:1.6;background:linear-gradient(transparent,rgba(0,0,0,.6))}
-.mini{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.mini div{padding:18px 20px;display:grid;gap:4px;border-left:1px solid var(--line)}
-.mini div:first-child{border-left:0}
-.mini .num{font-size:34px}.mini span{font-size:13px;color:var(--ink-2)}
-.track{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-.track div{display:grid;gap:6px;align-content:start}
-.track img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:3px;margin-bottom:8px}
-.track b{font-family:var(--f-display);font-weight:500;font-size:19px}
-.track p{font-size:14px;color:var(--ink-2)}
-.stores{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.stores a{display:grid;grid-template-columns:96px 1fr auto;gap:16px;align-items:center;border:1px solid var(--line);padding:12px;text-decoration:none;border-radius:3px}
-.stores a:hover{border-color:var(--ink)}
-.stores img{width:96px;height:72px;object-fit:cover;border-radius:2px}
-.stores b{font-family:var(--f-display);font-weight:500;font-size:18px;display:block}
-.stores b em{font-style:normal;font-family:var(--f-mono);font-size:10px;background:var(--accent-soft);color:var(--accent);padding:2px 6px;margin-left:6px;vertical-align:middle}
-.stores span{font-size:13px;color:var(--ink-2)}.stores i{font-style:normal;color:var(--mute)}
-.chan li{grid-template-columns:1fr}.chan li p{margin-top:0}
-.closing h2{font-size:clamp(26px,3.6vw,42px);font-weight:300;line-height:1.35}.closing h2 b{font-weight:700}
-.ln{display:block}
+main,footer{position:relative}
+.pcard,.cta-grid a,.pk a,.pairs a,.stores a,.feat,.award,.case,.vid .th,.roster .ph,.track img{transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s cubic-bezier(.2,.7,.2,1),border-color .3s,background-color .3s}
+@media (hover:hover) and (pointer:fine){
+  .pcard:hover,.cta-grid a:hover,.pk a:hover,.pairs a:hover,.stores a:hover,.feat:hover,.award:hover,.case:hover{transform:translateY(-3px);box-shadow:0 14px 30px -18px color-mix(in srgb,var(--ink) 45%,transparent);z-index:1}
+  .roster a:hover .ph,.vid:hover .th{transform:translateY(-3px);box-shadow:0 14px 30px -18px color-mix(in srgb,var(--ink) 45%,transparent)}
+  .track div:hover img{transform:scale(1.02)}
+  .pcard .more,.cta-grid i,.stores i{display:inline-block;transition:transform .35s cubic-bezier(.2,.7,.2,1),color .3s}
+  .pcard:hover .more,.cta-grid a:hover i,.stores a:hover i{transform:translateX(4px);color:var(--accent)}
+  .need:hover{border-color:var(--ink-2)}
+}
+@media (prefers-reduced-motion:reduce){.pcard,.cta-grid a,.pk a,.pairs a,.stores a,.feat,.award,.case,.vid .th,.roster .ph,.track img{transition:none}}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{border:1px solid var(--line);padding:6px 12px;border-radius:999px;font-size:13px;color:var(--ink-2)}
 
@@ -366,7 +318,6 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
     <nav class="nav" id="nav" aria-label="파트너"></nav>
   </div>
 </header>
-<div class="glow" id="glow" aria-hidden="true"></div>
 <main id="app"></main>
 <footer><div class="wrap"><span>KEYSTONE 키스톤 · BNI YDP 프로페셔널 챕터 파워팀</span><span>2026</span></div></footer>
 
@@ -800,19 +751,6 @@ document.addEventListener("click",e=>{
 window.addEventListener("hashchange",()=>{render();window.scrollTo(0,0)});
 render();
 
-(()=>{
-  if(!matchMedia("(hover:hover) and (pointer:fine)").matches||matchMedia("(prefers-reduced-motion:reduce)").matches) return;
-  const g=document.getElementById("glow"), root=document.documentElement;
-  const FX=".pcard,.cta-grid a,.need,.pk a,.pairs a,.feat,.award,.case,.stat,.roster .ph,.clients span";
-  let tx=innerWidth/2,ty=innerHeight/3,x=tx,y=ty,raf=0;
-  const tick=()=>{x+=(tx-x)*.07;y+=(ty-y)*.07;g.style.setProperty("--gx",x+"px");g.style.setProperty("--gy",y+"px");raf=(Math.abs(tx-x)+Math.abs(ty-y)>.5)?requestAnimationFrame(tick):0};
-  addEventListener("pointermove",e=>{
-    tx=e.clientX;ty=e.clientY;g.classList.add("on");if(!raf)raf=requestAnimationFrame(tick);
-    const el=e.target.closest&&e.target.closest(FX);
-    if(el){const r=el.getBoundingClientRect();el.style.setProperty("--mx",(e.clientX-r.left)+"px");el.style.setProperty("--my",(e.clientY-r.top)+"px")}
-  },{passive:true});
-  document.addEventListener("pointerleave",()=>g.classList.remove("on"));
-})();
 </script>
 
 </body>
