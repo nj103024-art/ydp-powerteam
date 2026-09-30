@@ -303,6 +303,16 @@ p,li{text-wrap:pretty}
 .sec-head h2::after{content:"";position:absolute;left:0;bottom:0;width:36px;height:2px;background:var(--accent)}
 .stat .num,.results .num,.mini .num{color:var(--ink)}
 .stat:first-child .num{color:var(--accent)}
+#app{transition:opacity .18s ease,transform .18s ease}
+#app.leaving{opacity:0;transform:translateY(-6px)}
+#app.entering{opacity:0;transform:translateY(14px);transition:none}
+::view-transition-old(root){animation:vt-out .22s ease both}
+::view-transition-new(root){animation:vt-in .45s cubic-bezier(.2,.7,.2,1) both}
+@keyframes vt-out{to{opacity:0;transform:translateY(-8px)}}
+@keyframes vt-in{from{opacity:0;transform:translateY(16px)}}
+.fadein{animation:fadein .4s cubic-bezier(.2,.7,.2,1) both}
+@keyframes fadein{from{opacity:0;transform:translateY(8px)}}
+@media (prefers-reduced-motion:reduce){#app{transition:none}.fadein{animation:none}::view-transition-old(root),::view-transition-new(root){animation:none}}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{border:1px solid var(--line);padding:6px 12px;border-radius:999px;font-size:13px;color:var(--ink-2)}
 
@@ -857,6 +867,7 @@ function lines(root){
 }
 function drawPicked(){
   const box=document.getElementById("picked"); if(!box) return;
+  box.classList.remove("fadein");void box.offsetWidth;box.classList.add("fadein");
   document.querySelectorAll("[data-need]").forEach(b=>b.setAttribute("aria-pressed",picked.has(b.dataset.need)));
   const ks=ORDER.filter(k=>picked.has(k));
   box.innerHTML = ks.length?`<p class="cnt">선택한 포지션 <b>${ks.length}</b> · 이 전문가만 함께합니다</p><div class="pk">${ks.map(k=>`<a href="#${k}">${face(k)}<div><b>${M[k].name}</b><span>${esc(M[k].co)}</span><small>${esc(M[k].stageTxt)}</small></div></a>`).join("")}</div>`
@@ -878,13 +889,21 @@ document.addEventListener("click",e=>{
   const cb=e.target.closest("[data-combo]");
   if(cb){picked=new Set(cb.dataset.combo.split(","));drawPicked();return}
   const t=e.target.closest("[data-tab]");
-  if(t){const n=t.dataset.tab;document.querySelectorAll("[data-tab]").forEach(b=>b.setAttribute("aria-selected",b===t));document.querySelectorAll("[data-panel]").forEach(p=>p.hidden=p.dataset.panel!==n);return}
+  if(t){const n=t.dataset.tab;document.querySelectorAll("[data-tab]").forEach(b=>b.setAttribute("aria-selected",b===t));document.querySelectorAll("[data-panel]").forEach(p=>{p.hidden=p.dataset.panel!==n;if(!p.hidden){p.classList.remove("fadein");void p.offsetWidth;p.classList.add("fadein")}});return}
   const b=e.target.closest("[data-copy]"); if(!b) return;
   const v=b.dataset.copy, old=b.textContent;
   const done=()=>{b.textContent="복사됨";setTimeout(()=>b.textContent=old,1500)};
   if(navigator.clipboard) navigator.clipboard.writeText(v).then(done).catch(()=>{const s=getSelection(),r=document.createRange();r.selectNodeContents(b.previousElementSibling);s.removeAllRanges();s.addRange(r)});
 });
-window.addEventListener("hashchange",()=>{render();window.scrollTo(0,0)});
+const calm=matchMedia("(prefers-reduced-motion:reduce)").matches;
+window.addEventListener("hashchange",()=>{
+  const go=()=>{render();window.scrollTo(0,0)};
+  if(calm) return go();
+  if(document.startViewTransition) return document.startViewTransition(go);
+  const app=document.getElementById("app");
+  app.classList.add("leaving");
+  setTimeout(()=>{go();app.classList.remove("leaving");app.classList.add("entering");requestAnimationFrame(()=>requestAnimationFrame(()=>app.classList.remove("entering")))},180);
+});
 render();
 
 </script>
