@@ -328,6 +328,11 @@ p,li{text-wrap:pretty}
 .pk a{animation:gather .55s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--j,0) * 70ms)}
 @keyframes gather{from{opacity:0;transform:translateY(-22px) scale(.96)}}
 @media (prefers-reduced-motion:reduce){.flow::after,.step .dot::after{animation:none;opacity:0}.pk a{animation:none}}
+.demo{font-family:var(--f-mono);font-size:12px;color:var(--accent);letter-spacing:.04em;display:flex;align-items:center;gap:8px}
+.demo::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.25}}
+.combo.on{background:var(--ink);color:var(--paper);border-style:solid;border-color:var(--ink)}
+.combo,.need{transition:background-color .35s,color .35s,border-color .35s}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{border:1px solid var(--line);padding:6px 12px;border-radius:999px;font-size:13px;color:var(--ink-2)}
 
@@ -529,6 +534,7 @@ function home(){
     <div class="picker">
       <div class="needs" id="needs">${NEEDS.map(([k,q])=>`<button class="need" data-need="${k}" aria-pressed="false"><span>${M[k].verb}</span>${q}</button>`).join("")}</div>
       <div class="combos"><span>자주 찾는 조합</span>${COMBOS.map(([t,ks])=>`<button class="combo" data-combo="${ks.join(",")}">${t}</button>`).join("")}</div>
+      <p class="demo" id="demo">자동 예시 재생 중 · 직접 눌러 보세요</p>
       <div class="picked" id="picked" aria-live="polite"></div>
     </div>
   </div></section>
@@ -898,6 +904,19 @@ function countUp(root){
   }),{threshold:.6});
   els.forEach(el=>io.observe(el));
 }
+
+let demoT=0, demoOn=false;
+function stopDemo(){ if(demoT){clearInterval(demoT);demoT=0} demoOn=false; const d=document.getElementById("demo"); if(d) d.hidden=true; document.querySelectorAll(".combo.on").forEach(b=>b.classList.remove("on")); }
+function startDemo(){
+  const box=document.querySelector(".picker"); if(!box||calm) { const d=document.getElementById("demo"); if(d) d.hidden=true; return; }
+  let i=0, started=false;
+  const tick=()=>{ const c=COMBOS[i%COMBOS.length]; picked=new Set(c[1]); drawPicked();
+    document.querySelectorAll(".combo").forEach((b,j)=>b.classList.toggle("on",j===i%COMBOS.length)); i++; };
+  const io=new IntersectionObserver(es=>{ if(es[0].isIntersecting&&!started){ started=true; demoOn=true; tick(); demoT=setInterval(tick,2600); io.disconnect(); } },{threshold:.4});
+  io.observe(box);
+  box.addEventListener("pointerdown",stopDemo,{once:true});
+  box.addEventListener("keydown",stopDemo,{once:true});
+}
 function drawPicked(){
   const box=document.getElementById("picked"); if(!box) return;
   box.classList.remove("fadein");void box.offsetWidth;box.classList.add("fadein");
@@ -914,6 +933,7 @@ function render(){
   drawPicked();
   lines(document.getElementById("app"));
   countUp(document.getElementById("app"));
+  stopDemo(); if(key==="home") startDemo();
   document.title = key==="home"?"키스톤 KEYSTONE":`${M[key].name} · 키스톤 KEYSTONE`;
   const cur=document.querySelector('.nav [aria-current]'); if(cur) cur.scrollIntoView({block:"nearest",inline:"center"});
 }
