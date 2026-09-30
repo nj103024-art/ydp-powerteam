@@ -240,13 +240,65 @@ section + section{border-top:1px solid var(--line)}
 .cta-grid b{font-family:var(--f-display);font-weight:500;font-size:17px;display:block}
 .cta-grid span{font-size:13px;color:var(--mute)}
 .cta-grid i{font-style:normal;color:var(--mute)}
-.glow{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:0;transition:opacity .6s;background:radial-gradient(640px circle at var(--gx,50%) var(--gy,30%),color-mix(in srgb,var(--accent) 13%,transparent),transparent 62%)}
+.glow{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:0;transition:opacity .6s;background:radial-gradient(520px circle at var(--gx,50%) var(--gy,30%),color-mix(in srgb,var(--accent) 5%,transparent),transparent 60%)}
 .glow.on{opacity:1}
 main,footer{position:relative;z-index:1}
 .pcard,.cta-grid a,.need,.pk a,.pairs a,.feat,.award,.case,.stat,.roster .ph,.clients span{position:relative;isolation:isolate}
-.pcard::after,.cta-grid a::after,.need::after,.pk a::after,.pairs a::after,.feat::after,.award::after,.case::after,.stat::after,.roster .ph::after,.clients span::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;opacity:0;transition:opacity .35s;background:radial-gradient(280px circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--accent) 18%,transparent),transparent 65%)}
+.pcard::after,.cta-grid a::after,.need::after,.pk a::after,.pairs a::after,.feat::after,.award::after,.case::after,.stat::after,.roster .ph::after,.clients span::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;opacity:0;transition:opacity .35s;background:radial-gradient(240px circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--accent) 6%,transparent),transparent 70%)}
 .pcard:hover::after,.cta-grid a:hover::after,.need:hover::after,.pk a:hover::after,.pairs a:hover::after,.feat:hover::after,.award:hover::after,.case:hover::after,.stat:hover::after,.roster .ph:hover::after,.clients span:hover::after{opacity:1}
 @media (hover:none),(prefers-reduced-motion:reduce){.glow{display:none}}
+.intro{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,5vw,64px);align-items:start}
+.doc{margin:0;border:1px solid var(--line);background:#fff;border-radius:3px;overflow:hidden}
+.doc img{display:block;width:100%;height:auto}
+.intro-txt{display:grid;gap:20px;align-content:start}
+.intro-txt h2{font-size:clamp(24px,2.8vw,34px);line-height:1.4;font-weight:500}
+.intro-txt>p{color:var(--ink-2)}
+.pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--ink);border-bottom:1px solid var(--line)}
+.pillars div{padding:16px 12px 16px 0;display:grid;gap:2px}
+.pillars div+div{padding-left:14px;border-left:1px solid var(--line)}
+.pillars b{font-weight:600;font-size:15px}.pillars span{font-size:13px;color:var(--ink-2)}
+.partners10{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.partners10 div{background:var(--panel);padding:18px 20px;display:grid;gap:4px}
+.partners10 b{font-family:var(--f-display);font-weight:500;font-size:20px}
+.partners10 .num{font-style:normal;font-size:40px;color:var(--accent)}
+.when{font-family:var(--f-mono);font-size:12px;letter-spacing:.04em;color:var(--mute)}
+.num small{font-family:var(--f-body);font-size:15px;font-weight:400;margin-left:4px;letter-spacing:0;color:var(--ink-2)}
+.results{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--ink);border-bottom:1px solid var(--line)}
+.results div{padding:26px 22px;display:grid;gap:10px;border-left:1px solid var(--line)}
+.results div:first-child{border-left:0}
+.results .num{font-size:clamp(34px,4vw,50px);white-space:nowrap}
+.results p{font-size:14px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.case-img{width:100%;height:auto;border:1px solid var(--line);border-radius:3px;background:#fff}
+.flow3{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;counter-reset:f}
+.flow3 li{background:var(--panel);padding:12px;font-size:13px;line-height:1.45;text-align:center;position:relative}
+.flow3 li:nth-child(2){color:var(--accent);font-weight:600}
+.ba2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ba2>div{border:1px solid var(--line);padding:14px}
+.ba2 span{font-family:var(--f-mono);font-size:12px;color:var(--mute)}
+.ba2 .after{border-color:var(--accent)}.ba2 .after span{color:var(--accent)}
+.ba2 ul{margin:8px 0 0;padding-left:16px;font-size:13px;color:var(--ink-2);display:grid;gap:4px}
+.hero-img{margin:0 0 32px;position:relative;border-radius:3px;overflow:hidden}
+.hero-img img{display:block;width:100%;height:clamp(220px,34vw,420px);object-fit:cover}
+.hero-img figcaption{position:absolute;left:0;bottom:0;right:0;padding:40px 24px 20px;color:#fff;font-weight:500;font-size:clamp(14px,1.6vw,17px);line-height:1.6;background:linear-gradient(transparent,rgba(0,0,0,.6))}
+.mini{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mini div{padding:18px 20px;display:grid;gap:4px;border-left:1px solid var(--line)}
+.mini div:first-child{border-left:0}
+.mini .num{font-size:34px}.mini span{font-size:13px;color:var(--ink-2)}
+.track{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.track div{display:grid;gap:6px;align-content:start}
+.track img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:3px;margin-bottom:8px}
+.track b{font-family:var(--f-display);font-weight:500;font-size:19px}
+.track p{font-size:14px;color:var(--ink-2)}
+.stores{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.stores a{display:grid;grid-template-columns:96px 1fr auto;gap:16px;align-items:center;border:1px solid var(--line);padding:12px;text-decoration:none;border-radius:3px}
+.stores a:hover{border-color:var(--ink)}
+.stores img{width:96px;height:72px;object-fit:cover;border-radius:2px}
+.stores b{font-family:var(--f-display);font-weight:500;font-size:18px;display:block}
+.stores b em{font-style:normal;font-family:var(--f-mono);font-size:10px;background:var(--accent-soft);color:var(--accent);padding:2px 6px;margin-left:6px;vertical-align:middle}
+.stores span{font-size:13px;color:var(--ink-2)}.stores i{font-style:normal;color:var(--mute)}
+.chan li{grid-template-columns:1fr}.chan li p{margin-top:0}
+.closing h2{font-size:clamp(26px,3.6vw,42px);font-weight:300;line-height:1.35}.closing h2 b{font-weight:700}
+.ln{display:block}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{border:1px solid var(--line);padding:6px 12px;border-radius:999px;font-size:13px;color:var(--ink-2)}
 
@@ -276,6 +328,10 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
 @media (max-width:900px){
   .pgrid,.packs,.needs{grid-template-columns:1fr 1fr}
   .cases{grid-template-columns:1fr}
+  .results,.mini{grid-template-columns:1fr 1fr}
+  .results div:nth-child(3),.mini div:nth-child(3){border-left:0}
+  .results div:nth-child(n+3),.mini div:nth-child(n+3){border-top:1px solid var(--line)}
+  .intro{grid-template-columns:1fr}.doc{max-width:520px}
   .cta-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .clients{grid-template-columns:repeat(3,minmax(0,1fr))}
   .awards,.vids,.feats{grid-template-columns:1fr 1fr}
@@ -290,7 +346,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
   .flow::before{left:37px;right:auto;top:20px;bottom:20px;width:1px;height:auto}
   .step{grid-template-columns:76px 1fr;justify-items:start;text-align:left;column-gap:16px;row-gap:2px;padding:10px 0}
   .step .dot{grid-row:1/4}
-  .pgrid,.packs,.two,.pairs,.contact,.cases,.needs,.rec,.cta-grid{grid-template-columns:1fr}
+  .pgrid,.packs,.two,.pairs,.contact,.cases,.needs,.rec,.cta-grid,.track,.stores,.ba2{grid-template-columns:1fr}
+  .pillars{grid-template-columns:1fr}.pillars div+div{padding-left:0;border-left:0;border-top:1px solid var(--line)}
   .clients{grid-template-columns:repeat(2,minmax(0,1fr))}
   .proc,.steps{grid-template-columns:1fr 1fr}
   .m-hero{grid-template-columns:1fr}
@@ -415,7 +472,7 @@ function home(){
   <div class="wrap hero">
     <p class="eyebrow">KEYSTONE · 원스톱 비즈니스 솔루션</p>
     <h1>사업의 빠진 한 조각,<br><b>키스톤이 채웁니다.</b></h1>
-    <p class="lead">키스톤은 아치 한가운데서 전체를 받치는 돌입니다. 특허, 유통, 홈페이지, 영상, 광고, 코칭까지. 여섯 전문가 중 지금 필요한 사람만 골라 연결합니다. 특허부터 매출까지, 창구는 하나입니다.</p>
+    <p class="lead">키스톤은 아치 한가운데서 전체를 받치는 돌입니다. 특허·유통·홈페이지·영상·광고·코칭, 여섯 전문가 중 지금 필요한 사람만 골라 연결합니다. 특허부터 매출까지, 창구는 하나입니다.</p>
     <div class="roster">${ORDER.map(k=>`<a href="#${k}"><div class="ph"><img src="${pimg(k)}" alt="${M[k].name} 대표"></div><b>${M[k].name}</b><span>${esc(M[k].short)}</span></a>`).join("")}</div>
   </div>
 
@@ -451,16 +508,16 @@ function home(){
   </div></section>
 
   <section><div class="wrap">
-    <div class="sec-head"><p class="eyebrow">How it works</p><h2>진행은 이렇게 됩니다</h2><p>여섯 명은 각자의 회사를 운영합니다. 그래서 일을 가져온 대표가 메인을 맡고, 필요한 전문가가 협력으로 붙습니다. 대표님은 한 사람과만 소통하시면 됩니다.</p></div>
+    <div class="sec-head"><p class="eyebrow">How it works</p><h2>진행은 이렇게 됩니다</h2><p>여섯 명은 각자의 회사를 운영합니다. 처음 상담한 대표가 전담 파트너가 되어 끝까지 책임지고, 필요한 전문가가 협력 파트너로 함께합니다. 대표님은 전담 파트너 한 사람과만 소통하시면 됩니다.</p></div>
     <div class="proc">
       <div><span class="k">STEP 1</span><h3>상담</h3><p>연락받은 대표가 먼저 상황을 듣습니다. 상담 방식과 비용은 각 전문가의 기준을 따릅니다.</p></div>
       <div><span class="k">STEP 2</span><h3>포지션 선정</h3><p>필요한 전문가만 골라 연결합니다.</p></div>
       <div><span class="k">STEP 3</span><h3>견적 취합</h3><p>참여하는 전문가의 견적을 모아 한 번에 전달합니다.</p></div>
-      <div><span class="k">STEP 4</span><h3>메인 담당 진행</h3><p>일을 가져온 대표가 메인 담당이 되고, 나머지는 협력 파트너로 참여합니다.</p></div>
+      <div><span class="k">STEP 4</span><h3>전담 파트너 진행</h3><p>처음 상담한 대표가 전담 파트너로 진행을 책임지고, 협력 파트너와 함께 완성합니다.</p></div>
     </div>
     <div class="lead-map">
       <div class="node client">클라이언트</div><span class="arr">⇄</span>
-      <div class="node main">메인 담당<small>일을 가져온 대표</small></div><span class="arr">→</span>
+      <div class="node main">전담 파트너<small>처음 상담한 대표</small></div><span class="arr">→</span>
       <div class="node sub">협력 파트너<small>필요한 포지션만</small></div>
     </div>
   </div></section>
@@ -507,22 +564,60 @@ function extra(k){
     <div class="sec-head"><p class="eyebrow">Clients · ${CLIENTS.length}</p><h2>함께한 기업·기관</h2></div><div class="clients">${CLIENTS.map(c=>`<span>${c}</span>`).join("")}</div>
   </div></section>`;
   if(k==="cozy") return `
-  <section><div class="wrap two">
-    <div><h3 class="h3">총판 운영 이력</h3><ul class="list">
-      <li><b>워크프로 (WORKPRO)</b><span>2020–2025</span><p>국내 온라인 총판 · 온라인 유통 전담</p></li>
-      <li><b>영양백서</b><span>2021–현재</span><p>국내 총판 · 건강식품 카테고리</p></li>
-      <li><b>오라이트</b><span>2026–현재</span><p>부분 모델 총판 · 브랜드 온라인 채널 운영</p></li></ul></div>
-    <div><h3 class="h3">직영 전문몰</h3><ul class="list">
-      <li><b>장인은도구빨</b><span>일 6,000+</span><p>전동공구 · MRO 전문몰</p></li>
-      <li><b>햇뜰</b><span>일 5,000+</span><p>기업 · 생활용품몰</p></li>
-      <li><b>에어컨바람막이몰</b><span>2026 NEW</span><p>냉난방용품 · 자사 제품 코지윙</p></li>
-      <li><b>오라이트 스토어</b><span>2026 NEW</span><p>오라이트 국내 온라인 총판</p></li></ul></div>
+  <section><div class="wrap">
+    <figure class="hero-img"><img src="img/cz_team.jpg" alt="코지코퍼레이션" loading="lazy"><figcaption>제품의 특성마다 가장 적합한 판매 채널이 다릅니다.<br>코지는 가장 적합한 판매 채널을 찾아주는 일을 합니다.</figcaption></figure>
+    <div class="mini">
+      <div><b class="num">8<small>년</small></b><span>업력 · 온라인 유통 전문</span></div>
+      <div><b class="num">7<small>개</small></b><span>런칭 브랜드</span></div>
+      <div><b class="num">3–4<small>개</small></b><span>빅파워 등급 매월 보유</span></div>
+      <div><b class="num">2<small>%대</small></b><span>스마트스토어 전환율</span></div>
+    </div>
   </div></section>
   <section><div class="wrap">
-    <div class="sec-head"><p class="eyebrow">Sales channels · 20+</p><h2>한 번 입점하면, 20여 개 채널로 퍼집니다</h2></div>
-    <div class="chips">${"네이버쇼핑 쿠팡 G마켓 옥션 11번가 토스공구 올웨이즈 아이품고 현대차_딜러몰 기아차_딜러몰 한의사_커뮤니티 네이버카페_공구 인스타_공구 특판·직납".split(" ").map(s=>`<span class="chip">${s.replace("_"," ")}</span>`).join("")}</div>
-    <p class="note">좋은 제품만 받습니다. 공급사가 정한 가격과 유통 정책을 그대로 지키며, 함께 판매할 제품에는 코지가 직접 쇼츠 콘텐츠를 투자합니다.</p>
-  </div></section>`;
+    <div class="sec-head"><p class="eyebrow">Core value</p><h2>공급사는 제품만 준비하시면 됩니다</h2><p>유통의 나머지 전부를 코지가 처리합니다.</p></div>
+    <div class="feats">
+      <div class="feat"><span class="k">01</span><b>공급사 정책 준수 철저</b><p>가격 교란 없이 정직하게 판매합니다. 공급사가 지정한 가격과 유통 정책을 그대로 지킵니다.</p></div>
+      <div class="feat"><span class="k">02</span><b>정산 지연 0건</b><p>창업 8년, 약정 일자보다 늦게 정산한 적이 단 한 번도 없습니다.</p></div>
+      <div class="feat"><span class="k">03</span><b>20여 개 채널 동시 판매</b><p>오픈마켓부터 자동차 딜러몰, 커뮤니티 공구까지. 한 번의 입점으로 전 채널에 유통됩니다.</p></div>
+      <div class="feat"><span class="k">04</span><b>콘텐츠 제작 지원</b><p>납품 검토 후 제품군에 맞는 쇼츠를 제작·업로드합니다. 함께 판매할 제품에 코지가 콘텐츠를 투자합니다.</p></div>
+      <div class="feat"><span class="k">MRO</span><b>기업 MRO 납품</b><p>수동·전동공구, 사무실 용품, 선물 용품까지 기업에 필요한 소모품을 공급합니다.</p></div>
+      <div class="feat"><span class="k">SOURCING</span><b>해외 공장 직접 소싱</b><p>제조대행부터 검수, 콘텐츠 제작, 다채널 입점까지 전 과정을 직접 운영합니다.</p></div>
+    </div>
+  </div></section>
+  <section><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Distribution track record</p><h2>브랜드 총판을 8년 동안 이어온 기록이 곧 신뢰입니다</h2></div>
+    <div class="track">
+      <div><img src="img/cz_workpro.jpg" alt="" loading="lazy"><span class="when">2020 – 2025</span><b>워크프로 (WORKPRO)</b><p>국내 온라인 총판 · 온라인 유통 전담</p></div>
+      <div><img src="img/cz_yb.jpg" alt="" loading="lazy"><span class="when">2021 – 현재</span><b>영양백서</b><p>국내 총판 · 건강식품 카테고리</p></div>
+      <div><img src="img/cz_orite.jpg" alt="" loading="lazy"><span class="when">2026 – 현재</span><b>오라이트</b><p>부분 모델 총판 · 브랜드 온라인 채널</p></div>
+    </div>
+  </div></section>
+  <section><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Our stores</p><h2>카테고리 특성에 맞는 스토어를 직접 운영합니다</h2></div>
+    <div class="stores">
+      <a href="https://buly.kr/1cAKwWt" target="_blank" rel="noopener"><img src="img/cz_s1.jpg" alt="" loading="lazy"><div><b>장인은도구빨</b><span>전동공구 · MRO 전문 · 일 평균 방문자 6,000+</span></div><i>↗</i></a>
+      <a href="https://buly.kr/ESzkSlD" target="_blank" rel="noopener"><img src="img/cz_s2.jpg" alt="" loading="lazy"><div><b>햇뜰</b><span>기업 · 생활용품 · 일 평균 방문자 5,000+</span></div><i>↗</i></a>
+      <a href="https://buly.kr/Aar4srW" target="_blank" rel="noopener"><img src="img/cz_s3.jpg" alt="" loading="lazy"><div><b>에어컨바람막이몰 <em>2026 NEW</em></b><span>냉난방용품 전문 · 자사 제품 ‘코지윙’</span></div><i>↗</i></a>
+      <a href="https://mkt.shopping.naver.com/link/6a5d925d00cc0d59ae193d47" target="_blank" rel="noopener"><img src="img/cz_s4.jpg" alt="" loading="lazy"><div><b>오라이트 스토어 <em>2026 NEW</em></b><span>오라이트 국내 온라인 총판</span></div><i>↗</i></a>
+    </div>
+  </div></section>
+  <section><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Sales channels · 20+</p><h2>하나의 제품을, 20여 개 판로로 펼칩니다</h2></div>
+    <ul class="list chan">
+      <li><b>오픈마켓 · 종합쇼핑몰</b><p>네이버쇼핑 · 쿠팡 · G마켓 · 옥션 · 11번가 · 토스공구 · 올웨이즈 · 아이품고</p></li>
+      <li><b>기업 · 자동차 특판</b><p>현대차 딜러몰 · 기아차 딜러몰</p></li>
+      <li><b>커뮤니티 · 소셜 커머스</b><p>한의사 커뮤니티 · 네이버 카페 공구 · 인스타 공구</p></li>
+      <li><b>기타 특수채널</b><p>특판 · 직납</p></li>
+    </ul>
+  </div></section>
+  <section><div class="wrap two">
+    <div><p class="eyebrow" style="margin-bottom:10px">Content marketing</p><h2 style="font-size:clamp(24px,3vw,32px)">직접 찍고, 직접 올립니다.</h2><p style="color:var(--ink-2);margin-top:12px">광고비를 판매력으로 바꿉니다.</p></div>
+    <div><ul class="list">
+      <li><b>YouTube 「장도빨」</b><span>리뷰 · 쇼츠</span><p>제품 사용 중심의 리뷰와 쇼츠를 제작합니다. <a href="https://www.youtube.com/@jangdobbal" target="_blank" rel="noopener">채널 보기 ↗</a></p></li>
+      <li><b>네이버 쇼핑라이브</b><span>전환율 2%대</span><p>햇뜰 · 장도빨 · 오라이트 라이브와 숏클립을 운영합니다. <a href="https://shoppinglive.naver.com/channels/27219" target="_blank" rel="noopener">라이브 보기 ↗</a></p></li>
+    </ul></div>
+  </div></section>
+  <section><div class="wrap closing"><h2>제품만 보내주세요.<br><b>노출부터 마케팅까지, 코지가 처리합니다.</b></h2></div></section>`;
   if(k==="wheel") return `
   <section><div class="wrap">
     <div class="sec-head"><p class="eyebrow">Fixed price · 6-step confirm</p><h2>공수 기반 정찰제, 숨은 비용 0원</h2><p>견적금액 = 정해진 공수 × 작업시간. 단계마다 고객 확인을 받은 뒤 다음으로 넘어갑니다.</p></div>
@@ -540,31 +635,52 @@ function extra(k){
     <p class="note">파트너 기업 35+ · R&D·정부지원사업 15건+ 수주 · 기획·디자인·개발·마케팅 5~10년 경력 전문가 팀</p>
   </div></section>`;
   if(k==="adone") return `
+  <section><div class="wrap intro">
+    <figure class="doc"><img src="img/ad_main.jpg" alt="애드원솔루션 소개 자료" loading="lazy"></figure>
+    <div class="intro-txt">
+      <p class="eyebrow">대표님만을 위한 온라인 광고 1:1 코치</p>
+      <h2>13년, 다양한 업종에서 쌓은 실제 경험과 성과로 대표님의 판단을 돕습니다.</h2>
+      <p>광고를 대신하는 것이 아닙니다. 대표님이 광고를 제대로 판단할 수 있도록 돕는 1:1 광고 코치입니다.</p>
+      <div class="pillars">
+        <div><b>데이터 기반</b><span>광고 전략</span></div>
+        <div><b>대행사 제안서</b><span>비교 · 검토</span></div>
+        <div><b>업종에 맞는</b><span>실행 방향 제안</span></div>
+      </div>
+      <div class="partners10">
+        <div><span class="when">장기렌트카</span><b>아마존카</b><em class="num">10<small>년</small></em></div>
+        <div><span class="when">중고폰</span><b>소녀폰</b><em class="num">10<small>년</small></em></div>
+      </div>
+    </div>
+  </div></section>
+  <section><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Results by industry</p><h2>다양한 업종에서 실제 성과를 만들었습니다</h2></div>
+    <div class="results">
+      <div><span class="when">이사 · 문의</span><b class="num">+471<small>%</small></b><p>70건 → 400건</p></div>
+      <div><span class="when">임부복 · 매출</span><b class="num">+233<small>%</small></b><p>600만 → 2,000만</p></div>
+      <div><span class="when">판촉물 · 매출</span><b class="num">+60<small>%</small></b><p>5억 → 8억</p></div>
+      <div><span class="when">종합가구 · 매출</span><b class="num">3<small>억</small></b><p>1.2억 → 3억</p></div>
+    </div>
+  </div></section>
   <section><div class="wrap">
     <div class="sec-head"><p class="eyebrow">Case studies</p><h2>대표님 옆에서 함께 판단했습니다</h2></div>
     <div class="cases">
-      <div class="case"><p class="when">CASE 01 · 아임반 · 자동차용품</p><h3>대행사 변경, 혼자가 아니라 함께해서 더 좋은 선택을</h3>
-        <div class="roas"><div><span>변경 전 ROAS</span><b class="num">180%</b></div><i>→</i><div><span>변경 후 ROAS</span><b class="num acc">320%</b></div><em>+78%</em></div>
-        <p>여러 대행사 제안서를 함께 검토하고 대표님과 동반 미팅. 성과 기준과 방향을 세워 새 대행사를 선정했습니다.</p>
-        <blockquote>“제안서만 봤을 때는 잘 몰랐는데, 함께 미팅하면서 무엇을 봐야 하는지 명확해졌습니다.” <cite>아임반 대표</cite></blockquote></div>
-      <div class="case"><p class="when">CASE 02 · 플라팜 · 아이글자블럭</p><h3>광고에 대한 ‘결정 권한’을 명확히 만들어 빠르게 실행</h3>
-        <ul class="ba"><li><span>개선 전</span>의견이 많아 결정 지연 · 담당자마다 다른 방향 · 성과 부진</li><li><span>개선 후</span>대표 결정 권한 명확화 · 핵심 지표와 판단 기준 정리 · 내부 의사결정 구조 설계</li></ul>
+      <div class="case"><img class="case-img" src="img/ad_case1.jpg" alt="아임반 사례 자료" loading="lazy">
+        <p class="when">CASE 01 · 아임반 · 자동차용품</p><h3>대행사 변경, 혼자가 아니라 함께해서 더 좋은 선택을 했습니다</h3>
+        <ol class="flow3"><li>여러 대행사<br>제안서 검토</li><li>대표님과<br>동반 미팅</li><li>더 좋은 대행사 선정<br>성과와 방향 설정</li></ol>
+        <div class="roas"><div><span>기존 대행사 ROAS</span><b class="num">180%</b></div><i>→</i><div><span>새 대행사 ROAS</span><b class="num acc">320%</b></div><em>+78%</em></div>
+        <blockquote>“제안서만 봤을 때는 잘 몰랐는데, 대표님과 함께 미팅하면서 무엇을 봐야 하는지 명확해졌습니다.” <cite>아임반 대표</cite></blockquote></div>
+      <div class="case"><img class="case-img" src="img/ad_case2.jpg" alt="플라팜 사례 자료" loading="lazy">
+        <p class="when">CASE 02 · 플라팜 · 아이글자블럭</p><h3>광고에 대한 ‘결정 권한’을 명확히 만들어 빠르게 실행했습니다</h3>
+        <div class="ba2">
+          <div><span>개선 전</span><ul><li>의견이 많아 결정이 지연됨</li><li>담당자마다 방향이 달라 실행이 어려움</li><li>광고 성과가 나지 않음</li></ul></div>
+          <div class="after"><span>개선 후</span><ul><li>대표님의 결정 권한이 명확해짐</li><li>핵심 지표와 판단 기준 정리</li><li>내부 의사결정 구조 설계</li><li>광고가 빠르고 일관되게 실행</li></ul></div>
+        </div>
         <blockquote>“광고에 대한 결정이 명확해져서 실행이 빨라졌습니다. 무엇을 먼저 해야 하는지도 정리되어 좋았습니다.” <cite>플라팜 대표</cite></blockquote></div>
     </div>
+    <p class="note">위 수치는 광고 총괄·관리 과정에서 함께 경험한 개별 사례입니다. 매출은 광고뿐 아니라 상품·가격·영업·시장 환경 등 다양한 요인의 영향을 받으며, 동일한 결과를 보장하지 않습니다.</p>
   </div></section>
-  <section><div class="wrap two">
-    <div><h3 class="h3">10년을 함께한 파트너</h3><ul class="list">
-      <li><b>아마존카</b><span>장기렌트카 · 10년</span></li>
-      <li><b>소녀폰</b><span>중고폰 · 10년</span></li></ul></div>
-    <div><h3 class="h3">업종별 실제 성과</h3><ul class="list">
-      <li><b>이사 · 문의</b><span>70건 → 400건 (+471%)</span></li>
-      <li><b>임부복 · 매출</b><span>600만 → 2,000만 (+233%)</span></li>
-      <li><b>종합가구 · 매출</b><span>1.2억 → 3억</span></li>
-      <li><b>판촉물 · 매출</b><span>5억 → 8억 (+60%)</span></li></ul></div>
-  </div>
-  <div class="wrap"><p class="note">위 수치는 광고 총괄·관리 과정에서 함께 경험한 개별 사례입니다. 매출은 광고뿐 아니라 상품·가격·영업·시장 환경 등 다양한 요인의 영향을 받으며, 동일한 결과를 보장하지 않습니다.</p></div></section>
   <section><div class="wrap">
-    <div class="sec-head"><p class="eyebrow">Curriculum</p><h2>대표님 수준에 맞춰 시작합니다</h2></div>
+    <div class="sec-head"><p class="eyebrow">Curriculum</p><h2>광고를 시작하는 대표님도, 이미 하고 있는 대표님도</h2></div>
     <div class="steps" style="--n:3">
       <div><span class="k">LEVEL 01</span><b>광고가 처음이라면</b><p>광고가 필요한지, 무엇부터 할지, 예산은 얼마로 잡을지</p></div>
       <div><span class="k">LEVEL 02</span><b>이미 하고 있다면</b><p>보고서를 함께 읽고, 잘되고 있는지와 무엇을 바꿀지 판단 기준을 만듭니다</p></div>
@@ -643,6 +759,15 @@ function member(k){
   </div></section>`;
 }
 
+
+function lines(root){
+  root.querySelectorAll(".lead,.sec-head p:not(.eyebrow),.proof p:not(.eyebrow),.cta>p:not(.eyebrow),.intro-txt>p:not(.eyebrow),.feat p,.case>p:not(.when),.proc p,.pairs span").forEach(el=>{
+    if(el.children.length) return;
+    const parts=el.textContent.split(/(?<=[.!?])\s+/).filter(Boolean);
+    if(parts.length<2) return;
+    el.innerHTML=parts.map(t=>`<span class="ln">${esc(t)}</span>`).join("");
+  });
+}
 function drawPicked(){
   const box=document.getElementById("picked"); if(!box) return;
   document.querySelectorAll("[data-need]").forEach(b=>b.setAttribute("aria-pressed",picked.has(b.dataset.need)));
@@ -656,6 +781,7 @@ function render(){
   document.getElementById("app").innerHTML = key==="home"?home():member(key);
   nav(key);
   drawPicked();
+  lines(document.getElementById("app"));
   document.title = key==="home"?"키스톤 KEYSTONE":`${M[key].name} · 키스톤 KEYSTONE`;
   const cur=document.querySelector('.nav [aria-current]'); if(cur) cur.scrollIntoView({block:"nearest",inline:"center"});
 }
@@ -679,7 +805,7 @@ render();
   const g=document.getElementById("glow"), root=document.documentElement;
   const FX=".pcard,.cta-grid a,.need,.pk a,.pairs a,.feat,.award,.case,.stat,.roster .ph,.clients span";
   let tx=innerWidth/2,ty=innerHeight/3,x=tx,y=ty,raf=0;
-  const tick=()=>{x+=(tx-x)*.12;y+=(ty-y)*.12;g.style.setProperty("--gx",x+"px");g.style.setProperty("--gy",y+"px");raf=(Math.abs(tx-x)+Math.abs(ty-y)>.5)?requestAnimationFrame(tick):0};
+  const tick=()=>{x+=(tx-x)*.07;y+=(ty-y)*.07;g.style.setProperty("--gx",x+"px");g.style.setProperty("--gy",y+"px");raf=(Math.abs(tx-x)+Math.abs(ty-y)>.5)?requestAnimationFrame(tick):0};
   addEventListener("pointermove",e=>{
     tx=e.clientX;ty=e.clientY;g.classList.add("on");if(!raf)raf=requestAnimationFrame(tick);
     const el=e.target.closest&&e.target.closest(FX);
