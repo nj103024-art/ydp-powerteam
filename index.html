@@ -230,7 +230,8 @@ section + section{border-top:1px solid var(--line)}
 .rec{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(24px,4vw,56px)}
 .rec .when{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;color:var(--accent);margin-bottom:10px}
 .big-n{font-family:var(--f-display)!important;font-weight:200;font-size:30px!important;color:var(--ink)!important;letter-spacing:-.02em}
-.clients{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.clients{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.clients .pad{pointer-events:none}
 .clients span{background:var(--paper);padding:18px 12px;text-align:center;font-weight:600;font-size:14px;color:var(--ink-2)}
 .cta{justify-items:stretch}
 .cta-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px}
@@ -251,6 +252,44 @@ main,footer{position:relative}
   .need:hover{border-color:var(--ink-2)}
 }
 @media (prefers-reduced-motion:reduce){.pcard,.cta-grid a,.pk a,.pairs a,.stores a,.feat,.award,.case,.vid .th,.roster .ph,.track img{transition:none}}
+.badges{display:flex;flex-wrap:wrap;gap:8px}
+.badges span{border:1px solid var(--ink);padding:6px 12px;font-size:13px;font-weight:600;border-radius:999px}
+.principles{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.principles span{background:var(--panel);padding:8px 14px;font-size:13px;font-weight:500}
+.results.r2{grid-template-columns:1fr 1fr}
+.results.r2 div:nth-child(3){border-left:0}
+.results.r2 div:nth-child(n+3){border-top:1px solid var(--line)}
+.refs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.ref{border:1px solid var(--line);padding:16px;display:grid;gap:8px;align-content:start;min-width:0}
+.ref img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;border-radius:2px;margin-bottom:8px;background:#fff}
+.ref.wide{grid-column:1/-1}.ref.wide img{aspect-ratio:21/8}
+.ref b{font-family:var(--f-display);font-weight:500;font-size:24px;color:var(--accent)}
+.ref p{font-size:14px;color:var(--ink-2)}
+.feats.f3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.gallery figure,.wide-shot{margin:0;display:grid;gap:10px}
+.gallery img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top;border:1px solid var(--line);border-radius:3px;background:#fff}
+.wide-shot{margin-top:16px}.wide-shot img{width:100%;border:1px solid var(--line);border-radius:3px}
+.gallery figcaption,.wide-shot figcaption{display:grid;gap:2px}
+.gallery b,.wide-shot b{font-weight:600;font-size:15px}.gallery span,.wide-shot span{font-size:13px;color:var(--mute)}
+.diff{display:grid;gap:0;border-top:1px solid var(--ink)}
+.diff-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,4vw,48px);padding-block:32px;border-bottom:1px solid var(--line);align-items:center}
+.diff-row>div{display:grid;gap:12px;align-content:start}
+.diff-row .k{font-family:var(--f-mono);font-size:12px;color:var(--accent)}
+.diff-row h3{font-size:24px}.diff-row p{color:var(--ink-2);font-size:15px}
+.diff-row>img{width:100%;border:1px solid var(--line);border-radius:3px;background:#fff}
+.est{list-style:none;margin:0;padding:0;font-size:14px;border-top:1px solid var(--line)}
+.est li{padding:8px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:120px 1fr;gap:10px;font-variant-numeric:tabular-nums}
+.est li span{color:var(--mute)}.est .tot{font-weight:600}.est .tot span{color:var(--accent)}
+.quote-card{background:var(--panel);padding:32px;display:grid;gap:8px;justify-items:start}
+.quote-card .num{font-size:72px}
+.bq{margin:0;font-family:var(--f-display);font-weight:300;font-size:18px;line-height:1.55;border-left:2px solid var(--accent);padding-left:16px}
+.faq{border-top:1px solid var(--line);padding:14px 0}
+.faq:last-of-type{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.faq summary::after{content:"+";color:var(--mute)}.faq[open] summary::after{content:"–"}
+.faq summary::-webkit-details-marker{display:none}
+.faq p{margin-top:8px;color:var(--ink-2);font-size:14px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{border:1px solid var(--line);padding:6px 12px;border-radius:999px;font-size:13px;color:var(--ink-2)}
 
@@ -280,6 +319,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
 @media (max-width:900px){
   .pgrid,.packs,.needs{grid-template-columns:1fr 1fr}
   .cases{grid-template-columns:1fr}
+  .gallery{grid-template-columns:1fr 1fr}.feats.f3{grid-template-columns:1fr 1fr}
+  .diff-row{grid-template-columns:1fr}
   .results,.mini{grid-template-columns:1fr 1fr}
   .results div:nth-child(3),.mini div:nth-child(3){border-left:0}
   .results div:nth-child(n+3),.mini div:nth-child(n+3){border-top:1px solid var(--line)}
@@ -298,7 +339,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
   .flow::before{left:37px;right:auto;top:20px;bottom:20px;width:1px;height:auto}
   .step{grid-template-columns:76px 1fr;justify-items:start;text-align:left;column-gap:16px;row-gap:2px;padding:10px 0}
   .step .dot{grid-row:1/4}
-  .pgrid,.packs,.two,.pairs,.contact,.cases,.needs,.rec,.cta-grid,.track,.stores,.ba2{grid-template-columns:1fr}
+  .pgrid,.packs,.two,.pairs,.contact,.cases,.needs,.rec,.cta-grid,.track,.stores,.ba2,.refs,.feats.f3{grid-template-columns:1fr}
+  .est li{grid-template-columns:1fr}
   .pillars{grid-template-columns:1fr}.pillars div+div{padding-left:0;border-left:0;border-top:1px solid var(--line)}
   .clients{grid-template-columns:repeat(2,minmax(0,1fr))}
   .proc,.steps{grid-template-columns:1fr 1fr}
@@ -337,10 +379,11 @@ const M = {
   kimms:{name:"김만식",co:"비에이마케팅 (BA marketing)",short:"온라인 광고 마케팅",role:"CEO",img:"img/kimmansik.webp",
     verb:"PROMOTE",stage:"알린다",stageTxt:"쇼핑몰·브랜드 광고 집행과 운영",
     quote:"Beyond Ads. 마케팅의 본질에 집중합니다.",
-    fit:"온라인 쇼핑몰을 운영하는데 광고비 대비 매출이 아쉬운 대표님",
-    big:["300","+ 고정 거래처"],
-    stats:[["300","+","고정 거래처"],["2023","","대한민국 신지식인 인증 · 중소기업분야"],["4","개국","홍콩 → 일본·대만·싱가포르 진출 추진"],["AI","","2026 AI 기반 마케팅 플랫폼 개발"]],
-    services:[["온라인 쇼핑몰 광고마케팅","검색·쇼핑·SNS 광고 집행과 운영"],["판매 컨설팅","상품·채널별 판매 전략"],["해외 시장 진출","동아시아 온라인 마케팅"],["AI 마케팅","AI 기반 콘텐츠·광고 플랫폼 도입"]],
+    fit:"광고비는 쓰는데 매출로 이어지지 않는 대표님, 시장 분석부터 광고 집행까지 한 번에 맡기고 싶은 대표님",
+    big:["16.7","억 · 2025년 광고 취급액"],
+    stats:[["16.7","억","2025년 광고 취급액"],["300","+","고정 거래처"],["150","+","협업 언론사·블로그·인플루언서"],["3","사","네이버·구글·메타 공식 파트너"]],
+    services:[["검색광고","키워드·쇼핑 광고로 직·간접 구매 유도, 계정 필터링으로 2·3차 전략과 입찰 관리"],["배너광고","성별·연령·관심사·URL 타게팅, AI로 이미지와 1분 이내 짧은 영상 제작 지원"],["영상광고","롱폼·숏폼 영상으로 상품 홍보와 공식 채널 부스트"],["SNS · 바이럴 광고","인스타그램·페이스북·스레드·틱톡·당근비즈니스, 150여 개 언론사·인플루언서 협업"]],
+    extra:"ba",
     pairs:[["kimjh","광고 소재가 좋아야 광고비가 덜 듭니다. 영상 소재를 함께 기획합니다."],["han","광고로 늘어난 수요를 20여 개 판매 채널로 받아냅니다."]],
     phone:"010-4234-1807",email:"beyondadsmarketing@naver.com",addr:"서울 금천구 가산디지털1로 142, 505호",links:[]},
   kimjh:{name:"김재현",co:"포레스트 (For.REST)",short:"영상 프로덕션",role:"CEO · 기획·연출·편집·색보정",img:"img/kimjaehyun.webp",
@@ -348,7 +391,7 @@ const M = {
     quote:"기록이 아닌, 기억되는 영상을 만듭니다.",
     fit:"회사와 제품을 한 편의 영상으로 설명하고 싶은 대표님, 꾸준히 올릴 콘텐츠가 필요한 대표님",
     big:["3","연속 웹드라마 작품상 대상"],
-    stats:[["3","연속","웹드라마 작품상 대상 · LA · 서울 · 아시아"],["10","+개국","해외 다큐멘터리·로케이션 촬영"],["AI","","배우·촬영장 없이 만드는 AI 광고·필름"],["50","+","함께한 기업·기관 · 삼성생명, 현대모비스, HYBE 등"]],
+    stats:[["3","연속","웹드라마 작품상 대상 · LA · 서울 · 아시아"],["10","+개국","해외 다큐멘터리·로케이션 촬영"],["AI","","배우·촬영장 없이 만드는 AI 광고·필름"],["40","+","함께한 기업·기관 · 삼성생명, 현대모비스, HYBE 등"]],
     services:[["AI 영상 · 광고","실사 촬영 없이 AI로 광고·브랜드 필름 제작"],["브랜드 필름 · 바이럴","기획부터 촬영, 편집, 색보정까지 원스톱"],["웹드라마 · 웹예능","수상작 연출, OTT·방송 콘텐츠 제작"],["뮤직비디오 · 다큐 · 행사","라이브클립, 해외 다큐, 브랜드 행사 스케치"]],
     extra:"forrest",
     pairs:[["kimms","완성된 영상은 광고로 확산될 때 가치가 커집니다."],["kang","영상·AI 콘텐츠의 저작권과 초상권을 계약 단계에서 정리합니다."]],
@@ -356,7 +399,7 @@ const M = {
     links:[["유튜브 포트폴리오","https://www.youtube.com/channel/UCJagZg7djBPJHppR0t36QMA"],["공식 사이트","http://filmbyforrest.com"]]},
   bae:{name:"배종우",co:"휠라이프코리아",short:"웹·앱 개발",role:"CEO",img:"img/baejongwoo.webp",
     verb:"BUILD",stage:"세운다",stageTxt:"홈페이지·앱·쇼핑몰 구축",
-    quote:"초고퀄리티 웹사이트, 정액정찰제로 투명하게.",
+    quote:"웹사이트나 어플을 실속있게 개발합니다.",
     fit:"홈페이지가 없거나 오래돼서 문의로 이어지지 않는 대표님, 앱·플랫폼 아이디어가 있는 대표님",
     big:["500","+ 프로젝트 완료"],
     stats:[["500","+","완료 프로젝트 · 10여 개 산업 분야"],["99.6","%","고객 만족도"],["2","%","크몽 Prime & Master 상위 공식 인증"],["2.2","주","평균 개발 기간"]],
@@ -400,7 +443,8 @@ const PORT=[
  {ko:"댄스 퍼포먼스",pl:"PLPvRuY86DS96-4L5QpbwDp4U9yDRlVgug",v:[["DSqrGBVPXeQ","Nothing is impossible · MAPICON 2025"],["466qdD9KYko","BURN IT · MAPI Promotion"],["tDhyxgAkC7Y","BODY PARTY"],["8gMavG6xsO0","Love Theory · MAPICON 2025"]]},
  {ko:"정보 콘텐츠",pl:"PLPvRuY86DS95tl2IK27H81H-EnHdzkOYZ",v:[["KB2JOR6agCo","토크온 · 전문직 언니들"],["XIBaUuDurPk","토크온 · 학폭 대응 가이드"],["J2YCV0zBtT0","ESG 등급 낮으면 거래처 끊깁니다"],["AkBgfomuuL8","행정사 합격 후 개업 절차"]]}
 ];
-const CLIENTS="삼성생명 현대모비스 HYBE 신한카드 KB국민은행 코카콜라 포켓몬코리아 배스킨라빈스 2K_GAMES 시프트업 메디힐 롯데캐슬 동국제강 대동 한국마사회 KBS미디어 OGN PH_ENM DRX 세리TV KISF_Global_OTT_Awards 국제구조위원회(IRC) 한국컴패션 JCI BNI 비에이마케팅 펜타컴 프레스토 MINDSOS WPL_윈조이포커리그 백억커피 달콤.N 글룩 드발롱 서키컴퍼니 투비콘텐츠 트라이언스 행정언니 회생마스터 원킬수민 골든힐한의원 안성마춤 화이트소울 고려인삼학회 충현복지관 컨드씬 충남콘텐츠코리아랩 송파구 부천시 시흥시 진주시 예산군 인천광역시_서구".split(" ").map(x=>x.replace(/_/g," "));
+const CLIENTS="삼성생명 현대모비스 HYBE 신한카드 KB국민은행 코카콜라 포켓몬코리아 배스킨라빈스 2K_GAMES 시프트업 메디힐 롯데캐슬 동국제강 대동 한국마사회 KBS미디어 OGN PH_E&M 정남미명과 DRX KISF_Global_OTT_Awards 국제구조위원회(IRC) 한국컴패션 JCI BNI 비에이마케팅 펜타컴 프레스토 MINDSOS WPL_윈조이포커리그 백억커피 달콤.N 글룩 드발롱 서키컴퍼니 투비콘텐츠 트라이언스 안성마춤 고려인삼학회 충현복지관 충남콘텐츠코리아랩 송파구 부천시 시흥시 진주시 예산군 인천광역시_서구".split(" ").map(x=>x.replace(/_/g," "));
+const pad6=a=>a.concat(Array((6-a.length%6)%6).fill(""));
 const ORDER=["kang","kimms","kimjh","bae","jung","han"];
 const FLOW=["kang","han","bae","kimjh","kimms","jung"];
 
@@ -512,7 +556,7 @@ function extra(k){
     </div>`).join("")}
   </div></section>
   <section><div class="wrap">
-    <div class="sec-head"><p class="eyebrow">Clients · ${CLIENTS.length}</p><h2>함께한 기업·기관</h2></div><div class="clients">${CLIENTS.map(c=>`<span>${c}</span>`).join("")}</div>
+    <div class="sec-head"><p class="eyebrow">Clients · ${CLIENTS.length}</p><h2>함께한 기업·기관</h2></div><div class="clients">${pad6(CLIENTS).map(c=>`<span${c?"":" class=\"pad\""}>${esc(c)}</span>`).join("")}</div>
   </div></section>`;
   if(k==="cozy") return `
   <section><div class="wrap">
@@ -571,20 +615,54 @@ function extra(k){
   <section><div class="wrap closing"><h2>제품만 보내주세요.<br><b>노출부터 마케팅까지, 코지가 처리합니다.</b></h2></div></section>`;
   if(k==="wheel") return `
   <section><div class="wrap">
-    <div class="sec-head"><p class="eyebrow">Fixed price · 6-step confirm</p><h2>공수 기반 정찰제, 숨은 비용 0원</h2><p>견적금액 = 정해진 공수 × 작업시간. 단계마다 고객 확인을 받은 뒤 다음으로 넘어갑니다.</p></div>
-    <div class="steps" style="--n:6">${["기획","디자인","프론트","개발","최종 검수","유지보수"].map((s,i)=>`<div><span class="k">0${i+1}</span><b>${s}</b></div>`).join("")}</div>
+    <div class="sec-head"><p class="eyebrow">What we build</p><h2>하는 업무 분야</h2></div>
+    <div class="feats f3">
+      <div class="feat"><span class="k">WEBSITE</span><b>기업·제품·서비스 소개 홈페이지</b><p>첫인상이 되는 홍보용 소개 홈페이지를 만듭니다.</p></div>
+      <div class="feat"><span class="k">WEB · APP</span><b>웹 · 어플 서비스</b><p>카카오톡, 당근마켓, 유튜브처럼 특정 기능을 가진 웹 서비스와 어플리케이션을 만듭니다.</p></div>
+      <div class="feat"><span class="k">COMMERCE</span><b>온라인 쇼핑몰</b><p>제품을 직접 판매할 수 있는 온라인 쇼핑몰을 구축합니다.</p></div>
+    </div>
   </div></section>
   <section><div class="wrap">
-    <h3 class="h3">주요 프로젝트</h3>
-    <ul class="list">
-      <li><b>순천향대학교</b><span>하이브리드 앱</span><p>시설 민원 통합 관리 시스템</p></li>
-      <li><b>페이젠 (paygen.ca)</b><span>웹 서비스</span><p>글로벌 POS 단말기 온라인 신청·결제 플랫폼</p></li>
-      <li><b>한국난청인교육협회</b><span>웹 서비스</span><p>통합 회원 관리·정보 제공</p></li>
-      <li><b>정육깡</b><span>쇼핑몰</span><p>프리미엄 한우·한돈 쇼핑몰 전체 구축</p></li>
-      <li><b>For.REST</b><span>포트폴리오 사이트</span><p>파워팀 김재현 대표의 영상 프로덕션 공식 사이트</p></li>
-    </ul>
-    <p class="note">파트너 기업 35+ · R&D·정부지원사업 15건+ 수주 · 기획·디자인·개발·마케팅 5~10년 경력 전문가 팀</p>
-  </div></section>`;
+    <div class="sec-head"><p class="eyebrow">Portfolio</p><h2>직접 만든 결과물</h2></div>
+    <div class="gallery">
+      <figure><img src="img/wl_keah.jpg" alt="" loading="lazy"><figcaption><b>한국난청인교육협회</b><span>통합 회원 관리 · 정보 제공 웹</span></figcaption></figure>
+      <figure><img src="img/wl_khh.jpg" alt="" loading="lazy"><figcaption><b>경희S한의원</b><span>다이어트 한의원 랜딩</span></figcaption></figure>
+      <figure><img src="img/wl_genesis.jpg" alt="" loading="lazy"><figcaption><b>Genesis Boutique</b><span>브랜드 커머스 페이지</span></figcaption></figure>
+      <figure><img src="img/wl_bodylab.jpg" alt="" loading="lazy"><figcaption><b>BODYLAB</b><span>온라인 쇼핑몰</span></figcaption></figure>
+    </div>
+    <figure class="wide-shot"><img src="img/wl_coinary.jpg" alt="" loading="lazy"><figcaption><b>코이너리 (Coinary)</b><span>실시간 암호화폐 뉴스 · 호악재 알림 플랫폼</span></figcaption></figure>
+  </div></section>
+  <section><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Why Wheellife</p><h2>저희의 차별점</h2></div>
+    <div class="diff">
+      <div class="diff-row"><div><span class="k">01</span><h3>매우 상세한 견적서</h3><p>견적의 기준을 상세히 설명하고, 각 항목별로 금액을 따로 산정합니다. 고객님 입장에서 예산을 자유롭게 협의하실 수 있습니다.</p>
+        <ul class="est"><li><span>디자인</span>13섹션 × 5만 원 = 65만 원</li><li><span>프론트 퍼블리싱</span>13섹션 × 10만 원 = 130만 원</li><li><span>기능 개발</span>제품 관리 · 견적 신청 · 문자 알림 75만 원</li><li class="tot"><span>최종 견적</span>270만 원 · 기획·디자인 1~3주, 개발 1~2주</li></ul></div>
+        <img src="img/wl_estimate.jpg" alt="상세 견적서 예시" loading="lazy"></div>
+      <div class="diff-row"><div><span class="k">02</span><h3>빠른 피드백</h3><p>웹이나 어플 서비스는 긴급한 소통이 필요한 경우가 많습니다. 고객이 답답해하지 않도록 최대한 신속하게 대응합니다.</p>
+        <div class="badges"><span>긴급 요청 시 새벽에도 대응</span><span>긴급 요청 시 30분 내 조치</span></div></div>
+        <div class="quote-card"><b class="num">30<small>분</small></b><p>긴급 요청부터 조치까지</p></div></div>
+      <div class="diff-row"><div><span class="k">03</span><h3>알아서 잘 정리해준다</h3><p>“알아서 잘 정리해서 멋지게 만들어준다”는 평을 자주 듣습니다. 고객님의 정리되지 않은 생각을 현실로 구현합니다.</p>
+        <blockquote class="bq">“몇 년간 고민해왔던 홈페이지를 2주가 안 되는 짧은 시간 안에 완성해주셔서 너무 감사합니다.”</blockquote></div>
+        <img src="img/wl_review.jpg" alt="고객 리뷰 5.0" loading="lazy"></div>
+    </div>
+  </div></section>
+  <section><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Fixed price · 6-step confirm</p><h2>공수 기반 정찰제, 숨은 비용 0원</h2><p>견적금액은 정해진 공수 × 작업시간입니다. 단계마다 고객 확인을 받은 뒤 다음으로 넘어갑니다.</p></div>
+    <div class="steps" style="--n:6">${["기획","디자인","프론트","개발","최종 검수","유지보수"].map((s,i)=>`<div><span class="k">0${i+1}</span><b>${s}</b></div>`).join("")}</div>
+  </div></section>
+  <section><div class="wrap two">
+    <div><h3 class="h3">IT 개발의 흔한 오해</h3>
+      <details class="faq" open><summary>개발하면 엄청 비싼 거 아니에요?</summary><p>요즘은 기술이 발전해서 합리적인 가격에 고퀄리티 개발이 충분히 가능합니다.</p></details>
+      <details class="faq"><summary>나중에 추가 비용이 막 생기지 않나요?</summary><p>처음부터 기능과 범위를 상세히 정하면 그런 일은 없습니다. 다만 협의되지 않았던 기능이나 페이지를 나중에 넣으려면 추가 비용이 발생할 수 있습니다.</p></details>
+      <details class="faq"><summary>주변에 아는 사람이 싸게 해준다는데요?</summary><p>세상에 싸고 좋은 것은 없습니다. 원하는 퀄리티와 유지보수까지 책임지는 경우는 드뭅니다.</p></details></div>
+    <div><h3 class="h3">주요 프로젝트</h3><ul class="list">
+      <li><b>순천향대학교</b><span>하이브리드 앱</span></li>
+      <li><b>페이젠 (paygen.ca)</b><span>글로벌 결제 플랫폼</span></li>
+      <li><b>정육깡</b><span>쇼핑몰 구축</span></li>
+      <li><b>For.REST</b><span>포트폴리오 사이트</span></li></ul>
+      <p class="note">파트너 기업 35+ · R&D·정부지원사업 15건+ 수주 · 기획·디자인·개발·마케팅 5~10년 경력 전문가 팀</p></div>
+  </div></section>
+  <section><div class="wrap closing"><p style="color:var(--ink-2);margin-bottom:14px">어차피 고객이 보지 않는 페이지, 사용하지 않는 기능은 모두 빼드립니다.<br>최신 IT 기술을 활용하는 팀은 합리적인 비용을 가능하게 만듭니다.</p><h2><b>최상위 2%의 실속형 웹·앱 IT 개발사</b></h2></div></section>`;
   if(k==="adone") return `
   <section><div class="wrap intro">
     <figure class="doc"><img src="img/ad_main.jpg" alt="애드원솔루션 소개 자료" loading="lazy"></figure>
@@ -637,6 +715,51 @@ function extra(k){
       <div><span class="k">LEVEL 02</span><b>이미 하고 있다면</b><p>보고서를 함께 읽고, 잘되고 있는지와 무엇을 바꿀지 판단 기준을 만듭니다</p></div>
       <div><span class="k">LEVEL 03</span><b>더 잘하고 싶다면</b><p>광고비 증액, 대행사 판단, 전환율과 고객 여정까지</p></div>
     </div>
+  </div></section>`;
+  if(k==="ba") return `
+  <section><div class="wrap">
+    <div class="badges"><span>NAVER 공식광고대행사</span><span>Google 공식파트너</span><span>Meta 공식파트너</span><span>2023 대한민국 신지식인</span><span>설립 2022.12</span></div>
+    <div class="sec-head" style="margin-top:32px"><p class="eyebrow">Beyond Ads Marketing</p><h2>단순한 광고 운영을 넘어, 고객사와 함께 성장합니다</h2><p>변화하는 마케팅 패러다임에 발빠르게 대처해 최적의 성과를 만듭니다. 광고 수주액이나 매체 개별에 매달리지 않고, 실제 매출과 마진에 집중합니다.</p></div>
+  </div></section>
+  <section><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Marketing strategy</p><h2>시장 분석부터 고객 경험 관리까지, 원스톱으로</h2></div>
+    <div class="steps" style="--n:6">
+      <div><span class="k">01</span><b>시장 · 고객 분석</b><p>시장, 고객, 경쟁사와 마케팅 히스토리 분석</p></div>
+      <div><span class="k">02</span><b>플래닝</b><p>마진과 단가를 고려한 효율·전환 목표 설정</p></div>
+      <div><span class="k">03</span><b>미디어 믹스</b><p>고객 접근 루트를 고려한 매체 조합과 예산 구성</p></div>
+      <div><span class="k">04</span><b>집행</b><p>전략적 입찰과 데이터 기반 필터링으로 효율 최적화</p></div>
+      <div><span class="k">05</span><b>성과 측정</b><p>매체별 세부 데이터 점검 후 2차 방향 설정</p></div>
+      <div><span class="k">06</span><b>고객 경험 관리</b><p>내·외부 데이터로 마케팅 방향 개선과 제안</p></div>
+    </div>
+    <div class="principles"><span>고객 중심 마케팅</span><span>다중 A/B 테스트</span><span>시즌별 기획</span><span>로그 분석</span></div>
+  </div></section>
+  <section><div class="wrap intro">
+    <figure class="doc"><img src="img/ba_growth.jpg" alt="A사 성장 개요" loading="lazy"></figure>
+    <div class="intro-txt">
+      <p class="eyebrow">Business growth · A사 · 2024년 1월 기준</p>
+      <h2>광고비는 완만하게, 매출은 가파르게</h2>
+      <p>2019년부터 5년간 월평균 광고비와 매출을 함께 키워 월평균 매출 최고점을 달성했습니다.</p>
+      <div class="results r2">
+        <div><span class="when">매출 성장률</span><b class="num">280<small>%</small></b></div>
+        <div><span class="when">월평균 유입량</span><b class="num">+52<small>%</small></b></div>
+        <div><span class="when">월평균 트래픽</span><b class="num">+35<small>%</small></b></div>
+        <div><span class="when">악성 콘텐츠 · 부정유입</span><b class="num">0<small>건</small></b></div>
+      </div>
+    </div>
+  </div></section>
+  <section><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Reference</p><h2>숫자로 증명한 레퍼런스</h2></div>
+    <div class="refs">
+      <div class="ref"><img src="img/ba_fredit.jpg" alt="" loading="lazy"><span class="when">프레딧 (前 한국야쿠르트)</span><b>ROAS 55% 개선</b><p>타겟별 세분화와 맞춤 소재, 리타게팅 운영, 광고 콘텐츠 제작</p></div>
+      <div class="ref"><img src="img/ba_view.jpg" alt="" loading="lazy"><span class="when">뷰성형외과</span><b>CPA 24% 감소</b><p>검색·배너 합산 기준, 타겟별 맞춤 소재와 리타게팅</p></div>
+      <div class="ref"><img src="img/ba_sbs.jpg" alt="" loading="lazy"><span class="when">SBS 서울디지털포럼</span><b>목표 대비 CPV 17% 절감</b><p>브랜딩 캠페인으로 최대 동시 시청자 수 달성</p></div>
+      <div class="ref"><img src="img/ba_sister.jpg" alt="" loading="lazy"><span class="when">익스플즌 (씨스터앤)</span><b>뷰티 부문 판매 1위</b><p>브랜드 런칭부터 참여, 네이버·라쿠텐(일본)·아마존(미국) 판매 1위, 올리브영 아이펜슬 1위</p></div>
+      <div class="ref wide"><img src="img/ba_bigbro.jpg" alt="" loading="lazy"><span class="when">더빅브라더무브먼트 · 들어볼까</span><b>조회당 비용 2원 미만</b><p>타겟형 광고로 정기 캠페인 운영, 댓글·구독자 증가</p></div>
+    </div>
+  </div></section>
+  <section><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Partners</p><h2>함께 일하는 매체</h2></div>
+    <div class="clients">${pad6("NAVER 카카오 Google TikTok Facebook Instagram YouTube 당근비즈니스 X(트위터) 모비온 Taboola PICLICK TargetingGates 지그재그 카페24 메이크샵 고도몰 아임웹 캐시슬라이드 Dable ADBID REVU 에이스카운터 CRITEO ACROSS_ADN 토스 스타밸류 동아일보 중앙일보 조선일보 한겨레 경향신문 연합뉴스 한국경제".split(" ")).map(c=>`<span${c?"":" class=\"pad\""}>${c.replace(/_/g," ")}</span>`).join("")}</div>
   </div></section>`;
   if(k==="kang") return `
   <section><div class="wrap">
