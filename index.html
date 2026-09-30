@@ -142,12 +142,12 @@ section + section{border-top:1px solid var(--line)}
 .m-hero .photo{background:var(--studio);border-radius:4px 4px 0 0;height:clamp(360px,48vw,560px);display:flex;justify-content:center;align-items:flex-end;overflow:hidden}
 .m-hero .photo img{height:108%;width:auto;max-width:none;object-fit:contain;object-position:top;align-self:flex-start;margin-top:6%}
 
-.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink);border-bottom:1px solid var(--line)}
-.stat{padding:28px 20px 28px 0;display:grid;gap:10px;align-content:start;min-width:0}
-.stat + .stat{padding-left:20px;border-left:1px solid var(--line)}
-.stat .num{font-size:clamp(40px,5.2vw,64px)}
-.stat .num sup{font-size:.42em;font-weight:300;vertical-align:.9em;margin-left:2px}
-.stat .num sub{font-size:.34em;font-weight:300;vertical-align:baseline;margin-left:4px;letter-spacing:0}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--ink);border-bottom:1px solid var(--line)}
+.stat{padding:30px 24px 28px;display:grid;gap:12px;align-content:start;min-width:0;border-left:1px solid var(--line)}
+.stat:first-child{border-left:0}
+.stat .num{display:flex;align-items:baseline;gap:6px;white-space:nowrap;font-size:clamp(38px,4.6vw,58px)}
+.stat .num.long{font-size:clamp(32px,3.6vw,46px)}
+.stat .unit{font-style:normal;font-family:var(--f-body);font-weight:400;font-size:15px;letter-spacing:0;color:var(--ink-2)}
 .stat p{font-size:14px;color:var(--ink-2);line-height:1.5}
 .note{font-size:12px;color:var(--mute);margin-top:14px;line-height:1.6}
 
@@ -240,6 +240,13 @@ section + section{border-top:1px solid var(--line)}
 .cta-grid b{font-family:var(--f-display);font-weight:500;font-size:17px;display:block}
 .cta-grid span{font-size:13px;color:var(--mute)}
 .cta-grid i{font-style:normal;color:var(--mute)}
+.glow{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:0;transition:opacity .6s;background:radial-gradient(640px circle at var(--gx,50%) var(--gy,30%),color-mix(in srgb,var(--accent) 13%,transparent),transparent 62%)}
+.glow.on{opacity:1}
+main,footer{position:relative;z-index:1}
+.pcard,.cta-grid a,.need,.pk a,.pairs a,.feat,.award,.case,.stat,.roster .ph,.clients span{position:relative;isolation:isolate}
+.pcard::after,.cta-grid a::after,.need::after,.pk a::after,.pairs a::after,.feat::after,.award::after,.case::after,.stat::after,.roster .ph::after,.clients span::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;opacity:0;transition:opacity .35s;background:radial-gradient(280px circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--accent) 18%,transparent),transparent 65%)}
+.pcard:hover::after,.cta-grid a:hover::after,.need:hover::after,.pk a:hover::after,.pairs a:hover::after,.feat:hover::after,.award:hover::after,.case:hover::after,.stat:hover::after,.roster .ph:hover::after,.clients span:hover::after{opacity:1}
+@media (hover:none),(prefers-reduced-motion:reduce){.glow{display:none}}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{border:1px solid var(--line);padding:6px 12px;border-radius:999px;font-size:13px;color:var(--ink-2)}
 
@@ -273,7 +280,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
   .clients{grid-template-columns:repeat(3,minmax(0,1fr))}
   .awards,.vids,.feats{grid-template-columns:1fr 1fr}
   .stats{grid-template-columns:1fr 1fr}
-  .stat:nth-child(3){padding-left:0;border-left:0}
+  .stat:nth-child(3){border-left:0}
   .stat:nth-child(n+3){border-top:1px solid var(--line)}
   .proof{grid-template-columns:1fr}
 }
@@ -302,6 +309,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
     <nav class="nav" id="nav" aria-label="파트너"></nav>
   </div>
 </header>
+<div class="glow" id="glow" aria-hidden="true"></div>
 <main id="app"></main>
 <footer><div class="wrap"><span>KEYSTONE 키스톤 · BNI YDP 프로페셔널 챕터 파워팀</span><span>2026</span></div></footer>
 
@@ -612,7 +620,7 @@ function member(k){
     </div>
     <div class="photo"><img src="${m.img}" alt="${m.name} 대표"></div>
   </div>
-  <div class="wrap"><div class="stats">${m.stats.map(([n,u,t])=>`<div class="stat"><span class="num">${n}${u?`<sub>${u}</sub>`:""}</span><p>${esc(t)}</p></div>`).join("")}</div></div>
+  <div class="wrap"><div class="stats">${m.stats.map(([n,u,t])=>`<div class="stat"><span class="num${String(n).length>=5?" long":""}">${n}${u?`<em class="unit">${u}</em>`:""}</span><p>${esc(t)}</p></div>`).join("")}</div></div>
 
   <section><div class="wrap two">
     <div><p class="eyebrow" style="margin-bottom:10px">Partner for</p><h2 style="font-size:clamp(24px,3vw,32px);font-weight:300;line-height:1.4">${esc(m.fit)}</h2></div>
@@ -665,6 +673,20 @@ document.addEventListener("click",e=>{
 });
 window.addEventListener("hashchange",()=>{render();window.scrollTo(0,0)});
 render();
+
+(()=>{
+  if(!matchMedia("(hover:hover) and (pointer:fine)").matches||matchMedia("(prefers-reduced-motion:reduce)").matches) return;
+  const g=document.getElementById("glow"), root=document.documentElement;
+  const FX=".pcard,.cta-grid a,.need,.pk a,.pairs a,.feat,.award,.case,.stat,.roster .ph,.clients span";
+  let tx=innerWidth/2,ty=innerHeight/3,x=tx,y=ty,raf=0;
+  const tick=()=>{x+=(tx-x)*.12;y+=(ty-y)*.12;g.style.setProperty("--gx",x+"px");g.style.setProperty("--gy",y+"px");raf=(Math.abs(tx-x)+Math.abs(ty-y)>.5)?requestAnimationFrame(tick):0};
+  addEventListener("pointermove",e=>{
+    tx=e.clientX;ty=e.clientY;g.classList.add("on");if(!raf)raf=requestAnimationFrame(tick);
+    const el=e.target.closest&&e.target.closest(FX);
+    if(el){const r=el.getBoundingClientRect();el.style.setProperty("--mx",(e.clientX-r.left)+"px");el.style.setProperty("--my",(e.clientY-r.top)+"px")}
+  },{passive:true});
+  document.addEventListener("pointerleave",()=>g.classList.remove("on"));
+})();
 </script>
 
 </body>
