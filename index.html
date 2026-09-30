@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="특허·유통·홈페이지·영상·광고·코칭. BNI YDP 프로페셔널 챕터 마케팅 파워팀 6인. 필요한 전문가만 골라 연결합니다.">
+<meta name="description" content="키스톤 KEYSTONE · 원스톱 비즈니스 솔루션. 특허·유통·홈페이지·영상·광고·코칭, 필요한 전문가만 골라 연결합니다.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="YDP 마케팅 파워팀">
-<meta property="og:description" content="특허·유통·홈페이지·영상·광고·코칭. 필요한 전문가만 골라 연결합니다.">
+<meta property="og:title" content="키스톤 KEYSTONE · 원스톱 비즈니스 솔루션">
+<meta property="og:description" content="사업의 빠진 한 조각을 채웁니다. 특허·유통·홈페이지·영상·광고·코칭, 필요한 전문가만 골라 연결합니다.">
 <meta property="og:image" content="https://nj103024-art.github.io/ydp-powerteam/og.jpg">
 <meta property="og:url" content="https://nj103024-art.github.io/ydp-powerteam/">
 <meta name="twitter:card" content="summary_large_image">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
-<title>YDP 마케팅 파워팀</title>
+<title>키스톤 KEYSTONE</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@200;300;500;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -232,6 +232,14 @@ section + section{border-top:1px solid var(--line)}
 .big-n{font-family:var(--f-display)!important;font-weight:200;font-size:30px!important;color:var(--ink)!important;letter-spacing:-.02em}
 .clients{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
 .clients span{background:var(--paper);padding:18px 12px;text-align:center;font-weight:600;font-size:14px;color:var(--ink-2)}
+.cta{justify-items:stretch}
+.cta-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px}
+.cta-grid a{display:grid;grid-template-columns:52px 1fr auto;gap:14px;align-items:center;border:1px solid var(--line);padding:14px 18px;text-decoration:none;border-radius:3px;transition:border-color .2s,background .2s}
+.cta-grid a:hover{border-color:var(--ink);background:var(--panel)}
+.cta-grid img{width:52px;height:52px;border-radius:50%;object-fit:cover;object-position:50% 12%;background:var(--studio)}
+.cta-grid b{font-family:var(--f-display);font-weight:500;font-size:17px;display:block}
+.cta-grid span{font-size:13px;color:var(--mute)}
+.cta-grid i{font-style:normal;color:var(--mute)}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{border:1px solid var(--line);padding:6px 12px;border-radius:999px;font-size:13px;color:var(--ink-2)}
 
@@ -261,6 +269,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
 @media (max-width:900px){
   .pgrid,.packs,.needs{grid-template-columns:1fr 1fr}
   .cases{grid-template-columns:1fr}
+  .cta-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .clients{grid-template-columns:repeat(3,minmax(0,1fr))}
   .awards,.vids,.feats{grid-template-columns:1fr 1fr}
   .stats{grid-template-columns:1fr 1fr}
@@ -274,7 +283,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
   .flow::before{left:37px;right:auto;top:20px;bottom:20px;width:1px;height:auto}
   .step{grid-template-columns:76px 1fr;justify-items:start;text-align:left;column-gap:16px;row-gap:2px;padding:10px 0}
   .step .dot{grid-row:1/4}
-  .pgrid,.packs,.two,.pairs,.contact,.cases,.needs,.rec{grid-template-columns:1fr}
+  .pgrid,.packs,.two,.pairs,.contact,.cases,.needs,.rec,.cta-grid{grid-template-columns:1fr}
   .clients{grid-template-columns:repeat(2,minmax(0,1fr))}
   .proc,.steps{grid-template-columns:1fr 1fr}
   .m-hero{grid-template-columns:1fr}
@@ -289,12 +298,12 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
 <body>
 <header class="bar">
   <div class="wrap">
-    <a class="brand" href="#home">YDP 마케팅 파워팀<small>BNI</small></a>
+    <a class="brand" href="#home">KEYSTONE 키스톤<small>원스톱 비즈니스 솔루션</small></a>
     <nav class="nav" id="nav" aria-label="파트너"></nav>
   </div>
 </header>
 <main id="app"></main>
-<footer><div class="wrap"><span>BNI YDP 프로페셔널 챕터 · 마케팅 파워팀</span><span>2026</span></div></footer>
+<footer><div class="wrap"><span>KEYSTONE 키스톤 · BNI YDP 프로페셔널 챕터 파워팀</span><span>2026</span></div></footer>
 
 <script>
 const M = {
@@ -396,9 +405,9 @@ function nav(cur){
 function home(){
   return `
   <div class="wrap hero">
-    <p class="eyebrow">BNI YDP Professional · Marketing Power Team</p>
-    <h1>사업에 필요한 여섯 전문가,<br><b>한 번의 미팅으로.</b></h1>
-    <p class="lead">특허, 유통, 홈페이지, 영상, 광고, 코칭. 대표님이 따로따로 찾던 여섯 파트너가 한 팀으로 움직입니다. 창구는 하나, 결과는 끝까지.</p>
+    <p class="eyebrow">KEYSTONE · 원스톱 비즈니스 솔루션</p>
+    <h1>사업의 빠진 한 조각,<br><b>키스톤이 채웁니다.</b></h1>
+    <p class="lead">키스톤은 아치 한가운데서 전체를 받치는 돌입니다. 특허, 유통, 홈페이지, 영상, 광고, 코칭까지. 여섯 전문가 중 지금 필요한 사람만 골라 연결합니다. 특허부터 매출까지, 창구는 하나입니다.</p>
     <div class="roster">${ORDER.map(k=>`<a href="#${k}"><div class="ph"><img src="${pimg(k)}" alt="${M[k].name} 대표"></div><b>${M[k].name}</b><span>${esc(M[k].short)}</span></a>`).join("")}</div>
   </div>
 
@@ -451,8 +460,8 @@ function home(){
   <section><div class="wrap cta">
     <p class="eyebrow">Start</p>
     <h2>어디서부터 시작할지 모르겠다면,<br><b>아무 대표에게나 연락하세요.</b></h2>
-    <p style="color:var(--ink-2);max-width:560px">누구에게 연락하셔도 파워팀 전체가 함께 봅니다. 각 대표 페이지에 연락처가 있습니다.</p>
-    <div class="links">${ORDER.map(k=>`<a class="btn ghost" href="#${k}">${M[k].name} · ${esc(M[k].short)}</a>`).join("")}</div>
+    <p style="color:var(--ink-2);max-width:560px">누구에게 연락하셔도 키스톤 전체가 함께 봅니다. 각 대표 페이지에 연락처가 있습니다.</p>
+    <div class="cta-grid">${ORDER.map(k=>`<a href="#${k}">${face(k)}<div><b>${M[k].name}</b><span>${esc(M[k].short)}</span></div><i>→</i></a>`).join("")}</div>
   </div></section>`;
 }
 
@@ -639,7 +648,7 @@ function render(){
   document.getElementById("app").innerHTML = key==="home"?home():member(key);
   nav(key);
   drawPicked();
-  document.title = key==="home"?"YDP 마케팅 파워팀":`${M[key].name} · YDP 마케팅 파워팀`;
+  document.title = key==="home"?"키스톤 KEYSTONE":`${M[key].name} · 키스톤 KEYSTONE`;
   const cur=document.querySelector('.nav [aria-current]'); if(cur) cur.scrollIntoView({block:"nearest",inline:"center"});
 }
 document.addEventListener("click",e=>{
