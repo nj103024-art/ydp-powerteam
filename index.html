@@ -227,6 +227,11 @@ section + section{border-top:1px solid var(--line)}
 .ba li+li span{color:var(--accent)}
 .case blockquote{margin:0;font-family:var(--f-display);font-weight:300;font-size:16px;line-height:1.55;background:var(--panel);padding:16px 18px}
 .case cite{display:block;font-style:normal;font-family:var(--f-body);font-size:12px;color:var(--mute);margin-top:8px}
+.rec{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(24px,4vw,56px)}
+.rec .when{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;color:var(--accent);margin-bottom:10px}
+.big-n{font-family:var(--f-display)!important;font-weight:200;font-size:30px!important;color:var(--ink)!important;letter-spacing:-.02em}
+.clients{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.clients span{background:var(--paper);padding:18px 12px;text-align:center;font-weight:600;font-size:14px;color:var(--ink-2)}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{border:1px solid var(--line);padding:6px 12px;border-radius:999px;font-size:13px;color:var(--ink-2)}
 
@@ -256,6 +261,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
 @media (max-width:900px){
   .pgrid,.packs,.needs{grid-template-columns:1fr 1fr}
   .cases{grid-template-columns:1fr}
+  .clients{grid-template-columns:repeat(3,minmax(0,1fr))}
   .awards,.vids,.feats{grid-template-columns:1fr 1fr}
   .stats{grid-template-columns:1fr 1fr}
   .stat:nth-child(3){padding-left:0;border-left:0}
@@ -268,7 +274,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
   .flow::before{left:37px;right:auto;top:20px;bottom:20px;width:1px;height:auto}
   .step{grid-template-columns:76px 1fr;justify-items:start;text-align:left;column-gap:16px;row-gap:2px;padding:10px 0}
   .step .dot{grid-row:1/4}
-  .pgrid,.packs,.two,.pairs,.contact,.cases,.needs{grid-template-columns:1fr}
+  .pgrid,.packs,.two,.pairs,.contact,.cases,.needs,.rec{grid-template-columns:1fr}
+  .clients{grid-template-columns:repeat(2,minmax(0,1fr))}
   .proc,.steps{grid-template-columns:1fr 1fr}
   .m-hero{grid-template-columns:1fr}
   .m-hero .photo{order:-1;height:380px}
@@ -293,13 +300,13 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
 const M = {
   kang:{name:"강인혁",co:"강&강국제특허법률사무소",short:"특허·상표·저작권",role:"변호사 · 변리사",img:"img/kanginhyuk.webp",
     verb:"PROTECT",stage:"지킨다",stageTxt:"브랜드명·기술·콘텐츠 권리 확보",
-    quote:"브랜드를 알리기 전에, 먼저 지켜야 합니다.",
+    quote:"강한 자가 살아남는 것이 아니라, 살아남은 자가 강한 겁니다.",
     fit:"상표 등록 전에 브랜드를 알리기 시작했거나, 온라인 판매 중 권리 분쟁이 걱정되는 대표님",
-    big:["1975","년부터 이어온 지식재산 가업"],
-    stats:[["1975","","창립 이후 3대째 이어온 특허 가업"],["2","자격","변호사 + 변리사 동시 보유"],["2.09","만","유튜브 구독자 · 강인혁변호사의 PTCD"],["301","편","특허·상표·저작권 해설 영상"]],
+    big:["30,000","+ 건 특허·상표·디자인 출원"],
+    stats:[["30,000","+","특허·상표·디자인 출원"],["3,100","+","심판·소송 (특허·상표·디자인·저작권)"],["1,000","+","합의·조정"],["50","년","1975년 창업 이래 3대째 지식재산 가업"]],
     services:[["특허 · 실용신안","출원, 선행기술 조사, 권리화"],["상표 · 디자인","브랜드명 조사·출원, 해외 출원"],["저작권 · 프로그램 등록","콘텐츠·AI 결과물 권리 관리"],["분쟁 대응","심판·소송, 경고장·내용증명 대응"]],
     extra:"kang",
-    pairs:[["han","유통 입점 전 상표부터 확보해야 가격 교란과 도용을 막습니다."],["kimjh","영상·AI 콘텐츠의 저작권 귀속을 계약 단계에서 정리합니다."]],
+    pairs:[["han","유통 입점 전 상표부터 확보해야 가격 교란과 도용을 막습니다."],["bae","서비스·앱을 출시하기 전에 이름과 기술을 먼저 지켜 둡니다."]],
     phone:"1566-7156",email:"lawyer_kang@kangpat.com",addr:"서울 강남구 도산대로26길 16 지유 PATENT HOUSE",
     links:[["유튜브 채널","https://www.youtube.com/channel/UC85Ej2cJENXlahajzIy9a9Q"],["사무소 홈페이지","https://www.kangpat.com/ko/index.php"]]},
   kimms:{name:"김만식",co:"비에이마케팅 (BA marketing)",short:"온라인 광고 마케팅",role:"CEO",img:"img/kimmansik.webp",
@@ -309,17 +316,17 @@ const M = {
     big:["300","+ 고정 거래처"],
     stats:[["300","+","고정 거래처"],["2023","","대한민국 신지식인 인증 · 중소기업분야"],["4","개국","홍콩 → 일본·대만·싱가포르 진출 추진"],["AI","","2026 AI 기반 마케팅 플랫폼 개발"]],
     services:[["온라인 쇼핑몰 광고마케팅","검색·쇼핑·SNS 광고 집행과 운영"],["판매 컨설팅","상품·채널별 판매 전략"],["해외 시장 진출","동아시아 온라인 마케팅"],["AI 마케팅","AI 기반 콘텐츠·광고 플랫폼 도입"]],
-    pairs:[["jung","대표님이 광고를 이해하면 집행의 속도와 정확도가 올라갑니다."],["kimjh","광고 소재가 좋아야 광고비가 덜 듭니다. 영상 소재를 함께 기획합니다."]],
+    pairs:[["kimjh","광고 소재가 좋아야 광고비가 덜 듭니다. 영상 소재를 함께 기획합니다."],["han","광고로 늘어난 수요를 20여 개 판매 채널로 받아냅니다."]],
     phone:"010-4234-1807",email:"beyondadsmarketing@naver.com",addr:"서울 금천구 가산디지털1로 142, 505호",links:[]},
   kimjh:{name:"김재현",co:"포레스트 (For.REST)",short:"영상 프로덕션",role:"CEO · 기획·연출·편집·색보정",img:"img/kimjaehyun.webp",
     verb:"SHOW",stage:"보여준다",stageTxt:"AI 영상·브랜드 필름·콘텐츠 제작",
     quote:"기록이 아닌, 기억되는 영상을 만듭니다.",
     fit:"회사와 제품을 한 편의 영상으로 설명하고 싶은 대표님, 꾸준히 올릴 콘텐츠가 필요한 대표님",
     big:["3","연속 웹드라마 작품상 대상"],
-    stats:[["3","연속","웹드라마 작품상 대상 · LA · 서울 · 아시아"],["10","+개국","해외 다큐멘터리·로케이션 촬영"],["AI","","배우·촬영장 없이 만드는 AI 광고·필름"],["5","명","현역 PD 전담 · 전 공정 내부 인력 100%"]],
+    stats:[["3","연속","웹드라마 작품상 대상 · LA · 서울 · 아시아"],["10","+개국","해외 다큐멘터리·로케이션 촬영"],["AI","","배우·촬영장 없이 만드는 AI 광고·필름"],["30","+","함께한 기업·기관 · 현대모비스, HYBE, 신한카드 등"]],
     services:[["AI 영상 · 광고","실사 촬영 없이 AI로 광고·브랜드 필름 제작"],["브랜드 필름 · 바이럴","기획부터 촬영, 편집, 색보정까지 원스톱"],["웹드라마 · 웹예능","수상작 연출, OTT·방송 콘텐츠 제작"],["뮤직비디오 · 다큐 · 행사","라이브클립, 해외 다큐, 브랜드 행사 스케치"]],
     extra:"forrest",
-    pairs:[["kimms","완성된 영상은 광고로 확산될 때 가치가 커집니다."],["bae","영상이 머무를 홈페이지를 함께 만듭니다. 포레스트 공식 사이트도 휠라이프 작업입니다."]],
+    pairs:[["kimms","완성된 영상은 광고로 확산될 때 가치가 커집니다."],["kang","영상·AI 콘텐츠의 저작권과 초상권을 계약 단계에서 정리합니다."]],
     phone:"010-9918-7744",email:"filmmakerforrest@gmail.com",addr:"경기 시흥시 마유로 376, 2층 201호",
     links:[["유튜브 포트폴리오","https://www.youtube.com/channel/UCJagZg7djBPJHppR0t36QMA"],["공식 사이트","http://filmbyforrest.com"]]},
   bae:{name:"배종우",co:"휠라이프코리아",short:"웹·앱 개발",role:"CEO",img:"img/baejongwoo.webp",
@@ -330,7 +337,7 @@ const M = {
     stats:[["500","+","완료 프로젝트 · 10여 개 산업 분야"],["99.6","%","고객 만족도"],["2","%","크몽 Prime & Master 상위 공식 인증"],["2.2","주","평균 개발 기간"]],
     services:[["웹사이트 개발","템플릿 없이 100% 맞춤 코딩, 반응형"],["모바일 앱","iOS · 안드로이드, 네이티브 · 하이브리드"],["쇼핑몰 구축","쇼핑몰 전체 구축, 카페24 커스터마이징"],["SEO · 마케팅","포털·인스타그램 상위노출"]],
     extra:"wheel",
-    pairs:[["kimjh","홈페이지 첫 화면의 영상이 체류 시간을 바꿉니다."],["jung","만든 뒤의 광고 구조까지 설계해야 문의가 들어옵니다."]],
+    pairs:[["jung","만든 뒤의 광고 구조까지 설계해야 문의가 들어옵니다."],["kimms","새 홈페이지로 광고 유입을 바로 연결합니다."]],
     phone:"010-8530-8176",email:"ban8176@naver.com",addr:"",
     links:[["홈페이지","https://wheellifekor.com"],["포트폴리오","https://wheellifekor.com/bbs/portfolio.php"]]},
   jung:{name:"정주헌",co:"애드원솔루션",short:"광고 코칭·컨설팅",role:"CEO",img:"img/jungjuheon.webp",
@@ -341,7 +348,7 @@ const M = {
     stats:[["13","년","다양한 업종에서 쌓은 광고 현장 경력"],["10","년","아마존카·소녀폰과 이어온 장기 파트너십"],["1,200","+","클라이언트 광고 총괄·관리 경험"],["+78","%","아임반 ROAS 개선 (180% → 320%)"]],
     services:[["대표자 1:1 광고 코칭","광고 입문부터 증액 판단까지 대표님 눈높이로"],["데이터 기반 광고 전략","숫자로 문제를 찾고 우선순위를 정합니다"],["대행사 제안서 비교·검토","대행사 미팅에 대표님과 동반해 함께 판단"],["업종 맞춤 실행 방향","필요한 실행만 적합한 파트너에게 연결"]],
     extra:"adone",
-    pairs:[["kimms","판단 기준이 서면 광고 집행은 믿고 맡길 수 있습니다."],["bae","전환이 막힌 곳이 홈페이지라면 바로 구조를 고칩니다."]],
+    pairs:[["bae","전환이 막힌 곳이 홈페이지라면 바로 구조를 고칩니다."],["kimjh","판단이 서면 광고 소재부터 바꿉니다. 영상 소재를 바로 만듭니다."]],
     phone:"010-4614-8589",email:"timeorange@naver.com",addr:"경기 고양시 덕양구 권율대로 656, 722호",
     links:[["홈페이지","https://www.adonesolution.co.kr"]]},
   han:{name:"한지섭",co:"코지코퍼레이션 (COZY)",short:"온라인 소싱·유통",role:"CEO",img:"img/hanjiseop.webp",
@@ -352,7 +359,7 @@ const M = {
     stats:[["0","건","창업 8년, 약정일보다 늦은 정산"],["20","+","동시 판매 채널"],["10,000","+","누적 리뷰"],["6,000","+","장인은도구빨 일 평균 방문자"]],
     services:[["해외 공장 직접 소싱","제조대행, 검수까지 직접 운영"],["다채널 입점 판매","오픈마켓·딜러몰·커뮤니티 공구까지"],["기업 MRO","공구·사무용품·선물용품 기업 납품"],["콘텐츠 판매 지원","쇼츠·쇼핑라이브 제작, 전환율 2%대"]],
     extra:"cozy",
-    pairs:[["kang","유통 전에 상표를 먼저 잡아야 가격 교란을 막습니다."],["kimjh","쇼츠와 제품 영상이 상세페이지 전환율을 끌어올립니다."]],
+    pairs:[["kang","유통 전에 상표를 먼저 잡아야 가격 교란을 막습니다."],["jung","입점 후 광고비를 어디에 쓸지 판단 기준을 세웁니다."]],
     phone:"010-3251-2664",email:"hjs_6150@naver.com",addr:"서울 영등포구 양산로 177 상가동 301호",links:[]}
 };
 const PORT=[
@@ -368,6 +375,7 @@ const PORT=[
  {ko:"댄스 퍼포먼스",pl:"PLPvRuY86DS96-4L5QpbwDp4U9yDRlVgug",v:[["DSqrGBVPXeQ","Nothing is impossible · MAPICON 2025"],["466qdD9KYko","BURN IT · MAPI Promotion"],["tDhyxgAkC7Y","BODY PARTY"],["8gMavG6xsO0","Love Theory · MAPICON 2025"]]},
  {ko:"정보 콘텐츠",pl:"PLPvRuY86DS95tl2IK27H81H-EnHdzkOYZ",v:[["KB2JOR6agCo","토크온 · 전문직 언니들"],["XIBaUuDurPk","토크온 · 학폭 대응 가이드"],["J2YCV0zBtT0","ESG 등급 낮으면 거래처 끊깁니다"],["AkBgfomuuL8","행정사 합격 후 개업 절차"]]}
 ];
+const CLIENTS="OGN KBS미디어 국제구조위원회(IRC) BNI 시흥시 DRX 현대모비스 HYBE JCI 인천광역시_서구 WPL_윈조이포커리그 코카콜라 한국컴패션 충남콘텐츠코리아랩 진주시 2K_GAMES 배스킨라빈스 동국제강 롯데캐슬 송파구 포켓몬 KB국민은행 신한카드 대동 부천시 펜타컴 시프트업 MINDSOS 프레스토 예산군".split(" ").map(x=>x.replace(/_/g," "));
 const ORDER=["kang","kimms","kimjh","bae","jung","han"];
 const FLOW=["kang","han","bae","kimjh","kimms","jung"];
 
@@ -479,7 +487,7 @@ function extra(k){
     </div>`).join("")}
   </div></section>
   <section><div class="wrap">
-    <h3 class="h3">함께한 기업·기관</h3><div class="chips">${"배스킨라빈스 코카콜라 HYBE 현대모비스 롯데캐슬 2K_GAMES KBS미디어 OGN DRX 동국제강 국제구조위원회 한국컴패션 송파구 부천시 시흥시 진주시 인천_서구 강원특별자치도 충남콘텐츠코리아랩 BNI".split(" ").map(s=>`<span class="chip">${s.replace("_"," ")}</span>`).join("")}</div>
+    <div class="sec-head"><p class="eyebrow">Clients · ${CLIENTS.length}</p><h2>함께한 기업·기관</h2></div><div class="clients">${CLIENTS.map(c=>`<span>${c}</span>`).join("")}</div>
   </div></section>`;
   if(k==="cozy") return `
   <section><div class="wrap two">
@@ -529,7 +537,7 @@ function extra(k){
   </div></section>
   <section><div class="wrap two">
     <div><h3 class="h3">10년을 함께한 파트너</h3><ul class="list">
-      <li><b>아마존카</b><span>장기렌트 · 10년</span></li>
+      <li><b>아마존카</b><span>장기렌트카 · 10년</span></li>
       <li><b>소녀폰</b><span>중고폰 · 10년</span></li></ul></div>
     <div><h3 class="h3">업종별 실제 성과</h3><ul class="list">
       <li><b>이사 · 문의</b><span>70건 → 400건 (+471%)</span></li>
@@ -548,13 +556,38 @@ function extra(k){
   </div></section>`;
   if(k==="kang") return `
   <section><div class="wrap">
-    <div class="sec-head"><p class="eyebrow">Since 1975</p><h2>반세기, 3대에 걸친 지식재산 가업</h2></div>
+    <div class="sec-head"><p class="eyebrow">Track record</p><h2>경험과 역사는 오늘도 쌓여갑니다</h2></div>
+    <div class="rec">
+      <div class="rec-g"><p class="when">특허 · 상표 · 디자인</p>
+        <ul class="list"><li><b>출원</b><span class="big-n">30,000+</span></li><li><b>심판 · 소송</b><span class="big-n">3,000+</span></li><li><b>합의 · 조정 등</b><span class="big-n">500+</span></li></ul></div>
+      <div class="rec-g"><p class="when">저작권 · 부정경쟁</p>
+        <ul class="list"><li><b>심판 · 소송</b><span class="big-n">100+</span></li><li><b>합의 · 조정 등</b><span class="big-n">500+</span></li></ul></div>
+    </div>
+  </div></section>
+  <section><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Since 1975</p><h2>1975년 창업 이래, 3대에 걸쳐 50년</h2></div>
     <div class="steps" style="--n:4">
       <div><span class="k">1975</span><b>강동수 변리사 창립</b><p>특허청 항고심판소장 역임</p></div>
       <div><span class="k">1982</span><b>강일우 대표변리사</b><p>강&강국제특허법률사무소 대표</p></div>
       <div><span class="k">1993</span><b>지유 PATENT HOUSE</b><p>논현동 사옥 준공</p></div>
       <div><span class="k">2020</span><b>강인혁 변호사·변리사</b><p>KAIST 지식재산대학원 석사</p></div>
     </div>
+  </div></section>
+  <section><div class="wrap two">
+    <div><h3 class="h3">방송 출연</h3><ul class="list">
+      <li><b>KBS 성공예감</b><span>2023 · 2024</span></li>
+      <li><b>SBS 궁금한 이야기 Y</b><span>2024 · 2025</span></li>
+      <li><b>SBS 모닝와이드</b><span>2024</span></li>
+      <li><b>KTV ‘잘사는 법(法)’ 생방송 단독</b><span>2025</span></li>
+      <li><b>서울신문 지식채널 「시냅스」</b><span>2025</span></li>
+      <li><b>유튜브 강인혁변호사의 PTCD</b><span>구독자 2.09만</span></li></ul></div>
+    <div><h3 class="h3">강연 · 강의</h3><ul class="list">
+      <li><b>경북대 「랜선 지식재산토크쇼」</b><span>2024</span></li>
+      <li><b>한국교육학술정보원 저작권 전문가 양성 연수</b><span>2025</span></li>
+      <li><b>명지대학교 교육학습센터</b><span>2025</span></li>
+      <li><b>시청자미디어재단</b><span>2025</span></li>
+      <li><b>서울연극센터(서울문화재단)</b><span>2025</span></li>
+      <li><b>인천테크노파크 지식재산권과 브랜드 관리</b><span>2026</span></li></ul></div>
   </div></section>`;
   return "";
 }
