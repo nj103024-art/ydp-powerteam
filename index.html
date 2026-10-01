@@ -333,6 +333,57 @@ p,li{text-wrap:pretty}
 @keyframes pulse{50%{opacity:.25}}
 .combo.on{background:var(--ink);color:var(--paper);border-style:solid;border-color:var(--ink)}
 .combo,.need{transition:background-color .35s,color .35s,border-color .35s}
+.intro{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,5vw,64px);align-items:start}
+.doc{margin:0;border:1px solid var(--line);background:#fff;border-radius:3px;overflow:hidden}
+.doc img{display:block;width:100%;height:auto}
+.intro-txt{display:grid;gap:20px;align-content:start}
+.intro-txt h2{font-size:clamp(24px,2.8vw,34px);line-height:1.4;font-weight:500}
+.intro-txt>p{color:var(--ink-2)}
+.pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--ink);border-bottom:1px solid var(--line)}
+.pillars div{padding:16px 12px 16px 0;display:grid;gap:2px}
+.pillars div+div{padding-left:14px;border-left:1px solid var(--line)}
+.pillars b{font-weight:600;font-size:15px}.pillars span{font-size:13px;color:var(--ink-2)}
+.partners10{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.partners10 div{background:var(--panel);padding:18px 20px;display:grid;gap:4px}
+.partners10 b{font-family:var(--f-display);font-weight:500;font-size:20px}
+.partners10 .num{font-style:normal;font-size:40px;color:var(--accent)}
+.when{font-family:var(--f-mono);font-size:12px;letter-spacing:.04em;color:var(--mute)}
+.num small{font-family:var(--f-body);font-size:15px;font-weight:400;margin-left:4px;letter-spacing:0;color:var(--ink-2)}
+.results{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--ink);border-bottom:1px solid var(--line)}
+.results div{padding:26px 22px;display:grid;gap:10px;align-content:start;border-left:1px solid var(--line)}
+.results div:first-child{border-left:0}
+.results .num{font-size:clamp(34px,4vw,50px);white-space:nowrap}
+.results p{font-size:14px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.case-img{width:100%;height:auto;border:1px solid var(--line);border-radius:3px;background:#fff}
+.flow3{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.flow3 li{background:var(--panel);padding:12px;font-size:13px;line-height:1.45;text-align:center}
+.flow3 li:nth-child(2){color:var(--accent);font-weight:600}
+.ba2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ba2>div{border:1px solid var(--line);padding:14px}
+.ba2 span{font-family:var(--f-mono);font-size:12px;color:var(--mute)}
+.ba2 .after{border-color:var(--accent)}.ba2 .after span{color:var(--accent)}
+.ba2 ul{margin:8px 0 0;padding-left:16px;font-size:13px;color:var(--ink-2);display:grid;gap:4px}
+.hero-img{margin:0 0 32px;position:relative;border-radius:3px;overflow:hidden}
+.hero-img img{display:block;width:100%;height:clamp(220px,34vw,420px);object-fit:cover}
+.hero-img figcaption{position:absolute;left:0;bottom:0;right:0;padding:40px 24px 20px;color:#fff;font-weight:500;font-size:clamp(14px,1.6vw,17px);line-height:1.6;background:linear-gradient(transparent,rgba(0,0,0,.6))}
+.mini{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mini div{padding:18px 20px;display:grid;gap:4px;border-left:1px solid var(--line)}
+.mini div:first-child{border-left:0}
+.mini .num{font-size:34px}.mini span{font-size:13px;color:var(--ink-2)}
+.track{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.track div{display:grid;gap:6px;align-content:start}
+.track img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:3px;margin-bottom:8px}
+.track b{font-family:var(--f-display);font-weight:500;font-size:19px}
+.track p{font-size:14px;color:var(--ink-2)}
+.stores{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.stores a{display:grid;grid-template-columns:96px 1fr auto;gap:16px;align-items:center;border:1px solid var(--line);padding:12px;text-decoration:none;border-radius:3px}
+.stores a:hover{border-color:var(--ink)}
+.stores img{width:96px;height:72px;object-fit:cover;border-radius:2px}
+.stores b{font-family:var(--f-display);font-weight:500;font-size:18px;display:block}
+.stores b em{font-style:normal;font-family:var(--f-mono);font-size:10px;background:var(--accent-soft);color:var(--accent);padding:2px 6px;margin-left:6px;vertical-align:middle}
+.stores span{font-size:13px;color:var(--ink-2)}.stores i{font-style:normal;color:var(--mute)}
+.chan li{grid-template-columns:1fr}.chan li p{margin-top:0}
+.closing h2{font-size:clamp(26px,3.6vw,42px);font-weight:300;line-height:1.35}.closing h2 b{font-weight:700}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{border:1px solid var(--line);padding:6px 12px;border-radius:999px;font-size:13px;color:var(--ink-2)}
 
@@ -457,7 +508,7 @@ const M = {
     quote:"광고를 대신하지 않습니다. 대표님이 광고를 제대로 판단하도록 돕습니다.",
     fit:"광고는 하는데 매출이 안 나오는 대표님\n대행사 보고서를 읽어도 판단이 서지 않는 대표님",
     big:["13","년 · 다양한 업종의 광고 현장"],
-    stats:[["13","년","다양한 업종에서 쌓은 광고 현장 경력"],["10","년","아마존카·소녀폰과 이어온 장기 파트너십"],["1,200","+","클라이언트 광고 총괄·관리 경험"],["+78","%","아임반 ROAS 개선 (180% → 320%)"]],
+    stats:[["13","년","다양한 업종에서 쌓은 광고 현장 경력"],["10","년","아마존카·소녀폰과 이어온 장기 파트너십"],["1,200","+","클라이언트 광고 총괄·관리 경험"],["+140","%p","아임반 ROAS 개선 · 180% → 320%"]],
     services:[["대표자 1:1 광고 코칭","광고 입문부터 증액 판단까지 대표님 눈높이로"],["데이터 기반 광고 전략","숫자로 문제를 찾고 우선순위를 정합니다"],["대행사 제안서 비교·검토","대행사 미팅에 대표님과 동반해 함께 판단"],["업종 맞춤 실행 방향","필요한 실행만 적합한 파트너에게 연결"]],
     extra:"adone",
     pairs:[["bae","전환이 막힌 곳이 홈페이지라면 바로 구조를 고칩니다."],["kimjh","판단이 서면 광고 소재부터 바꿉니다. 영상 소재를 바로 만듭니다."]],
@@ -732,7 +783,7 @@ function extra(k){
       <div><span class="when">이사 · 문의</span><b class="num">+471<small>%</small></b><p>70건 → 400건</p></div>
       <div><span class="when">임부복 · 매출</span><b class="num">+233<small>%</small></b><p>600만 → 2,000만</p></div>
       <div><span class="when">판촉물 · 매출</span><b class="num">+60<small>%</small></b><p>5억 → 8억</p></div>
-      <div><span class="when">종합가구 · 매출</span><b class="num">3<small>억</small></b><p>1.2억 → 3억</p></div>
+      <div><span class="when">종합가구 · 매출</span><b class="num">+150<small>%</small></b><p>1.2억 → 3억</p></div>
     </div>
   </div></section>
   <section><div class="wrap">
@@ -741,7 +792,7 @@ function extra(k){
       <div class="case"><img class="case-img" src="img/ad_case1.jpg" alt="아임반 사례 자료" loading="lazy">
         <p class="when">CASE 01 · 아임반 · 자동차용품</p><h3>대행사 변경을 혼자가 아니라 함께해서 더 좋은 선택을 했습니다</h3>
         <ol class="flow3"><li>여러 대행사<br>제안서 검토</li><li>대표님과<br>동반 미팅</li><li>더 좋은 대행사 선정<br>성과와 방향 설정</li></ol>
-        <div class="roas"><div><span>기존 대행사 ROAS</span><b class="num">180%</b></div><i>→</i><div><span>새 대행사 ROAS</span><b class="num acc">320%</b></div><em>+78%</em></div>
+        <div class="roas"><div><span>기존 대행사 ROAS</span><b class="num">180%</b></div><i>→</i><div><span>새 대행사 ROAS</span><b class="num acc">320%</b></div><em>+140%p</em></div>
         <blockquote>“제안서만 봤을 때는 잘 몰랐는데, 대표님과 함께 미팅하면서 무엇을 봐야 하는지 명확해졌습니다.” <cite>아임반 대표</cite></blockquote></div>
       <div class="case"><img class="case-img" src="img/ad_case2.jpg" alt="플라팜 사례 자료" loading="lazy">
         <p class="when">CASE 02 · 플라팜 · 아이글자블럭</p><h3>광고에 대한 ‘결정 권한’을 명확히 만들어 빠르게 실행했습니다</h3>
@@ -880,7 +931,7 @@ function member(k){
 
 
 function lines(root){
-  root.querySelectorAll("p:not(.eyebrow):not(.when):not(.role):not(.co):not(.cnt),.pairs span,.stat p,li p").forEach(el=>{
+  root.querySelectorAll("p:not(.eyebrow):not(.when):not(.role):not(.co):not(.cnt),.pairs span,.stat p,li p,.m-hero blockquote").forEach(el=>{
     if(el.children.length) return;
     const parts=el.textContent.split(/(?<=[.!?])\s+/).filter(Boolean);
     if(parts.length<2) return;
