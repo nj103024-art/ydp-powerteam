@@ -36,7 +36,7 @@
   --accent:#C9A56E; --accent-soft:#2A241B; color-scheme:dark}
 
 *{box-sizing:border-box}
-body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;word-break:keep-all}
+body{background:var(--paper);color:var(--ink);line-break:strict;overflow-wrap:break-word;font-family:var(--f-body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;word-break:keep-all}
 a{color:inherit}
 .wrap{max-width:var(--wrap);margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
 h1,h2,h3{font-family:var(--f-display);font-weight:500;text-wrap:balance;margin:0;letter-spacing:-.01em}
@@ -295,7 +295,8 @@ main,footer{position:relative}
 .eyebrow::before{content:"";display:inline-block;width:22px;height:1px;background:currentColor;vertical-align:middle;margin-right:10px;transform:translateY(-1px)}
 .ln{display:block}
 .ln+.ln{margin-top:.15em}
-h1,h2,h3,.fit,.ln,blockquote{text-wrap:balance}
+h1,h2,h3,blockquote{text-wrap:balance}
+.fit,.ln,.m-partner{text-wrap:pretty}
 @media (max-width:720px){.brand small{display:none}}
 p,li{text-wrap:pretty}
 .fit,.m-partner{white-space:pre-line}
@@ -930,6 +931,23 @@ function member(k){
 }
 
 
+/* 의미 단위 줄바꿈: 붙어 다녀야 하는 말은 줄이 갈리지 않게 묶는다 */
+const DEP="수|것|중|등|때|뿐|곳|개|명|년|건|편|번|분|주|원|위|억|만|배|화|호|층|권|종|곳|님|씨|초|시간|가지|이상|이내|정도|만큼|대로|동안|이래";
+const reDep=new RegExp("\\s("+DEP+")(?=[\\s.,·!?)\\]]|$)","g");
+const reOne=/(^|[\s(“"「‘])([가-힣]) (?=[^\s·→])/g;
+function glueText(t){
+  t=t.replace(/\s·\s/g," · ").replace(/\s→\s/g," → ").replace(/\s~\s/g," ~ ");
+  t=t.replace(reDep," $1");
+  t=t.replace(reOne,"$1$2 "); t=t.replace(reOne,"$1$2 ");
+  return t;
+}
+function glue(root){
+  if(!root) return;
+  const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:n=>/[가-힣]/.test(n.nodeValue)&&!n.parentElement.closest("script,style,.num,.big-n")?1:2});
+  const ns=[]; while(w.nextNode()) ns.push(w.currentNode);
+  ns.forEach(n=>{const v=glueText(n.nodeValue); if(v!==n.nodeValue) n.nodeValue=v});
+}
+
 function lines(root){
   root.querySelectorAll("p:not(.eyebrow):not(.when):not(.role):not(.co):not(.cnt),.pairs span,.stat p,li p,.m-hero blockquote").forEach(el=>{
     if(el.children.length) return;
@@ -975,6 +993,7 @@ function drawPicked(){
   const ks=ORDER.filter(k=>picked.has(k));
   box.innerHTML = ks.length?`<p class="cnt">선택한 포지션 <b>${ks.length}</b> · 이 전문가만 함께합니다</p><div class="pk">${ks.map((k,j)=>`<a style="--j:${j}" href="#${k}">${face(k)}<div><b>${M[k].name}</b><span>${esc(M[k].co)}</span><small>${esc(M[k].stageTxt)}</small></div></a>`).join("")}</div>`
     :`<p class="cnt">위에서 필요한 포지션을 눌러 주세요.</p>`;
+  glue(box);
 }
 function render(){
   const k=(location.hash||"#home").slice(1);
@@ -983,6 +1002,7 @@ function render(){
   nav(key);
   drawPicked();
   lines(document.getElementById("app"));
+  glue(document.getElementById("app"));
   countUp(document.getElementById("app"));
   stopDemo(); if(key==="home") startDemo();
   document.title = key==="home"?"키스톤 KEYSTONE":`${M[key].name} · 키스톤 KEYSTONE`;
