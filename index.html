@@ -449,6 +449,78 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
 }
 @media (max-width:420px){.awards,.vids,.feats{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* ===== premium pass ===== */
+main{counter-reset:sec}
+.sec-head .eyebrow{counter-increment:sec}
+.sec-head .eyebrow::before{content:counter(sec,decimal-leading-zero);width:auto;height:auto;background:none;margin-right:14px;padding-right:14px;border-right:1px solid currentColor;transform:none;font-weight:500}
+.sec-head h2{font-weight:400;font-size:clamp(28px,3.8vw,44px);line-height:1.28}
+.sec-head h2 b{font-weight:700}
+.nav a{letter-spacing:.01em}
+.nav a[aria-current="page"]{background:transparent;color:var(--ink);box-shadow:inset 0 -1.5px 0 var(--accent);border-radius:0}
+.btn{border-radius:2px;letter-spacing:.02em;padding:13px 20px}
+.hero h1{letter-spacing:-.025em}
+.hero .lead{font-size:18px;line-height:1.75}
+.arch{position:absolute;right:clamp(16px,4vw,40px);top:clamp(28px,4vw,56px);width:min(400px,34vw);height:auto;pointer-events:none}
+.arch path{fill:none;stroke:var(--ink-2);stroke-width:.8;opacity:.55}
+.arch path.key{fill:var(--accent);stroke:var(--accent);opacity:1}
+.arch text{font-family:var(--f-mono);font-size:9px;letter-spacing:.2em;fill:var(--mute)}
+.arch .key-l{fill:var(--accent)}
+@media (max-width:900px){.arch{display:none}}
+.roster b{font-size:20px}
+.roster .ph{border-radius:2px;position:relative}
+.roster .ph::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--ink) 8%,transparent);border-radius:inherit}
+
+/* dark band */
+.band{--b-bg:#111214;--b-ink:#EEECE6;--b-2:#B6B3AC;--b-mute:#86847F;--b-line:#2A2C30;--b-acc:#CBA770;background:var(--b-bg);color:var(--b-ink);border-top:0!important}
+.band+section{border-top:0}
+.band .eyebrow{color:var(--b-acc)}
+.band h2,.band h3{color:var(--b-ink)}
+.band .sec-head h2::after{background:var(--b-acc)}
+.band .proof{background:transparent;padding:0}
+.band .proof p{color:var(--b-2)}
+.band .net line{stroke:var(--b-acc);opacity:.35}
+.band .net .ring{fill:#1C1D20;stroke:var(--b-acc)}
+
+/* one team */
+.team{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,6vw,88px);align-items:start}
+.team-lead{display:grid;gap:22px;position:sticky;top:96px}
+.team-lead h2{font-family:var(--f-display);font-size:clamp(30px,3.8vw,46px);font-weight:300;line-height:1.3;letter-spacing:-.02em}
+.team-lead h2 b{font-weight:700}
+.team-lead h2 .acc{color:var(--b-acc)}
+.team-lead>p{color:var(--b-2);font-size:16px;line-height:1.8}
+.hub{width:100%;max-width:400px;height:auto;margin-top:6px}
+.hub line{stroke:var(--b-acc);stroke-width:.9;opacity:.5}
+.hub line.flow{stroke-dasharray:3 9;opacity:.9;animation:dash 3.2s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-48}}
+.hub .ring{fill:#1C1D20;stroke:var(--b-acc);stroke-width:1}
+.hub .ring.me{stroke-width:1.6}
+.hub text{font-family:var(--f-body);font-size:12px;fill:var(--b-2);text-anchor:middle}
+.hub text.n{font-family:var(--f-display);font-size:14px;fill:var(--b-ink);font-weight:500}
+.hub text.me{font-size:16px}
+.tlist{border-top:1px solid var(--b-acc)}
+.trow{display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:20px;align-items:center;padding:22px 4px;border-bottom:1px solid var(--b-line);text-decoration:none;color:inherit;transition:background-color .3s}
+.trow img{width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:50% 12%;background:#2a2b2e;filter:saturate(.9)}
+.trow .cap{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;color:var(--b-acc);text-transform:uppercase;display:block;margin-bottom:4px}
+.trow b{font-family:var(--f-display);font-weight:500;font-size:21px;display:block;line-height:1.3}
+.trow b small{font-family:var(--f-body);font-weight:400;font-size:13px;color:var(--b-mute);margin-left:8px}
+.trow p{font-size:14px;color:var(--b-2);margin-top:6px;line-height:1.6}
+.trow .kpi{text-align:right;display:grid;gap:2px;justify-items:end;min-width:96px}
+.trow .kpi .num{font-size:34px;color:var(--b-ink)}
+.trow .kpi small{font-size:11px;color:var(--b-mute);max-width:130px;line-height:1.4}
+@media (hover:hover) and (pointer:fine){.trow:hover{background:rgba(255,255,255,.035)}.trow:hover b{color:var(--b-acc)}}
+.tfoot{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:clamp(40px,6vw,72px);border-top:1px solid var(--b-line)}
+.tfoot div{padding:24px 24px 0 0;display:grid;gap:8px}
+.tfoot div+div{padding-left:24px;border-left:1px solid var(--b-line)}
+.tfoot .num{font-size:clamp(40px,5vw,60px);color:var(--b-acc)}
+.tfoot b{font-weight:600;font-size:15px}
+.tfoot p{font-size:14px;color:var(--b-2)}
+@media (max-width:900px){.team{grid-template-columns:1fr}.team-lead{position:static}.hub{max-width:340px}}
+@media (max-width:720px){.trow{grid-template-columns:52px minmax(0,1fr);gap:14px}.trow img{width:52px;height:52px}.trow .kpi{grid-column:2;justify-items:start;justify-content:start;text-align:left;grid-template-columns:auto minmax(0,1fr);align-items:baseline;gap:10px}.trow .kpi small{max-width:none}.trow .kpi .num{font-size:26px}
+  .tfoot{grid-template-columns:1fr}.tfoot div+div{padding-left:0;border-left:0;border-top:1px solid var(--b-line);margin-top:20px}}
+@media (prefers-reduced-motion:reduce){.hub line.flow{animation:none}}
+
+.foot-mark{font-family:var(--f-display);font-weight:200;font-size:clamp(44px,11vw,140px);letter-spacing:.04em;line-height:.9;color:var(--ink);opacity:.08;margin-bottom:24px;white-space:nowrap;overflow:hidden}
 </style>
 
 </head>
@@ -460,7 +532,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
   </div>
 </header>
 <main id="app"></main>
-<footer><div class="wrap"><span>KEYSTONE 키스톤 · BNI YDP 프로페셔널 챕터 파워팀</span><span>2026</span></div></footer>
+<footer><div class="wrap foot-mark" aria-hidden="true">KEYSTONE</div><div class="wrap"><span>KEYSTONE 키스톤 · BNI YDP 프로페셔널 챕터 파워팀</span><span>2026</span></div></footer>
 
 <script>
 const calm=matchMedia("(prefers-reduced-motion:reduce)").matches;
@@ -494,7 +566,7 @@ const M = {
     stats:[["500","+","총 제작 편수"],["40","+","함께한 기업·기관 · 삼성생명 · 현대모비스 · HYBE"],["3","연속","웹드라마 작품상 대상 · LA · 서울 · 아시아"],["10","+개국","해외 다큐멘터리·로케이션 촬영"]],
     services:[["AI 영상 · 광고","실사 촬영 없이 AI로 광고·브랜드 필름 제작"],["브랜드 필름 · 바이럴","기획부터 촬영·편집·색보정까지 원스톱"],["웹드라마 · 웹예능","수상작 연출 · OTT·방송 콘텐츠 제작"],["뮤직비디오 · 다큐 · 행사","라이브클립 · 해외 다큐 · 브랜드 행사 스케치"]],
     extra:"forrest",
-    pairs:[["kimms","완성된 영상은 광고로 확산될 때 가치가 커집니다."],["kang","영상·AI 콘텐츠의 저작권과 초상권을 계약 단계에서 정리합니다."]],
+    pairs:[["kimms","완성된 영상은 광고로 확산될 때 가치가 커집니다."],["han","영상으로 만든 관심을 20여 개 판매 채널에서 매출로 바꿉니다."],["kang","영상·AI 콘텐츠의 저작권과 초상권을 계약 단계에서 정리합니다."]],
     phone:"010-9918-7744",email:"filmmakerforrest@gmail.com",addr:"경기 시흥시 마유로 376, 2층 201호",
     links:[["유튜브 포트폴리오","https://www.youtube.com/channel/UCJagZg7djBPJHppR0t36QMA"],["공식 사이트","http://filmbyforrest.com"]]},
   bae:{name:"배종우",co:"휠라이프코리아",short:"웹·앱 개발",role:"CEO",img:"img/baejongwoo.webp",
@@ -545,6 +617,14 @@ const PORT=[
 ];
 const CLIENTS="삼성생명 현대모비스 HYBE 신한카드 KB국민은행 코카콜라 포켓몬코리아 배스킨라빈스 2K_GAMES 시프트업 메디힐 롯데캐슬 동국제강 대동 한국마사회 KBS미디어 OGN PH_E&M 정남미명과 DRX DSP KISF 국제구조위원회(IRC) 옥스팜 한국컴패션 JCI BNI 펜타컴 프레스토 MINDSOS WPL_윈조이포커리그 백억커피 달콤.N 드발롱 서키컴퍼니 투비콘텐츠 안성마춤 고려인삼학회 충현복지관 충남콘텐츠코리아랩 송파구 부천시 시흥시 진주시 문경시 예산군 인천광역시_서구".split(" ").map(x=>x.replace(/_/g," "));
 const pad6=a=>a.concat(Array((6-a.length%6)%6).fill(""));
+const TEAM={
+  kang:["특허 · 상표 분쟁","브랜드명·기술·콘텐츠 권리를 먼저 지킵니다. 도용과 분쟁이 생기면 심판·소송까지 대응합니다."],
+  kimms:["광고 마케팅","네이버·구글·메타 공식 파트너로 광고 집행과 운영을 맡습니다."],
+  kimjh:["영상 · 콘텐츠","광고 소재부터 브랜드 필름·AI 영상까지 직접 기획하고 찍습니다."],
+  bae:["홈페이지 · 앱","문의가 들어오는 홈페이지·쇼핑몰·앱을 만듭니다."],
+  jung:["광고 판단 · 코칭","광고비를 어디에 쓸지 대표님 옆에서 판단 기준을 세웁니다."],
+  han:["제품 소싱 · 유통","해외 공장 소싱부터 20여 개 판매 채널 입점까지 맡습니다."]
+};
 const ORDER=["kang","kimms","kimjh","bae","jung","han"];
 const FLOW=["kang","han","bae","kimjh","kimms","jung"];
 
@@ -562,9 +642,18 @@ function nav(cur){
     ORDER.map(k=>`<a href="#${k}" ${cur===k?'aria-current="page"':""}>${M[k].name}</a>`).join("");
 }
 
+function arch(){
+  const cx=200,cy=210,r1=120,r2=180,n=9,g=.012;let d="";
+  for(let i=0;i<n;i++){const a0=Math.PI-(i/n)*Math.PI-g,a1=Math.PI-((i+1)/n)*Math.PI+g;
+    const P=(r,a)=>`${(cx+r*Math.cos(a)).toFixed(1)} ${(cy-r*Math.sin(a)).toFixed(1)}`;
+    const ro=i===4?r2+14:r2;
+    d+=`<path${i===4?' class="key"':""} d="M${P(r1,a0)} L${P(ro,a0)} A${ro} ${ro} 0 0 1 ${P(ro,a1)} L${P(r1,a1)} A${r1} ${r1} 0 0 0 ${P(r1,a0)}Z"/>`}
+  return `<svg class="arch" viewBox="0 0 400 230" aria-hidden="true">${d}<text x="200" y="226" text-anchor="middle">THE STONE THAT HOLDS THE ARCH</text></svg>`;
+}
 function home(){
   return `
   <div class="wrap hero">
+    ${arch()}
     <p class="eyebrow">KEYSTONE · 원스톱 비즈니스 솔루션</p>
     <h1>사업의 빠진 한 조각<br><b><span class="acc">키스톤</span>이 채웁니다.</b></h1>
     <p class="lead">키스톤은 아치 한가운데서 전체를 받치는 돌입니다. 여섯 전문가 중 지금 필요한 사람만 골라 연결합니다. 특허부터 매출까지 창구는 하나입니다.</p>
@@ -595,7 +684,7 @@ function home(){
     </div>
   </div></section>
 
-  <section><div class="wrap">
+  <section class="band"><div class="wrap">
     <div class="proof">
       <svg class="net" viewBox="0 0 320 300" aria-hidden="true">${(()=>{const pts=ORDER.map((k,i)=>{const a=-Math.PI/2+i*Math.PI/3;return [160+112*Math.cos(a),150+112*Math.sin(a),k]});let l="";pts.forEach((a,i)=>pts.forEach((b,j)=>{if(j>i)l+=`<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}"/>`}));return l+pts.map(([x,y,k],i)=>`<clipPath id="c${i}"><circle cx="${x}" cy="${y}" r="30"/></clipPath><circle class="ring" cx="${x}" cy="${y}" r="31"/><image href="${pimg(k)}" x="${x-30}" y="${y-30}" width="60" height="75" clip-path="url(#c${i})" preserveAspectRatio="xMidYMin slice"/>`).join("")})()}</svg>
       <div><p class="eyebrow" style="margin-bottom:10px">We use each other</p><h3>우리는 서로의 서비스를 직접 써 본 사람들입니다</h3>
@@ -900,6 +989,37 @@ function extra(k){
   return "";
 }
 
+function hub(k,others){
+  const C=200,R=142,pts=others.map((p,i)=>{const a=-Math.PI/2+i*2*Math.PI/others.length;return [C+R*Math.cos(a),C+R*Math.sin(a),p]});
+  const ln=pts.map(([x,y],i)=>`<line x1="${C}" y1="${C}" x2="${x}" y2="${y}"/><line class="flow" style="animation-delay:${i*-.6}s" x1="${C}" y1="${C}" x2="${x}" y2="${y}"/>`).join("");
+  const nd=pts.map(([x,y,p],i)=>`<clipPath id="h${i}"><circle cx="${x}" cy="${y}" r="30"/></clipPath><circle class="ring" cx="${x}" cy="${y}" r="31"/><image href="${pimg(p)}" x="${x-30}" y="${y-30}" width="60" height="75" clip-path="url(#h${i})" preserveAspectRatio="xMidYMin slice"/><text class="n" x="${x}" y="${y+50}">${M[p].name}</text><text x="${x}" y="${y+67}">${TEAM[p][0]}</text>`).join("");
+  return `<svg class="hub" viewBox="0 0 400 430" role="img" aria-label="${M[k].name} 대표를 중심으로 연결된 키스톤 파트너">${ln}<clipPath id="hme"><circle cx="${C}" cy="${C}" r="52"/></clipPath><circle class="ring me" cx="${C}" cy="${C}" r="54"/><image href="${pimg(k)}" x="${C-52}" y="${C-52}" width="104" height="130" clip-path="url(#hme)" preserveAspectRatio="xMidYMin slice"/>${nd}</svg>`;
+}
+function teamBand(k){
+  const m=M[k], why=Object.fromEntries(m.pairs);
+  const others=[...m.pairs.map(p=>p[0]),...ORDER.filter(p=>p!==k&&!why[p])];
+  const caps=["kimms","han","kang"].filter(p=>p!==k).map(p=>TEAM[p][0].replace(/ · /g,"·"));
+  return `
+  <section class="band"><div class="wrap">
+    <div class="team">
+      <div class="team-lead">
+        <p class="eyebrow">One team · KEYSTONE</p>
+        <h2>${m.name} 대표와 일하면<br><b>키스톤 다섯 대표가<br><span class="acc">한 팀</span>으로 움직입니다.</b></h2>
+        <p>${caps.join(", ")}까지. ${m.name} 대표는 이 분야 대표들과 협업하는 파트너입니다. 일을 맡기는 창구는 ${m.name} 대표 한 사람입니다. 필요한 자리에는 서로 검증한 전문가가 바로 붙습니다.</p>
+        ${hub(k,others)}
+      </div>
+      <div>
+        <div class="tlist">${others.map(p=>{const P=M[p];return `<a class="trow" href="#${p}">${face(p)}<div><span class="cap">${TEAM[p][0]}</span><b>${P.name}<small>${esc(P.co)}</small></b><p>${esc(why[p]||TEAM[p][1])}</p></div><div class="kpi"><span class="num">${P.big[0]}</span><small>${esc(P.big[1].replace(/^[+\s·]+/,""))}</small></div></a>`}).join("")}</div>
+        <div class="tfoot">
+          <div><span class="num">1</span><b>창구는 한 명</b><p>${m.name} 대표가 처음부터 끝까지 진행을 책임집니다.</p></div>
+          <div><span class="num">6</span><b>전문 분야</b><p>필요한 포지션만 골라 붙입니다.</p></div>
+          <div><span class="num">1</span><b>견적도 한 번에</b><p>참여하는 대표들의 견적을 모아 한 번에 드립니다.</p></div>
+        </div>
+      </div>
+    </div>
+  </div></section>`;
+}
+
 function member(k){
   const m=M[k];
   return `
@@ -917,11 +1037,8 @@ function member(k){
     <div><p class="eyebrow" style="margin-bottom:10px">Partner for</p><h2 class="m-partner" style="font-size:clamp(24px,3vw,32px);font-weight:300;line-height:1.45">${m.fit.split("\n").map(t=>`<span class="ln">${esc(t)}</span>`).join("")}</h2></div>
     <div><h3 class="h3">할 수 있는 일</h3><ul class="list">${m.services.map(([a,b])=>`<li><b>${esc(a)}</b><p>${esc(b)}</p></li>`).join("")}</ul></div>
   </div></section>
+  ${teamBand(k)}
   ${extra(m.extra)}
-  <section><div class="wrap">
-    <div class="sec-head"><p class="eyebrow">Better together</p><h2>${m.name} 대표와 함께하면 좋은 파트너</h2></div>
-    <div class="pairs">${m.pairs.map(([p,why])=>`<a href="#${p}">${face(p)}<div><b>${M[p].name} <small style="font-family:var(--f-body);font-size:13px;color:var(--mute);font-weight:400">${esc(M[p].short)}</small></b><span>${esc(why)}</span></div></a>`).join("")}</div>
-  </div></section>
 
   <section><div class="wrap">
     <div class="sec-head"><p class="eyebrow">Contact</p><h2>연락처</h2></div>
